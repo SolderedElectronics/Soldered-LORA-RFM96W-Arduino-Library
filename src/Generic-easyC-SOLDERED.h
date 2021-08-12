@@ -14,16 +14,4 @@
 
 #include "Arduino.h"
 
-class Sensor : public EasyC
-{
-  public:
-    Sensor(int _pin);
-
-  protected:
-    void initializeNative();
-
-  private:
-    int pin;
-};
-
 #endif
