@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['defaultaddress_3',['defaultAddress',['../class_easy_c.html#a9052ae674b3553bbb19283278299f395',1,'EasyC']]]
+  ['naziv_20proizvoda_20arduino_20library_3',['NAZIV PROIZVODA Arduino library',['../index.html',1,'']]]
 ];

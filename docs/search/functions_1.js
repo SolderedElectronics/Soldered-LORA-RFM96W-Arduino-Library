@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['easyc_28',['EasyC',['../class_easy_c.html#a2ea672a225a32eab52c2b20733fd26bd',1,'EasyC']]]
+  ['sensor_12',['Sensor',['../class_sensor.html#a2b8ea6b15267f6fa0e263f57a09f6b62',1,'Sensor']]]
 ];
