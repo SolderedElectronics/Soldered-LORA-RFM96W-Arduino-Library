@@ -1,0 +1,36 @@
+var annotated_dup =
+[
+    [ "Arduino_LMIC", "namespace_arduino___l_m_i_c.html", [
+      [ "HalConfiguration_Catena4420_t", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4420__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4420__t" ],
+      [ "HalConfiguration_Catena4551_t", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4551__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4551__t" ],
+      [ "HalConfiguration_Catena4610_t", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4610__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4610__t" ],
+      [ "HalConfiguration_Catena4611_t", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4611__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4611__t" ],
+      [ "HalConfiguration_Catena4612_t", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4612__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4612__t" ],
+      [ "HalConfiguration_Catena4617_t", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t" ],
+      [ "HalConfiguration_Catena4618_t", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4618__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4618__t" ],
+      [ "HalConfiguration_Catena4630_t", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4630__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4630__t" ],
+      [ "HalConfiguration_Catena4801_t", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4801__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4801__t" ],
+      [ "HalConfiguration_Catena4802_t", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4802__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration___catena4802__t" ],
+      [ "HalConfiguration_Disco_L072cz_Lrwan1_t", "class_arduino___l_m_i_c_1_1_hal_configuration___disco___l072cz___lrwan1__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration___disco___l072cz___lrwan1__t" ],
+      [ "HalConfiguration_Feather32U4LoRa_t", "class_arduino___l_m_i_c_1_1_hal_configuration___feather32_u4_lo_ra__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration___feather32_u4_lo_ra__t" ],
+      [ "HalConfiguration_FeatherM0LoRa_t", "class_arduino___l_m_i_c_1_1_hal_configuration___feather_m0_lo_ra__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration___feather_m0_lo_ra__t" ],
+      [ "HalConfiguration_heltec_lora32", "class_arduino___l_m_i_c_1_1_hal_configuration__heltec__lora32.html", "class_arduino___l_m_i_c_1_1_hal_configuration__heltec__lora32" ],
+      [ "HalConfiguration_t", "class_arduino___l_m_i_c_1_1_hal_configuration__t.html", "class_arduino___l_m_i_c_1_1_hal_configuration__t" ],
+      [ "HalConfiguration_ttgo_lora32_v1", "class_arduino___l_m_i_c_1_1_hal_configuration__ttgo__lora32__v1.html", "class_arduino___l_m_i_c_1_1_hal_configuration__ttgo__lora32__v1" ],
+      [ "HalConfiguration_ttgo_lora32_v21", "class_arduino___l_m_i_c_1_1_hal_configuration__ttgo__lora32__v21.html", "class_arduino___l_m_i_c_1_1_hal_configuration__ttgo__lora32__v21" ],
+      [ "HalPinmap_t", "struct_arduino___l_m_i_c_1_1_hal_pinmap__t.html", "struct_arduino___l_m_i_c_1_1_hal_pinmap__t" ]
+    ] ],
+    [ "band_t", "structband__t.html", "structband__t" ],
+    [ "bcninfo_t", "structbcninfo__t.html", "structbcninfo__t" ],
+    [ "lmic_client_data_s", "structlmic__client__data__s.html", "structlmic__client__data__s" ],
+    [ "lmic_compliance_band_s", "structlmic__compliance__band__s.html", "structlmic__compliance__band__s" ],
+    [ "lmic_compliance_eventcb_s", "structlmic__compliance__eventcb__s.html", "structlmic__compliance__eventcb__s" ],
+    [ "lmic_compliance_s", "structlmic__compliance__s.html", "structlmic__compliance__s" ],
+    [ "lmic_radio_data_s", "structlmic__radio__data__s.html", "structlmic__radio__data__s" ],
+    [ "lmic_saved_adr_state_s", "structlmic__saved__adr__state__s.html", "structlmic__saved__adr__state__s" ],
+    [ "lmic_t", "structlmic__t.html", "structlmic__t" ],
+    [ "lmic_time_reference_s", "structlmic__time__reference__s.html", "structlmic__time__reference__s" ],
+    [ "osjob_t", "structosjob__t.html", "structosjob__t" ],
+    [ "oslmic_radio_rssi_s", "structoslmic__radio__rssi__s.html", "structoslmic__radio__rssi__s" ],
+    [ "rxsched_t", "structrxsched__t.html", "structrxsched__t" ]
+];
