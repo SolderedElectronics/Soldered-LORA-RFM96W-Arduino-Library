@@ -14,6 +14,5 @@
 
 #include "Arduino.h"
 #include "arduino_lmic.h"
-#include "hal/hal.h"
 
 #endif
