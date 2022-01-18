@@ -105,9 +105,9 @@ $(document).ready(function(){initNavTree('md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_
 <li><a href="#general-discussion">General Discussion</a></li>
 <li><a href="#adding-the-region-to-the-arduino_lorawan-library">Adding the region to the Arduino_LoRaWAN library</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md160"></a>
+<h1><a class="anchor" id="autotoc_md41"></a>
 Planning</h1>
-<h2><a class="anchor" id="autotoc_md161"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 Determine the region/region category</h2>
 <p >Compare the target region (in the LoRaWAN regional specification) to the EU868 and US915 regions. There are three possibilities.</p>
 <ol type="1">
@@ -116,13 +116,13 @@ Determine the region/region category</h2>
 <li>The region is not really like either the EU or US. At the moment, it seems that CN470-510MHz (section 2.6 of LoRaWAN Regional Parameters spec V1.0.2rB) falls into this category.</li>
 </ol>
 <p >Band plans in categories (1) and (2) are easily supported. Band plans in category (3) are not supported by the current code.</p>
-<h2><a class="anchor" id="autotoc_md162"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 Check whether the region is already listed in &lt;tt&gt;lmic_config_preconditions.h&lt;/tt&gt;</h2>
 <p >Check <code>src/lmic/lmic_config_preconditions.h</code> and scan the <code>LMIC_REGION_...</code> definitions. The numeric values are assigned based on the subchapter in section 2 of the LoRaWAN 1.0.2 Regional Parameters document. If your symbol is already there, then the first part of adaptation has already been done. There will already be a corresponding <code>CFG_...</code> symbol. But if your region isn't supported, you'll need to add it here.</p>
 <ul>
 <li><code>LMIC_REGION_myregion</code> must be a distinct integer, and must be less than 32 (so as to fit into a bitmask)</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md163"></a>
+<h1><a class="anchor" id="autotoc_md44"></a>
 Make the appropriate changes in &lt;tt&gt;lmic_config_preconditions.h&lt;/tt&gt;</h1>
 <ul>
 <li><code>LMIC_REGION_SUPPORTED</code> is a bit mask of all regions supported by the code. Your new region must appear in this list.</li>
@@ -130,10 +130,10 @@ Make the appropriate changes in &lt;tt&gt;lmic_config_preconditions.h&lt;/tt&gt;
 <li><code>CFG_region</code> evaluates to the <code>LMIC_REGION_...</code> value for the selected region (as long as only one region is selected). The header files check for this, so you don't have to.</li>
 <li><code>CFG_LMIC_EU_like_MASK</code> is a bitmask of regions that are EU-like, and <code>CFG_LMIC_US_like_MASK</code> is a bitmask of regions that are US-like. Add your region to the appropriate one of these two variables.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md164"></a>
+<h1><a class="anchor" id="autotoc_md45"></a>
 Document your region in &lt;tt&gt;README.md&lt;/tt&gt;</h1>
 <p >You'll see where the regions are listed. Add yours.</p>
-<h1><a class="anchor" id="autotoc_md165"></a>
+<h1><a class="anchor" id="autotoc_md46"></a>
 Add the definitions for your region in &lt;tt&gt;lorabase.h&lt;/tt&gt;</h1>
 <ul>
 <li>If your region is EU like, copy the EU block. Document any duty-cycle limitations.</li>
@@ -155,7 +155,7 @@ Add the definitions for your region in &lt;tt&gt;lorabase.h&lt;/tt&gt;</h1>
 <li>If using an MCCI BSP, you should definitely edit the template files to add the new region to the list.</li>
 <li>Modify the <code>.travis.yml</code> file to test the new region.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md166"></a>
+<h1><a class="anchor" id="autotoc_md47"></a>
 Edit &lt;tt&gt;lmic_bandplan.h&lt;/tt&gt;</h1>
 <p >The next step is to add the region-specific interfaces for your region.</p>
 <p >Do this by editing <code>lmic_bandplan.h</code> and adding the appropriate call to a (new) region-specific file <code>lmic_bandplan_myregion.h</code>, where "myregion" is the abbreviation for your region.</p>
@@ -165,10 +165,10 @@ Edit &lt;tt&gt;lmic_bandplan.h&lt;/tt&gt;</h1>
 <div class="fragment"><div class="line">c:\tmp\buildfolder\libraries\arduino-lmic\lmic\lmic.c.o: In function `lowerDR&#39;:</div>
 <div class="line"> </div>
 <div class="line">C:\Users\tmm\Documents\Arduino\libraries\arduino-lmic\src\lmic/lorabase.h:667: undefined reference to `constant_table__DR2RPS_CRC&#39;</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md167"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md48"></a>
 Create &lt;code&gt;lmic_&lt;em&gt;newregion&lt;/em&gt;.c&lt;/code&gt;</h1>
-<p >Once again, you will start by copying either <code>lmic_eu868.c</code> or <code>lmic_us915.c</code> to create your new file. Then touch it up as necessary.</p>
-<h1><a class="anchor" id="autotoc_md168"></a>
+<p >Once again, you will start by copying either <code><a class="el" href="lmic__eu868_8c.html">lmic_eu868.c</a></code> or <code><a class="el" href="lmic__us915_8c.html">lmic_us915.c</a></code> to create your new file. Then touch it up as necessary.</p>
+<h1><a class="anchor" id="autotoc_md49"></a>
 General Discussion</h1>
 <ul>
 <li>You'll find it easier to do the test compiles using the example scripts in this directory, rather than trying to get all the Catena framework going too. On the other hand, working with the Catena framework will expose more problems.</li>
@@ -178,7 +178,7 @@ General Discussion</h1>
 <li>Please increase the version of <code>arduino-lmic</code> (symbol <code>ARDUINO_LMIC_VERSION</code> in <code>src/lmic/lmic.h</code>), and change <code>arduino-lorawan</code>'s <code>Arduino_LoRaWAN_lmic.h</code> to check for at least that newer version.</li>
 <li>Please also increase the version of the <code>arduino-lorawan</code> library (symbol <code>ARDUINO_LORAWAN_VERSION</code>).</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md169"></a>
+<h1><a class="anchor" id="autotoc_md50"></a>
 Adding the region to the Arduino_LoRaWAN library</h1>
 <p >In <code>Arduino_LoRaWAN_ttn.h</code>:</p>
 <ul>
@@ -194,7 +194,7 @@ Adding the region to the Arduino_LoRaWAN library</h1>
     <!-- id is needed for treeview function! -->
     <ul>
         <li class="footer">
-            Generated on Tue Jan 18 2022 11:30:47 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Jan 18 2022 11:32:48 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.2.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

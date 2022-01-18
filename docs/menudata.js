@@ -89,9 +89,7 @@ var menudata={children:[
 {text:"s",url:"functions_vars.html#index_s"},
 {text:"t",url:"functions_vars.html#index_t"},
 {text:"u",url:"functions_vars.html#index_u"}]},
-{text:"Enumerations",url:"functions_enum.html",children:[
-{text:"d",url:"functions_enum.html#index_d"},
-{text:"t",url:"functions_enum.html#index_t"}]},
+{text:"Enumerations",url:"functions_enum.html"},
 {text:"Enumerator",url:"functions_eval.html",children:[
 {text:"p",url:"functions_eval.html#index_p"}]}]}]},
 {text:"Files",url:"files.html",children:[

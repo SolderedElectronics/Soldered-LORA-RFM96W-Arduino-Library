@@ -7,5 +7,5 @@ var searchData=
   ['channelshufflemap_4',['channelShuffleMap',['../structlmic__t.html#a8d9c5fc234b3efad12e23766f93231c4',1,'lmic_t']]],
   ['client_5',['client',['../structlmic__t.html#a6315d28b58103302f68ccd0317b1875f',1,'lmic_t']]],
   ['clockerror_6',['clockError',['../structlmic__client__data__s.html#a56aa354cf42b6424996b027c24411baa',1,'lmic_client_data_s']]],
-  ['custom_5fhal_5ffailure_5fhandler_7',['custom_hal_failure_handler',['../libs_2_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2hal_2hal_8cpp.html#a01a907bffdf3fc4a37fb2dcfa6a17dd5',1,'custom_hal_failure_handler():&#160;hal.cpp'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2hal_2hal_8cpp.html#a01a907bffdf3fc4a37fb2dcfa6a17dd5',1,'custom_hal_failure_handler():&#160;hal.cpp']]]
+  ['custom_5fhal_5ffailure_5fhandler_7',['custom_hal_failure_handler',['../hal_8cpp.html#a01a907bffdf3fc4a37fb2dcfa6a17dd5',1,'hal.cpp']]]
 ];
