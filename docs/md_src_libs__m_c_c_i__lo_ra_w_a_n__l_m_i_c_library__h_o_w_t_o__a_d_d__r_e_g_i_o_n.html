@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>16x2 easyC LCD Library: Adding a new region to Arduino LMIC</title>
+<title>LoRa RFM96W Arduino library: Adding a new region to Arduino LMIC</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,9 +28,9 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">16x2 easyC LCD Library<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">LoRa RFM96W Arduino library<span id="projectnumber">&#160;1.0.0</span>
    </div>
-   <div id="projectbrief">This is a library for the 16x2 easyC LCD Module</div>
+   <div id="projectbrief">This is a library for the LoRa RFM96W</div>
   </td>
  </tr>
  </tbody>
@@ -118,7 +118,7 @@ Determine the region/region category</h2>
 <p >Band plans in categories (1) and (2) are easily supported. Band plans in category (3) are not supported by the current code.</p>
 <h2><a class="anchor" id="autotoc_md43"></a>
 Check whether the region is already listed in &lt;tt&gt;lmic_config_preconditions.h&lt;/tt&gt;</h2>
-<p >Check <code><a class="el" href="lmic__config__preconditions_8h.html">src/lmic/lmic_config_preconditions.h</a></code> and scan the <code>LMIC_REGION_...</code> definitions. The numeric values are assigned based on the subchapter in section 2 of the LoRaWAN 1.0.2 Regional Parameters document. If your symbol is already there, then the first part of adaptation has already been done. There will already be a corresponding <code>CFG_...</code> symbol. But if your region isn't supported, you'll need to add it here.</p>
+<p >Check <code>src/lmic/lmic_config_preconditions.h</code> and scan the <code>LMIC_REGION_...</code> definitions. The numeric values are assigned based on the subchapter in section 2 of the LoRaWAN 1.0.2 Regional Parameters document. If your symbol is already there, then the first part of adaptation has already been done. There will already be a corresponding <code>CFG_...</code> symbol. But if your region isn't supported, you'll need to add it here.</p>
 <ul>
 <li><code>LMIC_REGION_myregion</code> must be a distinct integer, and must be less than 32 (so as to fit into a bitmask)</li>
 </ul>
@@ -138,9 +138,9 @@ Add the definitions for your region in &lt;tt&gt;lorabase.h&lt;/tt&gt;</h1>
 <ul>
 <li>If your region is EU like, copy the EU block. Document any duty-cycle limitations.</li>
 <li>if your region is US like, copy the US block.</li>
-<li>As appropriate, copy <code><a class="el" href="lorabase__eu868_8h.html">lorabase_eu868.h</a></code> or <code><a class="el" href="lorabase__us915_8h.html">lorabase_us915.h</a></code> to make your own <code>lorabase_<em>newregion</em>.h</code>. Fill in the symbols.</li>
+<li>As appropriate, copy <code>lorabase_eu868.h</code> or <code>lorabase_us915.h</code> to make your own <code>lorabase_<em>newregion</em>.h</code>. Fill in the symbols.</li>
 </ul>
-<p >At time of writing, you need to duplicate some code to copy some settings from <code><a class="el" href="lorabase__eu868_8h.html">lorabase_eu868.h</a></code> or <code><a class="el" href="lorabase__us915_8h.html">lorabase_us915.h</a></code> to the new file; and you need to put some region-specific knowledge into the <code><a class="el" href="lorabase_8h.html">lorabase.h</a></code> header file. The long-term direction is to put all the regional knowledge into the region-specific header, and then the central code will just copy. The architectural impulse is that we'll want to be able to reuse the regional header files in other contexts. On the other hand, because it's error prone, we don't want to <code>#include</code> files that aren't being used; otherwise you could accidentally use EU parameters in US code, etc.</p>
+<p >At time of writing, you need to duplicate some code to copy some settings from <code>lorabase_eu868.h</code> or <code>lorabase_us915.h</code> to the new file; and you need to put some region-specific knowledge into the <code>lorabase.h</code> header file. The long-term direction is to put all the regional knowledge into the region-specific header, and then the central code will just copy. The architectural impulse is that we'll want to be able to reuse the regional header files in other contexts. On the other hand, because it's error prone, we don't want to <code>#include</code> files that aren't being used; otherwise you could accidentally use EU parameters in US code, etc.</p>
 <ul>
 <li><p class="startli">Now's a good time to test-compile and clean out errors introduced. Make sure you set the region to your new target region. You'll have problems compiling, but they should look like this:</p>
 <div class="fragment"><div class="line">lmic.c:29: In file included from</div>
@@ -158,8 +158,8 @@ Add the definitions for your region in &lt;tt&gt;lorabase.h&lt;/tt&gt;</h1>
 <h1><a class="anchor" id="autotoc_md47"></a>
 Edit &lt;tt&gt;lmic_bandplan.h&lt;/tt&gt;</h1>
 <p >The next step is to add the region-specific interfaces for your region.</p>
-<p >Do this by editing <code><a class="el" href="lmic__bandplan_8h.html">lmic_bandplan.h</a></code> and adding the appropriate call to a (new) region-specific file <code>lmic_bandplan_myregion.h</code>, where "myregion" is the abbreviation for your region.</p>
-<p >Then, if your region is eu868-like, copy <code><a class="el" href="lmic__bandplan__eu868_8h.html">lmic_bandplan_eu868.h</a></code> to create your new region-specific header file; otherwise copy <code><a class="el" href="lmic__bandplan__us915_8h.html">lmic_bandplan_us915.h</a></code>.</p>
+<p >Do this by editing <code>lmic_bandplan.h</code> and adding the appropriate call to a (new) region-specific file <code>lmic_bandplan_myregion.h</code>, where "myregion" is the abbreviation for your region.</p>
+<p >Then, if your region is eu868-like, copy <code>lmic_bandplan_eu868.h</code> to create your new region-specific header file; otherwise copy <code>lmic_bandplan_us915.h</code>.</p>
 <p >Edit the file.</p>
 <p >Try to compile again; you should now get link errors related to your new band-plan, like this:</p>
 <div class="fragment"><div class="line">c:\tmp\buildfolder\libraries\arduino-lmic\lmic\lmic.c.o: In function `lowerDR&#39;:</div>
@@ -167,7 +167,7 @@ Edit &lt;tt&gt;lmic_bandplan.h&lt;/tt&gt;</h1>
 <div class="line">C:\Users\tmm\Documents\Arduino\libraries\arduino-lmic\src\lmic/lorabase.h:667: undefined reference to `constant_table__DR2RPS_CRC&#39;</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md48"></a>
 Create &lt;code&gt;lmic_&lt;em&gt;newregion&lt;/em&gt;.c&lt;/code&gt;</h1>
-<p >Once again, you will start by copying either <code><a class="el" href="lmic__eu868_8c.html">lmic_eu868.c</a></code> or <code><a class="el" href="lmic__us915_8c.html">lmic_us915.c</a></code> to create your new file. Then touch it up as necessary.</p>
+<p >Once again, you will start by copying either <code>lmic_eu868.c</code> or <code>lmic_us915.c</code> to create your new file. Then touch it up as necessary.</p>
 <h1><a class="anchor" id="autotoc_md49"></a>
 General Discussion</h1>
 <ul>
@@ -175,7 +175,7 @@ General Discussion</h1>
 <li>Don't forget to check and update the examples.</li>
 <li>You will also need to update the <code>boards.template</code> file for MCCI BSPs, in order to get the region to show up in the Arduino IDE menu.</li>
 <li>You will need to update the <a href="https://github.com/mcci-catena/arduino-lorawan"><code>arduino-lorawan</code></a> library to include support for the new region. (See <a href="#adding-the-region-to-the-arduino_lorawan-library">below</a> for instructions.)</li>
-<li>Please increase the version of <code>arduino-lmic</code> (symbol <code>ARDUINO_LMIC_VERSION</code> in <code><a class="el" href="lmic_2lmic_8h.html" title="LMIC API.">src/lmic/lmic.h</a></code>), and change <code>arduino-lorawan</code>'s <code>Arduino_LoRaWAN_lmic.h</code> to check for at least that newer version.</li>
+<li>Please increase the version of <code>arduino-lmic</code> (symbol <code>ARDUINO_LMIC_VERSION</code> in <code>src/lmic/lmic.h</code>), and change <code>arduino-lorawan</code>'s <code>Arduino_LoRaWAN_lmic.h</code> to check for at least that newer version.</li>
 <li>Please also increase the version of the <code>arduino-lorawan</code> library (symbol <code>ARDUINO_LORAWAN_VERSION</code>).</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md50"></a>
@@ -194,7 +194,7 @@ Adding the region to the Arduino_LoRaWAN library</h1>
     <!-- id is needed for treeview function! -->
     <ul>
         <li class="footer">
-            Generated on Tue Jan 18 2022 11:28:01 for 16x2 easyC LCD Library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Jan 18 2022 11:30:47 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.2.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['oslmic_2ec_0',['oslmic.c',['../oslmic_8c.html',1,'']]],
-  ['oslmic_2eh_1',['oslmic.h',['../oslmic_8h.html',1,'']]],
-  ['oslmic_5ftypes_2eh_2',['oslmic_types.h',['../oslmic__types_8h.html',1,'']]],
-  ['other_2ec_3',['other.c',['../other_8c.html',1,'']]]
+  ['readme_2emd_0',['README.md',['../src_2libs_2_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2doc_2_r_e_a_d_m_e_8md.html',1,'(Global Namespace)'],['../src_2libs_2_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2_r_e_a_d_m_e_8md.html',1,'(Global Namespace)'],['../src_2_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2doc_2_r_e_a_d_m_e_8md.html',1,'(Global Namespace)'],['../src_2_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2_r_e_a_d_m_e_8md.html',1,'(Global Namespace)']]]
 ];

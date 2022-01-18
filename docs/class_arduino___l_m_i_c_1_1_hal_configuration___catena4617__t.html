@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>16x2 easyC LCD Library: Arduino_LMIC::HalConfiguration_Catena4617_t Class Reference</title>
+<title>LoRa RFM96W Arduino library: Arduino_LMIC::HalConfiguration_Catena4617_t Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -28,9 +28,9 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">16x2 easyC LCD Library<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">LoRa RFM96W Arduino library<span id="projectnumber">&#160;1.0.0</span>
    </div>
-   <div id="projectbrief">This is a library for the 16x2 easyC LCD Module</div>
+   <div id="projectbrief">This is a library for the LoRa RFM96W</div>
   </td>
  </tr>
  </tbody>
@@ -95,30 +95,110 @@ $(document).ready(function(){initNavTree('class_arduino___l_m_i_c_1_1_hal_config
 </div><!--header-->
 <div class="contents">
 
-<p>Inherits <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html">Arduino_LMIC::HalConfiguration_t</a>.</p>
+<p>Inherits <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html">Arduino_LMIC::HalConfiguration_t</a>, and <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html">Arduino_LMIC::HalConfiguration_t</a>.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a42cf97ac4f965c063172ce2cfc47428c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428c">DIGITAL_PINS</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428caa30b027e6fd1dff8b86e9770ff2a5415">PIN_SX1276_NSS</a> = D7
-, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca9b1c78fde14a423ca19bfe4c6a6e6a10">PIN_SX1276_NRESET</a> = D8
-, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca5b3758a5b621cbda47735694b7a9bb51">PIN_SX1276_DIO0</a> = D25
-, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428caeebb24bc82df8f53b2b341e8923ce9c2">PIN_SX1276_DIO1</a> = D26
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca9d59b528b5e7714470f3f01a080efc6c">PIN_SX1276_NSS</a> = D7
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca11aa067cdf615ce018dce0fbfb6c7c5d">PIN_SX1276_NRESET</a> = D8
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca2ca89b78d6842d8145f64ab0c02febcc">PIN_SX1276_DIO0</a> = D25
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca00d29279dc78db7973b510bd52af511e">PIN_SX1276_DIO1</a> = D26
 , <br />
-&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428caf7362a88d8d2953c3d90159898f8905a">PIN_SX1276_DIO2</a> = D27
-, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428caceabacb18aeb73029818e23f62eb5170">PIN_SX1276_ANT_SWITCH_RX</a> = D29
-, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca39c3e18d6c97047f661753e1877ba6ee">PIN_SX1276_ANT_SWITCH_TX_BOOST</a> = D30
-, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca7af694fdd2972a11bf2d5399d126b874">PIN_SX1276_ANT_SWITCH_TX_RFO</a> = D31
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca0e5b489fdb9ee56d3eefab5220eac8a9">PIN_SX1276_DIO2</a> = D27
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca508816b2b3a5e0b37db74edec014e7f9">PIN_SX1276_ANT_SWITCH_RX</a> = D29
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca7a7d094f80f9c9f630e694f155087ea8">PIN_SX1276_ANT_SWITCH_TX_BOOST</a> = D30
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca36e08d7c172e299edfa60de11e3fdb39">PIN_SX1276_ANT_SWITCH_TX_RFO</a> = D31
 , <br />
-&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428cace21210e5ece4f702adf2efdb1a0260c">PIN_VDD_BOOST_ENABLE</a> = A0
-, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428cad5bde0d2f97abf6a0d6db82757a2a9f9">PIN_TCXO_VDD</a> = D33
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca60d01c2bb3ca6088a4221f16641a1f4f">PIN_VDD_BOOST_ENABLE</a> = A0
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca8e35970039658bc7b258916e8a20b1e6">PIN_TCXO_VDD</a> = D33
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca9d59b528b5e7714470f3f01a080efc6c">PIN_SX1276_NSS</a> = D7
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca11aa067cdf615ce018dce0fbfb6c7c5d">PIN_SX1276_NRESET</a> = D8
+, <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca2ca89b78d6842d8145f64ab0c02febcc">PIN_SX1276_DIO0</a> = D25
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca00d29279dc78db7973b510bd52af511e">PIN_SX1276_DIO1</a> = D26
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca0e5b489fdb9ee56d3eefab5220eac8a9">PIN_SX1276_DIO2</a> = D27
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca508816b2b3a5e0b37db74edec014e7f9">PIN_SX1276_ANT_SWITCH_RX</a> = D29
+, <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca7a7d094f80f9c9f630e694f155087ea8">PIN_SX1276_ANT_SWITCH_TX_BOOST</a> = D30
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca36e08d7c172e299edfa60de11e3fdb39">PIN_SX1276_ANT_SWITCH_TX_RFO</a> = D31
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca60d01c2bb3ca6088a4221f16641a1f4f">PIN_VDD_BOOST_ENABLE</a> = A0
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca8e35970039658bc7b258916e8a20b1e6">PIN_TCXO_VDD</a> = D33
+<br />
+ }</td></tr>
+<tr class="separator:a42cf97ac4f965c063172ce2cfc47428c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42cf97ac4f965c063172ce2cfc47428c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428c">DIGITAL_PINS</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca9d59b528b5e7714470f3f01a080efc6c">PIN_SX1276_NSS</a> = D7
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca11aa067cdf615ce018dce0fbfb6c7c5d">PIN_SX1276_NRESET</a> = D8
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca2ca89b78d6842d8145f64ab0c02febcc">PIN_SX1276_DIO0</a> = D25
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca00d29279dc78db7973b510bd52af511e">PIN_SX1276_DIO1</a> = D26
+, <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca0e5b489fdb9ee56d3eefab5220eac8a9">PIN_SX1276_DIO2</a> = D27
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca508816b2b3a5e0b37db74edec014e7f9">PIN_SX1276_ANT_SWITCH_RX</a> = D29
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca7a7d094f80f9c9f630e694f155087ea8">PIN_SX1276_ANT_SWITCH_TX_BOOST</a> = D30
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca36e08d7c172e299edfa60de11e3fdb39">PIN_SX1276_ANT_SWITCH_TX_RFO</a> = D31
+, <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca60d01c2bb3ca6088a4221f16641a1f4f">PIN_VDD_BOOST_ENABLE</a> = A0
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca8e35970039658bc7b258916e8a20b1e6">PIN_TCXO_VDD</a> = D33
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca9d59b528b5e7714470f3f01a080efc6c">PIN_SX1276_NSS</a> = D7
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca11aa067cdf615ce018dce0fbfb6c7c5d">PIN_SX1276_NRESET</a> = D8
+, <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca2ca89b78d6842d8145f64ab0c02febcc">PIN_SX1276_DIO0</a> = D25
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca00d29279dc78db7973b510bd52af511e">PIN_SX1276_DIO1</a> = D26
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca0e5b489fdb9ee56d3eefab5220eac8a9">PIN_SX1276_DIO2</a> = D27
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca508816b2b3a5e0b37db74edec014e7f9">PIN_SX1276_ANT_SWITCH_RX</a> = D29
+, <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca7a7d094f80f9c9f630e694f155087ea8">PIN_SX1276_ANT_SWITCH_TX_BOOST</a> = D30
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca36e08d7c172e299edfa60de11e3fdb39">PIN_SX1276_ANT_SWITCH_TX_RFO</a> = D31
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca60d01c2bb3ca6088a4221f16641a1f4f">PIN_VDD_BOOST_ENABLE</a> = A0
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca8e35970039658bc7b258916e8a20b1e6">PIN_TCXO_VDD</a> = D33
 <br />
  }</td></tr>
 <tr class="separator:a42cf97ac4f965c063172ce2cfc47428c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_types_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td colspan="2" onclick="javascript:toggleInherit('pub_types_class_arduino___l_m_i_c_1_1_hal_configuration__t')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html">Arduino_LMIC::HalConfiguration_t</a></td></tr>
-<tr class="memitem:a6b2ad98c835a76e7553e20a7c81e931a inherit pub_types_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931a">TxPowerPolicy_t</a> : uint8_t { <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aa0d0c205c91827293d85c61734552bb70">RFO</a>
+<tr class="memitem:a6b2ad98c835a76e7553e20a7c81e931a inherit pub_types_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931a">TxPowerPolicy_t</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aa0d0c205c91827293d85c61734552bb70">RFO</a>
 , <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aaf45855cc0993954543365273b81327a0">PA_BOOST</a>
 , <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aad1c2470380911b35eb8c0e3da7f725a1">PA_BOOST_20dBm</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aa0d0c205c91827293d85c61734552bb70">RFO</a>
+, <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aaf45855cc0993954543365273b81327a0">PA_BOOST</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aad1c2470380911b35eb8c0e3da7f725a1">PA_BOOST_20dBm</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aa0d0c205c91827293d85c61734552bb70">RFO</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aaf45855cc0993954543365273b81327a0">PA_BOOST</a>
+, <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aad1c2470380911b35eb8c0e3da7f725a1">PA_BOOST_20dBm</a>
+<br />
+ }</td></tr>
+<tr class="separator:a6b2ad98c835a76e7553e20a7c81e931a inherit pub_types_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b2ad98c835a76e7553e20a7c81e931a inherit pub_types_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931a">TxPowerPolicy_t</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aa0d0c205c91827293d85c61734552bb70">RFO</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aaf45855cc0993954543365273b81327a0">PA_BOOST</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aad1c2470380911b35eb8c0e3da7f725a1">PA_BOOST_20dBm</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aa0d0c205c91827293d85c61734552bb70">RFO</a>
+, <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aaf45855cc0993954543365273b81327a0">PA_BOOST</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aad1c2470380911b35eb8c0e3da7f725a1">PA_BOOST_20dBm</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aa0d0c205c91827293d85c61734552bb70">RFO</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aaf45855cc0993954543365273b81327a0">PA_BOOST</a>
+, <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aad1c2470380911b35eb8c0e3da7f725a1">PA_BOOST_20dBm</a>
+<br />
+ }</td></tr>
+<tr class="separator:a6b2ad98c835a76e7553e20a7c81e931a inherit pub_types_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b2ad98c835a76e7553e20a7c81e931a inherit pub_types_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931a">TxPowerPolicy_t</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aa0d0c205c91827293d85c61734552bb70">RFO</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aaf45855cc0993954543365273b81327a0">PA_BOOST</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aad1c2470380911b35eb8c0e3da7f725a1">PA_BOOST_20dBm</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aa0d0c205c91827293d85c61734552bb70">RFO</a>
+, <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aaf45855cc0993954543365273b81327a0">PA_BOOST</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aad1c2470380911b35eb8c0e3da7f725a1">PA_BOOST_20dBm</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aa0d0c205c91827293d85c61734552bb70">RFO</a>
+, <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aaf45855cc0993954543365273b81327a0">PA_BOOST</a>
+, <br />
+&#160;&#160;<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aad1c2470380911b35eb8c0e3da7f725a1">PA_BOOST_20dBm</a>
+<br />
  }</td></tr>
 <tr class="separator:a6b2ad98c835a76e7553e20a7c81e931a inherit pub_types_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -132,7 +212,23 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad129f7cb52fc8dce67c91fe44c99e41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12b0fd6cb9b3856dae99162586a1c1fa"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespace_arduino___l_m_i_c.html#a1a3b634a2259a798aaa24c46f08c16cc">ostime_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a12b0fd6cb9b3856dae99162586a1c1fa">setModuleActive</a> (bool state) override</td></tr>
 <tr class="separator:a12b0fd6cb9b3856dae99162586a1c1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf4c59ccb9410ad5ef554cec8567cfa5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#acf4c59ccb9410ad5ef554cec8567cfa5">begin</a> (void) override</td></tr>
+<tr class="separator:acf4c59ccb9410ad5ef554cec8567cfa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c4e60fb19ff085aced785ce18eb59f3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a1c4e60fb19ff085aced785ce18eb59f3">end</a> (void) override</td></tr>
+<tr class="separator:a1c4e60fb19ff085aced785ce18eb59f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad129f7cb52fc8dce67c91fe44c99e41b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#ad129f7cb52fc8dce67c91fe44c99e41b">queryUsingTcxo</a> (void) override</td></tr>
+<tr class="separator:ad129f7cb52fc8dce67c91fe44c99e41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12b0fd6cb9b3856dae99162586a1c1fa"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespace_arduino___l_m_i_c.html#a1a3b634a2259a798aaa24c46f08c16cc">ostime_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a12b0fd6cb9b3856dae99162586a1c1fa">setModuleActive</a> (bool state) override</td></tr>
+<tr class="separator:a12b0fd6cb9b3856dae99162586a1c1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_arduino___l_m_i_c_1_1_hal_configuration__t')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html">Arduino_LMIC::HalConfiguration_t</a></td></tr>
+<tr class="memitem:a4f9665319582276826024f5d23b2114e inherit pub_methods_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a4f9665319582276826024f5d23b2114e">HalConfiguration_t</a> ()</td></tr>
+<tr class="separator:a4f9665319582276826024f5d23b2114e inherit pub_methods_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83b4bc6705c88ef27aa61b953375c7dd inherit pub_methods_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931a">TxPowerPolicy_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a83b4bc6705c88ef27aa61b953375c7dd">getTxPowerPolicy</a> (<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931a">TxPowerPolicy_t</a> policy, int8_t requestedPower, uint32_t frequency)</td></tr>
+<tr class="separator:a83b4bc6705c88ef27aa61b953375c7dd inherit pub_methods_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f9665319582276826024f5d23b2114e inherit pub_methods_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a4f9665319582276826024f5d23b2114e">HalConfiguration_t</a> ()</td></tr>
+<tr class="separator:a4f9665319582276826024f5d23b2114e inherit pub_methods_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83b4bc6705c88ef27aa61b953375c7dd inherit pub_methods_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931a">TxPowerPolicy_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a83b4bc6705c88ef27aa61b953375c7dd">getTxPowerPolicy</a> (<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931a">TxPowerPolicy_t</a> policy, int8_t requestedPower, uint32_t frequency)</td></tr>
+<tr class="separator:a83b4bc6705c88ef27aa61b953375c7dd inherit pub_methods_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f9665319582276826024f5d23b2114e inherit pub_methods_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a4f9665319582276826024f5d23b2114e">HalConfiguration_t</a> ()</td></tr>
 <tr class="separator:a4f9665319582276826024f5d23b2114e inherit pub_methods_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83b4bc6705c88ef27aa61b953375c7dd inherit pub_methods_class_arduino___l_m_i_c_1_1_hal_configuration__t"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931a">TxPowerPolicy_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a83b4bc6705c88ef27aa61b953375c7dd">getTxPowerPolicy</a> (<a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931a">TxPowerPolicy_t</a> policy, int8_t requestedPower, uint32_t frequency)</td></tr>
@@ -140,12 +236,12 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a8f62969f9465e9051ef09d1b121fe93f"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_arduino___l_m_i_c.html#a1a3b634a2259a798aaa24c46f08c16cc">ostime_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a8f62969f9465e9051ef09d1b121fe93f">TCXO_DELAY_MS</a> = 5</td></tr>
-<tr class="separator:a8f62969f9465e9051ef09d1b121fe93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af78cf716355d8d4a535df0abb3d82abf"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="namespace_arduino___l_m_i_c.html#a1a3b634a2259a798aaa24c46f08c16cc">ostime_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#af78cf716355d8d4a535df0abb3d82abf">TCXO_DELAY_MS</a> = 5</td></tr>
+<tr class="separator:af78cf716355d8d4a535df0abb3d82abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a42cf97ac4f965c063172ce2cfc47428c" name="a42cf97ac4f965c063172ce2cfc47428c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42cf97ac4f965c063172ce2cfc47428c">&#9670;&nbsp;</a></span>DIGITAL_PINS</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a42cf97ac4f965c063172ce2cfc47428c">&#9670;&nbsp;</a></span>DIGITAL_PINS <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,23 +252,97 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428caa30b027e6fd1dff8b86e9770ff2a5415" name="a42cf97ac4f965c063172ce2cfc47428caa30b027e6fd1dff8b86e9770ff2a5415"></a>PIN_SX1276_NSS&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca9b1c78fde14a423ca19bfe4c6a6e6a10" name="a42cf97ac4f965c063172ce2cfc47428ca9b1c78fde14a423ca19bfe4c6a6e6a10"></a>PIN_SX1276_NRESET&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca5b3758a5b621cbda47735694b7a9bb51" name="a42cf97ac4f965c063172ce2cfc47428ca5b3758a5b621cbda47735694b7a9bb51"></a>PIN_SX1276_DIO0&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428caeebb24bc82df8f53b2b341e8923ce9c2" name="a42cf97ac4f965c063172ce2cfc47428caeebb24bc82df8f53b2b341e8923ce9c2"></a>PIN_SX1276_DIO1&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428caf7362a88d8d2953c3d90159898f8905a" name="a42cf97ac4f965c063172ce2cfc47428caf7362a88d8d2953c3d90159898f8905a"></a>PIN_SX1276_DIO2&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428caceabacb18aeb73029818e23f62eb5170" name="a42cf97ac4f965c063172ce2cfc47428caceabacb18aeb73029818e23f62eb5170"></a>PIN_SX1276_ANT_SWITCH_RX&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca39c3e18d6c97047f661753e1877ba6ee" name="a42cf97ac4f965c063172ce2cfc47428ca39c3e18d6c97047f661753e1877ba6ee"></a>PIN_SX1276_ANT_SWITCH_TX_BOOST&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca7af694fdd2972a11bf2d5399d126b874" name="a42cf97ac4f965c063172ce2cfc47428ca7af694fdd2972a11bf2d5399d126b874"></a>PIN_SX1276_ANT_SWITCH_TX_RFO&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428cace21210e5ece4f702adf2efdb1a0260c" name="a42cf97ac4f965c063172ce2cfc47428cace21210e5ece4f702adf2efdb1a0260c"></a>PIN_VDD_BOOST_ENABLE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428cad5bde0d2f97abf6a0d6db82757a2a9f9" name="a42cf97ac4f965c063172ce2cfc47428cad5bde0d2f97abf6a0d6db82757a2a9f9"></a>PIN_TCXO_VDD&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca9d59b528b5e7714470f3f01a080efc6c" name="a42cf97ac4f965c063172ce2cfc47428ca9d59b528b5e7714470f3f01a080efc6c"></a>PIN_SX1276_NSS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca11aa067cdf615ce018dce0fbfb6c7c5d" name="a42cf97ac4f965c063172ce2cfc47428ca11aa067cdf615ce018dce0fbfb6c7c5d"></a>PIN_SX1276_NRESET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca2ca89b78d6842d8145f64ab0c02febcc" name="a42cf97ac4f965c063172ce2cfc47428ca2ca89b78d6842d8145f64ab0c02febcc"></a>PIN_SX1276_DIO0&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca00d29279dc78db7973b510bd52af511e" name="a42cf97ac4f965c063172ce2cfc47428ca00d29279dc78db7973b510bd52af511e"></a>PIN_SX1276_DIO1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca0e5b489fdb9ee56d3eefab5220eac8a9" name="a42cf97ac4f965c063172ce2cfc47428ca0e5b489fdb9ee56d3eefab5220eac8a9"></a>PIN_SX1276_DIO2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca508816b2b3a5e0b37db74edec014e7f9" name="a42cf97ac4f965c063172ce2cfc47428ca508816b2b3a5e0b37db74edec014e7f9"></a>PIN_SX1276_ANT_SWITCH_RX&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca7a7d094f80f9c9f630e694f155087ea8" name="a42cf97ac4f965c063172ce2cfc47428ca7a7d094f80f9c9f630e694f155087ea8"></a>PIN_SX1276_ANT_SWITCH_TX_BOOST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca36e08d7c172e299edfa60de11e3fdb39" name="a42cf97ac4f965c063172ce2cfc47428ca36e08d7c172e299edfa60de11e3fdb39"></a>PIN_SX1276_ANT_SWITCH_TX_RFO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca60d01c2bb3ca6088a4221f16641a1f4f" name="a42cf97ac4f965c063172ce2cfc47428ca60d01c2bb3ca6088a4221f16641a1f4f"></a>PIN_VDD_BOOST_ENABLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca8e35970039658bc7b258916e8a20b1e6" name="a42cf97ac4f965c063172ce2cfc47428ca8e35970039658bc7b258916e8a20b1e6"></a>PIN_TCXO_VDD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca9d59b528b5e7714470f3f01a080efc6c" name="a42cf97ac4f965c063172ce2cfc47428ca9d59b528b5e7714470f3f01a080efc6c"></a>PIN_SX1276_NSS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca11aa067cdf615ce018dce0fbfb6c7c5d" name="a42cf97ac4f965c063172ce2cfc47428ca11aa067cdf615ce018dce0fbfb6c7c5d"></a>PIN_SX1276_NRESET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca2ca89b78d6842d8145f64ab0c02febcc" name="a42cf97ac4f965c063172ce2cfc47428ca2ca89b78d6842d8145f64ab0c02febcc"></a>PIN_SX1276_DIO0&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca00d29279dc78db7973b510bd52af511e" name="a42cf97ac4f965c063172ce2cfc47428ca00d29279dc78db7973b510bd52af511e"></a>PIN_SX1276_DIO1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca0e5b489fdb9ee56d3eefab5220eac8a9" name="a42cf97ac4f965c063172ce2cfc47428ca0e5b489fdb9ee56d3eefab5220eac8a9"></a>PIN_SX1276_DIO2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca508816b2b3a5e0b37db74edec014e7f9" name="a42cf97ac4f965c063172ce2cfc47428ca508816b2b3a5e0b37db74edec014e7f9"></a>PIN_SX1276_ANT_SWITCH_RX&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca7a7d094f80f9c9f630e694f155087ea8" name="a42cf97ac4f965c063172ce2cfc47428ca7a7d094f80f9c9f630e694f155087ea8"></a>PIN_SX1276_ANT_SWITCH_TX_BOOST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca36e08d7c172e299edfa60de11e3fdb39" name="a42cf97ac4f965c063172ce2cfc47428ca36e08d7c172e299edfa60de11e3fdb39"></a>PIN_SX1276_ANT_SWITCH_TX_RFO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca60d01c2bb3ca6088a4221f16641a1f4f" name="a42cf97ac4f965c063172ce2cfc47428ca60d01c2bb3ca6088a4221f16641a1f4f"></a>PIN_VDD_BOOST_ENABLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca8e35970039658bc7b258916e8a20b1e6" name="a42cf97ac4f965c063172ce2cfc47428ca8e35970039658bc7b258916e8a20b1e6"></a>PIN_TCXO_VDD&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<a id="a42cf97ac4f965c063172ce2cfc47428c" name="a42cf97ac4f965c063172ce2cfc47428c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42cf97ac4f965c063172ce2cfc47428c">&#9670;&nbsp;</a></span>DIGITAL_PINS <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428c">Arduino_LMIC::HalConfiguration_Catena4617_t::DIGITAL_PINS</a> : uint8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca9d59b528b5e7714470f3f01a080efc6c" name="a42cf97ac4f965c063172ce2cfc47428ca9d59b528b5e7714470f3f01a080efc6c"></a>PIN_SX1276_NSS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca11aa067cdf615ce018dce0fbfb6c7c5d" name="a42cf97ac4f965c063172ce2cfc47428ca11aa067cdf615ce018dce0fbfb6c7c5d"></a>PIN_SX1276_NRESET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca2ca89b78d6842d8145f64ab0c02febcc" name="a42cf97ac4f965c063172ce2cfc47428ca2ca89b78d6842d8145f64ab0c02febcc"></a>PIN_SX1276_DIO0&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca00d29279dc78db7973b510bd52af511e" name="a42cf97ac4f965c063172ce2cfc47428ca00d29279dc78db7973b510bd52af511e"></a>PIN_SX1276_DIO1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca0e5b489fdb9ee56d3eefab5220eac8a9" name="a42cf97ac4f965c063172ce2cfc47428ca0e5b489fdb9ee56d3eefab5220eac8a9"></a>PIN_SX1276_DIO2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca508816b2b3a5e0b37db74edec014e7f9" name="a42cf97ac4f965c063172ce2cfc47428ca508816b2b3a5e0b37db74edec014e7f9"></a>PIN_SX1276_ANT_SWITCH_RX&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca7a7d094f80f9c9f630e694f155087ea8" name="a42cf97ac4f965c063172ce2cfc47428ca7a7d094f80f9c9f630e694f155087ea8"></a>PIN_SX1276_ANT_SWITCH_TX_BOOST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca36e08d7c172e299edfa60de11e3fdb39" name="a42cf97ac4f965c063172ce2cfc47428ca36e08d7c172e299edfa60de11e3fdb39"></a>PIN_SX1276_ANT_SWITCH_TX_RFO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca60d01c2bb3ca6088a4221f16641a1f4f" name="a42cf97ac4f965c063172ce2cfc47428ca60d01c2bb3ca6088a4221f16641a1f4f"></a>PIN_VDD_BOOST_ENABLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca8e35970039658bc7b258916e8a20b1e6" name="a42cf97ac4f965c063172ce2cfc47428ca8e35970039658bc7b258916e8a20b1e6"></a>PIN_TCXO_VDD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca9d59b528b5e7714470f3f01a080efc6c" name="a42cf97ac4f965c063172ce2cfc47428ca9d59b528b5e7714470f3f01a080efc6c"></a>PIN_SX1276_NSS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca11aa067cdf615ce018dce0fbfb6c7c5d" name="a42cf97ac4f965c063172ce2cfc47428ca11aa067cdf615ce018dce0fbfb6c7c5d"></a>PIN_SX1276_NRESET&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca2ca89b78d6842d8145f64ab0c02febcc" name="a42cf97ac4f965c063172ce2cfc47428ca2ca89b78d6842d8145f64ab0c02febcc"></a>PIN_SX1276_DIO0&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca00d29279dc78db7973b510bd52af511e" name="a42cf97ac4f965c063172ce2cfc47428ca00d29279dc78db7973b510bd52af511e"></a>PIN_SX1276_DIO1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca0e5b489fdb9ee56d3eefab5220eac8a9" name="a42cf97ac4f965c063172ce2cfc47428ca0e5b489fdb9ee56d3eefab5220eac8a9"></a>PIN_SX1276_DIO2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca508816b2b3a5e0b37db74edec014e7f9" name="a42cf97ac4f965c063172ce2cfc47428ca508816b2b3a5e0b37db74edec014e7f9"></a>PIN_SX1276_ANT_SWITCH_RX&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca7a7d094f80f9c9f630e694f155087ea8" name="a42cf97ac4f965c063172ce2cfc47428ca7a7d094f80f9c9f630e694f155087ea8"></a>PIN_SX1276_ANT_SWITCH_TX_BOOST&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca36e08d7c172e299edfa60de11e3fdb39" name="a42cf97ac4f965c063172ce2cfc47428ca36e08d7c172e299edfa60de11e3fdb39"></a>PIN_SX1276_ANT_SWITCH_TX_RFO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca60d01c2bb3ca6088a4221f16641a1f4f" name="a42cf97ac4f965c063172ce2cfc47428ca60d01c2bb3ca6088a4221f16641a1f4f"></a>PIN_VDD_BOOST_ENABLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a42cf97ac4f965c063172ce2cfc47428ca8e35970039658bc7b258916e8a20b1e6" name="a42cf97ac4f965c063172ce2cfc47428ca8e35970039658bc7b258916e8a20b1e6"></a>PIN_TCXO_VDD&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="acf4c59ccb9410ad5ef554cec8567cfa5" name="acf4c59ccb9410ad5ef554cec8567cfa5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf4c59ccb9410ad5ef554cec8567cfa5">&#9670;&nbsp;</a></span>begin()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acf4c59ccb9410ad5ef554cec8567cfa5">&#9670;&nbsp;</a></span>begin() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Arduino_LMIC::HalConfiguration_Catena4617_t::begin </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#aafcf9119f38244bc8dee875f1ee9d829">Arduino_LMIC::HalConfiguration_t</a>.</p>
+
+</div>
+</div>
+<a id="acf4c59ccb9410ad5ef554cec8567cfa5" name="acf4c59ccb9410ad5ef554cec8567cfa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf4c59ccb9410ad5ef554cec8567cfa5">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,7 +370,35 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a1c4e60fb19ff085aced785ce18eb59f3" name="a1c4e60fb19ff085aced785ce18eb59f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c4e60fb19ff085aced785ce18eb59f3">&#9670;&nbsp;</a></span>end()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c4e60fb19ff085aced785ce18eb59f3">&#9670;&nbsp;</a></span>end() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Arduino_LMIC::HalConfiguration_Catena4617_t::end </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#ab61caa20f3dc87afbc67b6d772e0d09e">Arduino_LMIC::HalConfiguration_t</a>.</p>
+
+</div>
+</div>
+<a id="a1c4e60fb19ff085aced785ce18eb59f3" name="a1c4e60fb19ff085aced785ce18eb59f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c4e60fb19ff085aced785ce18eb59f3">&#9670;&nbsp;</a></span>end() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,7 +426,35 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="ad129f7cb52fc8dce67c91fe44c99e41b" name="ad129f7cb52fc8dce67c91fe44c99e41b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad129f7cb52fc8dce67c91fe44c99e41b">&#9670;&nbsp;</a></span>queryUsingTcxo()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad129f7cb52fc8dce67c91fe44c99e41b">&#9670;&nbsp;</a></span>queryUsingTcxo() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Arduino_LMIC::HalConfiguration_Catena4617_t::queryUsingTcxo </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a86a65da5967df10b2ff3d626d9294c36">Arduino_LMIC::HalConfiguration_t</a>.</p>
+
+</div>
+</div>
+<a id="ad129f7cb52fc8dce67c91fe44c99e41b" name="ad129f7cb52fc8dce67c91fe44c99e41b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad129f7cb52fc8dce67c91fe44c99e41b">&#9670;&nbsp;</a></span>queryUsingTcxo() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -256,7 +482,35 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a12b0fd6cb9b3856dae99162586a1c1fa" name="a12b0fd6cb9b3856dae99162586a1c1fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12b0fd6cb9b3856dae99162586a1c1fa">&#9670;&nbsp;</a></span>setModuleActive()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a12b0fd6cb9b3856dae99162586a1c1fa">&#9670;&nbsp;</a></span>setModuleActive() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespace_arduino___l_m_i_c.html#a1a3b634a2259a798aaa24c46f08c16cc">ostime_t</a> Arduino_LMIC::HalConfiguration_Catena4617_t::setModuleActive </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a2591353f0d526dd3028552c5b6c0a7d1">Arduino_LMIC::HalConfiguration_t</a>.</p>
+
+</div>
+</div>
+<a id="a12b0fd6cb9b3856dae99162586a1c1fa" name="a12b0fd6cb9b3856dae99162586a1c1fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12b0fd6cb9b3856dae99162586a1c1fa">&#9670;&nbsp;</a></span>setModuleActive() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -284,8 +538,8 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a8f62969f9465e9051ef09d1b121fe93f" name="a8f62969f9465e9051ef09d1b121fe93f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f62969f9465e9051ef09d1b121fe93f">&#9670;&nbsp;</a></span>TCXO_DELAY_MS</h2>
+<a id="af78cf716355d8d4a535df0abb3d82abf" name="af78cf716355d8d4a535df0abb3d82abf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af78cf716355d8d4a535df0abb3d82abf">&#9670;&nbsp;</a></span>TCXO_DELAY_MS</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -294,7 +548,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="namespace_arduino___l_m_i_c.html#a1a3b634a2259a798aaa24c46f08c16cc">ostime_t</a> Arduino_LMIC::HalConfiguration_Catena4617_t::TCXO_DELAY_MS = 5</td>
+          <td class="memname">static constexpr <a class="el" href="namespace_arduino___l_m_i_c.html#a1a3b634a2259a798aaa24c46f08c16cc">ostime_t</a> Arduino_LMIC::HalConfiguration_Catena4617_t::TCXO_DELAY_MS = 5</td>
         </tr>
       </table>
   </td>
@@ -306,8 +560,9 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="getpinmap__catena4617_8cpp.html">getpinmap_catena4617.cpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="libs_2_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2hal_2getpinmap__catena4617_8cpp.html">libs/MCCI_LoRaWAN_LMIC_library/src/hal/getpinmap_catena4617.cpp</a></li>
+<li><a class="el" href="_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2hal_2getpinmap__catena4617_8cpp.html">MCCI_LoRaWAN_LMIC_library/src/hal/getpinmap_catena4617.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -317,7 +572,7 @@ Static Public Attributes</h2></td></tr>
     <ul>
         <li class="navelem"><a class="el" href="namespace_arduino___l_m_i_c.html">Arduino_LMIC</a></li><li class="navelem"><a class="el" href="class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html">HalConfiguration_Catena4617_t</a></li>
         <li class="footer">
-            Generated on Tue Jan 18 2022 11:28:01 for 16x2 easyC LCD Library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Jan 18 2022 11:30:47 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.2.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

@@ -89,7 +89,9 @@ var menudata={children:[
 {text:"s",url:"functions_vars.html#index_s"},
 {text:"t",url:"functions_vars.html#index_t"},
 {text:"u",url:"functions_vars.html#index_u"}]},
-{text:"Enumerations",url:"functions_enum.html"},
+{text:"Enumerations",url:"functions_enum.html",children:[
+{text:"d",url:"functions_enum.html#index_d"},
+{text:"t",url:"functions_enum.html#index_t"}]},
 {text:"Enumerator",url:"functions_eval.html",children:[
 {text:"p",url:"functions_eval.html#index_p"}]}]}]},
 {text:"Files",url:"files.html",children:[
@@ -167,7 +169,9 @@ var menudata={children:[
 {text:"s",url:"globals_type.html#index_s"},
 {text:"u",url:"globals_type.html#index_u"},
 {text:"x",url:"globals_type.html#index_x"}]},
-{text:"Enumerations",url:"globals_enum.html"},
+{text:"Enumerations",url:"globals_enum.html",children:[
+{text:"_",url:"globals_enum.html#index__5F"},
+{text:"l",url:"globals_enum.html#index_l"}]},
 {text:"Enumerator",url:"globals_eval.html",children:[
 {text:"a",url:"globals_eval.html#index_a"},
 {text:"b",url:"globals_eval_b.html#index_b"},
