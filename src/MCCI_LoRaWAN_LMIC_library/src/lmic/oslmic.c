@@ -33,34 +33,41 @@
 extern const struct lmic_pinmap lmic_pins;
 
 // RUNTIME STATE
-static struct {
-    osjob_t* scheduledjobs;
-    osjob_t* runnablejobs;
+static struct
+{
+    osjob_t *scheduledjobs;
+    osjob_t *runnablejobs;
 } OS;
 
-int os_init_ex (const void *pintable) {
+int os_init_ex(const void *pintable)
+{
     memset(&OS, 0x00, sizeof(OS));
     hal_init_ex(pintable);
-    if (! radio_init())
+    if (!radio_init())
         return 0;
     LMIC_init();
     return 1;
 }
 
-void os_init() {
+void os_init()
+{
     if (os_init_ex((const void *)&lmic_pins))
         return;
     ASSERT(0);
 }
 
-ostime_t os_getTime () {
+ostime_t os_getTime()
+{
     return hal_ticks();
 }
 
 // unlink job from queue, return if removed
-static int unlinkjob (osjob_t** pnext, osjob_t* job) {
-    for( ; *pnext; pnext = &((*pnext)->next)) {
-        if(*pnext == job) { // unlink
+static int unlinkjob(osjob_t **pnext, osjob_t *job)
+{
+    for (; *pnext; pnext = &((*pnext)->next))
+    {
+        if (*pnext == job)
+        { // unlink
             *pnext = job->next;
             return 1;
         }
@@ -68,12 +75,14 @@ static int unlinkjob (osjob_t** pnext, osjob_t* job) {
     return 0;
 }
 
-static osjob_t** getJobQueue(osjob_t* job) {
+static osjob_t **getJobQueue(osjob_t *job)
+{
     return os_jobIsTimed(job) ? &OS.scheduledjobs : &OS.runnablejobs;
 }
 
 // clear scheduled job
-void os_clearCallback (osjob_t* job) {
+void os_clearCallback(osjob_t *job)
+{
     hal_disableIRQs();
 
     unlinkjob(getJobQueue(job), job);
@@ -82,8 +91,9 @@ void os_clearCallback (osjob_t* job) {
 }
 
 // schedule immediately runnable job
-void os_setCallback (osjob_t* job, osjobcb_t cb) {
-    osjob_t** pnext;
+void os_setCallback(osjob_t *job, osjobcb_t cb)
+{
+    osjob_t **pnext;
     hal_disableIRQs();
 
     // remove if job was already queued
@@ -95,14 +105,16 @@ void os_setCallback (osjob_t* job, osjobcb_t cb) {
     job->func = cb;
 
     // add to end of run queue
-    for(pnext=&OS.runnablejobs; *pnext; pnext=&((*pnext)->next));
+    for (pnext = &OS.runnablejobs; *pnext; pnext = &((*pnext)->next))
+        ;
     *pnext = job;
     hal_enableIRQs();
 }
 
 // schedule timed job
-void os_setTimedCallback (osjob_t* job, ostime_t time, osjobcb_t cb) {
-    osjob_t** pnext;
+void os_setTimedCallback(osjob_t *job, ostime_t time, osjobcb_t cb)
+{
+    osjob_t **pnext;
 
     // special case time 0 -- it will be one tick late.
     if (time == 0)
@@ -119,8 +131,10 @@ void os_setTimedCallback (osjob_t* job, ostime_t time, osjobcb_t cb) {
     job->func = cb;
 
     // insert into schedule
-    for(pnext=&OS.scheduledjobs; *pnext; pnext=&((*pnext)->next)) {
-        if((*pnext)->deadline - time > 0) { // (cmp diff, not abs!)
+    for (pnext = &OS.scheduledjobs; *pnext; pnext = &((*pnext)->next))
+    {
+        if ((*pnext)->deadline - time > 0)
+        { // (cmp diff, not abs!)
             // enqueue before next element and stop
             job->next = *pnext;
             break;
@@ -131,38 +145,47 @@ void os_setTimedCallback (osjob_t* job, ostime_t time, osjobcb_t cb) {
 }
 
 // execute jobs from timer and from run queue
-void os_runloop () {
-    while(1) {
+void os_runloop()
+{
+    while (1)
+    {
         os_runloop_once();
     }
 }
 
-void os_runloop_once() {
-    osjob_t* j = NULL;
+void os_runloop_once()
+{
+    osjob_t *j = NULL;
     hal_processPendingIRQs();
 
     hal_disableIRQs();
     // check for runnable jobs
-    if(OS.runnablejobs) {
+    if (OS.runnablejobs)
+    {
         j = OS.runnablejobs;
         OS.runnablejobs = j->next;
-    } else if(OS.scheduledjobs && hal_checkTimer(OS.scheduledjobs->deadline)) { // check for expired timed jobs
+    }
+    else if (OS.scheduledjobs && hal_checkTimer(OS.scheduledjobs->deadline))
+    { // check for expired timed jobs
         j = OS.scheduledjobs;
         OS.scheduledjobs = j->next;
-    } else { // nothing pending
+    }
+    else
+    {                // nothing pending
         hal_sleep(); // wake by irq (timer already restarted)
     }
     hal_enableIRQs();
-    if(j) { // run job callback
+    if (j)
+    { // run job callback
         j->func(j);
     }
 }
 
 // return true if there are any jobs scheduled within time ticks from now.
 // return false if any jobs scheduled are at least time ticks in the future.
-bit_t os_queryTimeCriticalJobs(ostime_t time) {
-    if (OS.scheduledjobs &&
-        OS.scheduledjobs->deadline - os_getTime() < time)
+bit_t os_queryTimeCriticalJobs(ostime_t time)
+{
+    if (OS.scheduledjobs && OS.scheduledjobs->deadline - os_getTime() < time)
         return 1;
     else
         return 0;
