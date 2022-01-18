@@ -49,58 +49,55 @@ Returns:
 
 */
 
-uint16_t
-LMIC_f2sflt16(
-        float f
-        )
+uint16_t LMIC_f2sflt16(float f)
+{
+    if (f <= -1.0)
+        return 0xFFFF;
+    else if (f >= 1.0)
+        return 0x7FFF;
+    else
+    {
+        int iExp;
+        float normalValue;
+        uint16_t sign;
+
+        normalValue = frexpf(f, &iExp);
+
+        sign = 0;
+        if (normalValue < 0)
         {
-        if (f <= -1.0)
-                return 0xFFFF;
-        else if (f >= 1.0)
-                return 0x7FFF;
-        else
-                {
-                int iExp;
-                float normalValue;
-                uint16_t sign;
-
-                normalValue = frexpf(f, &iExp);
-
-                sign = 0;
-                if (normalValue < 0)
-                        {
-                        // set the "sign bit" of the result
-                        // and work with the absolute value of normalValue.
-                        sign = 0x8000;
-                        normalValue = -normalValue;
-                        }
-
-                // abs(f) is supposed to be in [0..1), so useful exp
-                // is [0..-15]
-                iExp += 15;
-                if (iExp < 0)
-                        iExp = 0;
-
-                // bit 15 is the sign
-                // bits 14..11 are the exponent
-                // bits 10..0 are the fraction
-                // we conmpute the fraction and then decide if we need to round.
-                uint16_t outputFraction = ldexpf(normalValue, 11) + 0.5;
-                if (outputFraction >= (1 << 11u))
-                        {
-                        // reduce output fraction
-                        outputFraction = 1 << 10;
-                        // increase exponent
-                        ++iExp;
-                        }
-
-                // check for overflow and return max instead.
-                if (iExp > 15)
-                        return 0x7FFF | sign;
-
-                return (uint16_t)(sign | (iExp << 11u) | outputFraction);
-                }
+            // set the "sign bit" of the result
+            // and work with the absolute value of normalValue.
+            sign = 0x8000;
+            normalValue = -normalValue;
         }
+
+        // abs(f) is supposed to be in [0..1), so useful exp
+        // is [0..-15]
+        iExp += 15;
+        if (iExp < 0)
+            iExp = 0;
+
+        // bit 15 is the sign
+        // bits 14..11 are the exponent
+        // bits 10..0 are the fraction
+        // we conmpute the fraction and then decide if we need to round.
+        uint16_t outputFraction = ldexpf(normalValue, 11) + 0.5;
+        if (outputFraction >= (1 << 11u))
+        {
+            // reduce output fraction
+            outputFraction = 1 << 10;
+            // increase exponent
+            ++iExp;
+        }
+
+        // check for overflow and return max instead.
+        if (iExp > 15)
+            return 0x7FFF | sign;
+
+        return (uint16_t)(sign | (iExp << 11u) | outputFraction);
+    }
+}
 
 /*
 
@@ -135,58 +132,55 @@ Returns:
 
 */
 
-uint16_t
-LMIC_f2sflt12(
-        float f
-        )
+uint16_t LMIC_f2sflt12(float f)
+{
+    if (f <= -1.0)
+        return 0xFFF;
+    else if (f >= 1.0)
+        return 0x7FF;
+    else
+    {
+        int iExp;
+        float normalValue;
+        uint16_t sign;
+
+        normalValue = frexpf(f, &iExp);
+
+        sign = 0;
+        if (normalValue < 0)
         {
-        if (f <= -1.0)
-                return 0xFFF;
-        else if (f >= 1.0)
-                return 0x7FF;
-        else
-                {
-                int iExp;
-                float normalValue;
-                uint16_t sign;
-
-                normalValue = frexpf(f, &iExp);
-
-                sign = 0;
-                if (normalValue < 0)
-                        {
-                        // set the "sign bit" of the result
-                        // and work with the absolute value of normalValue.
-                        sign = 0x800;
-                        normalValue = -normalValue;
-                        }
-
-                // abs(f) is supposed to be in [0..1), so useful exp
-                // is [0..-15]
-                iExp += 15;
-                if (iExp < 0)
-                        iExp = 0;
-
-                // bit 15 is the sign
-                // bits 14..11 are the exponent
-                // bits 10..0 are the fraction
-                // we conmpute the fraction and then decide if we need to round.
-                uint16_t outputFraction = ldexpf(normalValue, 7) + 0.5;
-                if (outputFraction >= (1 << 7u))
-                        {
-                        // reduce output fraction
-                        outputFraction = 1 << 6;
-                        // increase exponent
-                        ++iExp;
-                        }
-
-                // check for overflow and return max instead.
-                if (iExp > 15)
-                        return 0x7FF | sign;
-
-                return (uint16_t)(sign | (iExp << 7u) | outputFraction);
-                }
+            // set the "sign bit" of the result
+            // and work with the absolute value of normalValue.
+            sign = 0x800;
+            normalValue = -normalValue;
         }
+
+        // abs(f) is supposed to be in [0..1), so useful exp
+        // is [0..-15]
+        iExp += 15;
+        if (iExp < 0)
+            iExp = 0;
+
+        // bit 15 is the sign
+        // bits 14..11 are the exponent
+        // bits 10..0 are the fraction
+        // we conmpute the fraction and then decide if we need to round.
+        uint16_t outputFraction = ldexpf(normalValue, 7) + 0.5;
+        if (outputFraction >= (1 << 7u))
+        {
+            // reduce output fraction
+            outputFraction = 1 << 6;
+            // increase exponent
+            ++iExp;
+        }
+
+        // check for overflow and return max instead.
+        if (iExp > 15)
+            return 0x7FF | sign;
+
+        return (uint16_t)(sign | (iExp << 7u) | outputFraction);
+    }
+}
 
 /*
 
@@ -219,48 +213,45 @@ Returns:
 
 */
 
-uint16_t
-LMIC_f2uflt16(
-        float f
-        )
+uint16_t LMIC_f2uflt16(float f)
+{
+    if (f < 0.0)
+        return 0;
+    else if (f >= 1.0)
+        return 0xFFFF;
+    else
+    {
+        int iExp;
+        float normalValue;
+
+        normalValue = frexpf(f, &iExp);
+
+        // f is supposed to be in [0..1), so useful exp
+        // is [0..-15]
+        iExp += 15;
+        if (iExp < 0)
+            // underflow.
+            iExp = 0;
+
+        // bits 15..12 are the exponent
+        // bits 11..0 are the fraction
+        // we conmpute the fraction and then decide if we need to round.
+        uint16_t outputFraction = ldexpf(normalValue, 12) + 0.5;
+        if (outputFraction >= (1 << 12u))
         {
-        if (f < 0.0)
-                return 0;
-        else if (f >= 1.0)
-                return 0xFFFF;
-        else
-                {
-                int iExp;
-                float normalValue;
-
-                normalValue = frexpf(f, &iExp);
-
-                // f is supposed to be in [0..1), so useful exp
-                // is [0..-15]
-                iExp += 15;
-                if (iExp < 0)
-                        // underflow.
-                        iExp = 0;
-
-                // bits 15..12 are the exponent
-                // bits 11..0 are the fraction
-                // we conmpute the fraction and then decide if we need to round.
-                uint16_t outputFraction = ldexpf(normalValue, 12) + 0.5;
-                if (outputFraction >= (1 << 12u))
-                        {
-                        // reduce output fraction
-                        outputFraction = 1 << 11;
-                        // increase exponent
-                        ++iExp;
-                        }
-
-                // check for overflow and return max instead.
-                if (iExp > 15)
-                        return 0xFFFF;
-
-                return (uint16_t)((iExp << 12u) | outputFraction);
-                }
+            // reduce output fraction
+            outputFraction = 1 << 11;
+            // increase exponent
+            ++iExp;
         }
+
+        // check for overflow and return max instead.
+        if (iExp > 15)
+            return 0xFFFF;
+
+        return (uint16_t)((iExp << 12u) | outputFraction);
+    }
+}
 
 /*
 
@@ -291,45 +282,42 @@ Returns:
 
 */
 
-uint16_t
-LMIC_f2uflt12(
-        float f
-        )
+uint16_t LMIC_f2uflt12(float f)
+{
+    if (f < 0.0)
+        return 0x000;
+    else if (f >= 1.0)
+        return 0xFFF;
+    else
+    {
+        int iExp;
+        float normalValue;
+
+        normalValue = frexpf(f, &iExp);
+
+        // f is supposed to be in [0..1), so useful exp
+        // is [0..-15]
+        iExp += 15;
+        if (iExp < 0)
+            // graceful underflow
+            iExp = 0;
+
+        // bits 11..8 are the exponent
+        // bits 7..0 are the fraction
+        // we conmpute the fraction and then decide if we need to round.
+        uint16_t outputFraction = ldexpf(normalValue, 8) + 0.5;
+        if (outputFraction >= (1 << 8u))
         {
-        if (f < 0.0)
-                return 0x000;
-        else if (f >= 1.0)
-                return 0xFFF;
-        else
-                {
-                int iExp;
-                float normalValue;
-
-                normalValue = frexpf(f, &iExp);
-
-                // f is supposed to be in [0..1), so useful exp
-                // is [0..-15]
-                iExp += 15;
-                if (iExp < 0)
-                        // graceful underflow
-                        iExp = 0;
-
-                // bits 11..8 are the exponent
-                // bits 7..0 are the fraction
-                // we conmpute the fraction and then decide if we need to round.
-                uint16_t outputFraction = ldexpf(normalValue, 8) + 0.5;
-                if (outputFraction >= (1 << 8u))
-                        {
-                        // reduce output fraction
-                        outputFraction = 1 << 7;
-                        // increase exponent
-                        ++iExp;
-                        }
-
-                // check for overflow and return max instead.
-                if (iExp > 15)
-                        return 0xFFF;
-
-                return (uint16_t)((iExp << 8u) | outputFraction);
-                }
+            // reduce output fraction
+            outputFraction = 1 << 7;
+            // increase exponent
+            ++iExp;
         }
+
+        // check for overflow and return max instead.
+        if (iExp > 15)
+            return 0xFFF;
+
+        return (uint16_t)((iExp << 8u) | outputFraction);
+    }
+}

@@ -15,16 +15,17 @@ Author:
 #pragma once
 
 #ifndef _arduino_lmic_user_configuration_h_
-# define _arduino_lmic_user_configuration_h_
+#define _arduino_lmic_user_configuration_h_
 
-# ifdef __cplusplus
-extern "C" {
-# endif
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
-# include "lmic/lmic_config_preconditions.h"
+#include "lmic/lmic_config_preconditions.h"
 
-# ifdef __cplusplus
+#ifdef __cplusplus
 }
-# endif
+#endif
 
 #endif /* _arduino_lmic_user_configuration_h_ */
