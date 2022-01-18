@@ -19,15 +19,15 @@
  * including, but not limited to, copying, modification and redistribution.
  * NO WARRANTY OF ANY KIND IS PROVIDED.
  *******************************************************************************/
-#include <lmic.h>
-#include <hal/hal.h>
 #include <SPI.h>
+#include <hal/hal.h>
+#include <lmic.h>
 
 // include the DHT22 Sensor Library
 #include "DHT.h"
 
 // DHT digital pin and sensor type
-#define DHTPIN 10
+#define DHTPIN  10
 #define DHTTYPE DHT22
 
 //
@@ -38,17 +38,17 @@
 // working but innocuous value.
 //
 #ifdef COMPILE_REGRESSION_TEST
-# define FILLMEIN 0
+#define FILLMEIN 0
 #else
-# warning "You must replace the values marked FILLMEIN with real values from the TTN control panel!"
-# define FILLMEIN (#dont edit this, edit the lines that use FILLMEIN)
+#warning "You must replace the values marked FILLMEIN with real values from the TTN control panel!"
+#define FILLMEIN (#dont edit this, edit the lines that use FILLMEIN)
 #endif
 
 // LoRaWAN NwkSKey, network session key
-static const PROGMEM u1_t NWKSKEY[16] = { FILLMEIN };
+static const PROGMEM u1_t NWKSKEY[16] = {FILLMEIN};
 
 // LoRaWAN AppSKey, application session key
-static const u1_t PROGMEM APPSKEY[16] = { FILLMEIN };
+static const u1_t PROGMEM APPSKEY[16] = {FILLMEIN};
 
 // LoRaWAN end-device address (DevAddr)
 // See http://thethingsnetwork.org/wiki/AddressSpace
@@ -63,9 +63,15 @@ static const u4_t DEVADDR = 0;
 // left empty here (we cannot leave them out completely unless
 // DISABLE_JOIN is set in arduino-lmic/project_config/lmic_project_config.h,
 // otherwise the linker will complain).
-void os_getArtEui (u1_t* buf) { }
-void os_getDevEui (u1_t* buf) { }
-void os_getDevKey (u1_t* buf) { }
+void os_getArtEui(u1_t *buf)
+{
+}
+void os_getDevEui(u1_t *buf)
+{
+}
+void os_getDevKey(u1_t *buf)
+{
+}
 
 // payload to send to TTN gateway
 static uint8_t payload[5];
@@ -84,112 +90,120 @@ const lmic_pinmap lmic_pins = {
     .rst = 4,
     .dio = {3, 6, LMIC_UNUSED_PIN},
     .rxtx_rx_active = 0,
-    .rssi_cal = 8,              // LBT cal for the Adafruit Feather M0 LoRa, in dB
+    .rssi_cal = 8, // LBT cal for the Adafruit Feather M0 LoRa, in dB
     .spi_freq = 8000000,
 };
 
 // init. DHT
 DHT dht(DHTPIN, DHTTYPE);
 
-void onEvent (ev_t ev) {
+void onEvent(ev_t ev)
+{
     Serial.print(os_getTime());
     Serial.print(": ");
-    switch(ev) {
-        case EV_SCAN_TIMEOUT:
-            Serial.println(F("EV_SCAN_TIMEOUT"));
-            break;
-        case EV_BEACON_FOUND:
-            Serial.println(F("EV_BEACON_FOUND"));
-            break;
-        case EV_BEACON_MISSED:
-            Serial.println(F("EV_BEACON_MISSED"));
-            break;
-        case EV_BEACON_TRACKED:
-            Serial.println(F("EV_BEACON_TRACKED"));
-            break;
-        case EV_JOINING:
-            Serial.println(F("EV_JOINING"));
-            break;
-        case EV_JOINED:
-            Serial.println(F("EV_JOINED"));
-            break;
-        /*
-        || This event is defined but not used in the code. No
-        || point in wasting codespace on it.
-        ||
-        || case EV_RFU1:
-        ||     Serial.println(F("EV_RFU1"));
-        ||     break;
-        */
-        case EV_JOIN_FAILED:
-            Serial.println(F("EV_JOIN_FAILED"));
-            break;
-        case EV_REJOIN_FAILED:
-            Serial.println(F("EV_REJOIN_FAILED"));
-            break;
-        case EV_TXCOMPLETE:
-            Serial.println(F("EV_TXCOMPLETE (includes waiting for RX windows)"));
-            if (LMIC.txrxFlags & TXRX_ACK)
-              Serial.println(F("Received ack"));
-            if (LMIC.dataLen) {
-              Serial.println(F("Received "));
-              Serial.println(LMIC.dataLen);
-              Serial.println(F(" bytes of payload"));
-            }
-            // Schedule next transmission
-            os_setTimedCallback(&sendjob, os_getTime()+sec2osticks(TX_INTERVAL), do_send);
-            break;
-        case EV_LOST_TSYNC:
-            Serial.println(F("EV_LOST_TSYNC"));
-            break;
-        case EV_RESET:
-            Serial.println(F("EV_RESET"));
-            break;
-        case EV_RXCOMPLETE:
-            // data received in ping slot
-            Serial.println(F("EV_RXCOMPLETE"));
-            break;
-        case EV_LINK_DEAD:
-            Serial.println(F("EV_LINK_DEAD"));
-            break;
-        case EV_LINK_ALIVE:
-            Serial.println(F("EV_LINK_ALIVE"));
-            break;
-        /*
-        || This event is defined but not used in the code. No
-        || point in wasting codespace on it.
-        ||
-        || case EV_SCAN_FOUND:
-        ||    Serial.println(F("EV_SCAN_FOUND"));
-        ||    break;
-        */
-        case EV_TXSTART:
-            Serial.println(F("EV_TXSTART"));
-            break;
-        case EV_TXCANCELED:
-            Serial.println(F("EV_TXCANCELED"));
-            break;
-        case EV_RXSTART:
-            /* do not print anything -- it wrecks timing */
-            break;
-        case EV_JOIN_TXCOMPLETE:
-            Serial.println(F("EV_JOIN_TXCOMPLETE: no JoinAccept"));
-            break;
-        default:
-            Serial.print(F("Unknown event: "));
-            Serial.println((unsigned) ev);
-            break;
+    switch (ev)
+    {
+    case EV_SCAN_TIMEOUT:
+        Serial.println(F("EV_SCAN_TIMEOUT"));
+        break;
+    case EV_BEACON_FOUND:
+        Serial.println(F("EV_BEACON_FOUND"));
+        break;
+    case EV_BEACON_MISSED:
+        Serial.println(F("EV_BEACON_MISSED"));
+        break;
+    case EV_BEACON_TRACKED:
+        Serial.println(F("EV_BEACON_TRACKED"));
+        break;
+    case EV_JOINING:
+        Serial.println(F("EV_JOINING"));
+        break;
+    case EV_JOINED:
+        Serial.println(F("EV_JOINED"));
+        break;
+    /*
+    || This event is defined but not used in the code. No
+    || point in wasting codespace on it.
+    ||
+    || case EV_RFU1:
+    ||     Serial.println(F("EV_RFU1"));
+    ||     break;
+    */
+    case EV_JOIN_FAILED:
+        Serial.println(F("EV_JOIN_FAILED"));
+        break;
+    case EV_REJOIN_FAILED:
+        Serial.println(F("EV_REJOIN_FAILED"));
+        break;
+    case EV_TXCOMPLETE:
+        Serial.println(F("EV_TXCOMPLETE (includes waiting for RX windows)"));
+        if (LMIC.txrxFlags & TXRX_ACK)
+            Serial.println(F("Received ack"));
+        if (LMIC.dataLen)
+        {
+            Serial.println(F("Received "));
+            Serial.println(LMIC.dataLen);
+            Serial.println(F(" bytes of payload"));
+        }
+        // Schedule next transmission
+        os_setTimedCallback(&sendjob, os_getTime() + sec2osticks(TX_INTERVAL), do_send);
+        break;
+    case EV_LOST_TSYNC:
+        Serial.println(F("EV_LOST_TSYNC"));
+        break;
+    case EV_RESET:
+        Serial.println(F("EV_RESET"));
+        break;
+    case EV_RXCOMPLETE:
+        // data received in ping slot
+        Serial.println(F("EV_RXCOMPLETE"));
+        break;
+    case EV_LINK_DEAD:
+        Serial.println(F("EV_LINK_DEAD"));
+        break;
+    case EV_LINK_ALIVE:
+        Serial.println(F("EV_LINK_ALIVE"));
+        break;
+    /*
+    || This event is defined but not used in the code. No
+    || point in wasting codespace on it.
+    ||
+    || case EV_SCAN_FOUND:
+    ||    Serial.println(F("EV_SCAN_FOUND"));
+    ||    break;
+    */
+    case EV_TXSTART:
+        Serial.println(F("EV_TXSTART"));
+        break;
+    case EV_TXCANCELED:
+        Serial.println(F("EV_TXCANCELED"));
+        break;
+    case EV_RXSTART:
+        /* do not print anything -- it wrecks timing */
+        break;
+    case EV_JOIN_TXCOMPLETE:
+        Serial.println(F("EV_JOIN_TXCOMPLETE: no JoinAccept"));
+        break;
+    default:
+        Serial.print(F("Unknown event: "));
+        Serial.println((unsigned)ev);
+        break;
     }
 }
 
-void do_send(osjob_t* j){
+void do_send(osjob_t *j)
+{
     // Check if there is not a current TX/RX job running
-    if (LMIC.opmode & OP_TXRXPEND) {
+    if (LMIC.opmode & OP_TXRXPEND)
+    {
         Serial.println(F("OP_TXRXPEND, not sending"));
-    } else {
+    }
+    else
+    {
         // read the temperature from the DHT22
         float temperature = dht.readTemperature();
-        Serial.print("Temperature: "); Serial.print(temperature);
+        Serial.print("Temperature: ");
+        Serial.print(temperature);
         Serial.println(" *C");
         // adjust for the f2sflt16 range (-1 to 1)
         temperature = temperature / 100;
@@ -223,14 +237,16 @@ void do_send(osjob_t* j){
         // transmit on port 1 (the first parameter); you can use any value from 1 to 223 (others are reserved).
         // don't request an ack (the last parameter, if not zero, requests an ack from the network).
         // Remember, acks consume a lot of network resources; don't ask for an ack unless you really need it.
-        LMIC_setTxData2(1, payload, sizeof(payload)-1, 0);
+        LMIC_setTxData2(1, payload, sizeof(payload) - 1, 0);
     }
     // Next TX is scheduled after TX_COMPLETE event.
 }
 
-void setup() {
+void setup()
+{
     delay(5000);
-    while (!Serial);
+    while (!Serial)
+        ;
     Serial.begin(115200);
     delay(100);
     Serial.println(F("Starting"));
@@ -249,11 +265,12 @@ void setup() {
     uint8_t nwkskey[sizeof(NWKSKEY)];
     memcpy_P(appskey, APPSKEY, sizeof(APPSKEY));
     memcpy_P(nwkskey, NWKSKEY, sizeof(NWKSKEY));
-    LMIC_setSession (0x13, DEVADDR, nwkskey, appskey);
+    LMIC_setSession(0x13, DEVADDR, nwkskey, appskey);
 
     // We'll disable all 72 channels used by TTN
-    for (int c = 0; c < 72; c++){
-      LMIC_disableChannel(c);
+    for (int c = 0; c < 72; c++)
+    {
+        LMIC_disableChannel(c);
     }
 
     // We'll only enable Channel 16 (905.5Mhz) since we're transmitting on a single-channel
@@ -266,12 +283,13 @@ void setup() {
     LMIC.dn2Dr = DR_SF9;
 
     // Set data rate and transmit power for uplink
-    LMIC_setDrTxpow(DR_SF7,14);
+    LMIC_setDrTxpow(DR_SF7, 14);
 
     // Start job
     do_send(&sendjob);
 }
 
-void loop() {
-  os_runloop_once();
+void loop()
+{
+    os_runloop_once();
 }
