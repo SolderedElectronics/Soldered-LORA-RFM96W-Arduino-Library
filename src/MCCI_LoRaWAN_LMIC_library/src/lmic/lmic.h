@@ -709,7 +709,7 @@ struct lmic_saved_adr_state_s
                           // This is just the radio's idea of power. So if you are
                           // controlling EIRP, and you have 3 dB antenna gain, this
                           // needs to reduced by 3 dB.
-        s1_t lbt_dbmax; // max permissible dB on our channel (eg -80)
+        s1_t lbt_dbmax;   // max permissible dB on our channel (eg -80)
 
         u1_t txChnl;         // channel for next TX
         u1_t globalDutyRate; // max rate: 1/2^k
