@@ -20,7 +20,7 @@ var searchData=
   ['lmic_5fconfig_5fpreconditions_2eh_17',['lmic_config_preconditions.h',['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic__config__preconditions_8h.html',1,'']]],
   ['lmic_5fenv_2eh_18',['lmic_env.h',['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic__env_8h.html',1,'']]],
   ['lmic_5feu_5flike_2eh_19',['lmic_eu_like.h',['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic__eu__like_8h.html',1,'']]],
-  ['lmic_5fproject_5fconfig_2eh_20',['lmic_project_config.h',['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2project__config_2lmic__project__config_8h.html',1,'(Global Namespace)'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic__project__config_8h.html',1,'(Global Namespace)']]],
+  ['lmic_5fproject_5fconfig_2eh_20',['lmic_project_config.h',['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2project__config_2lmic__project__config_8h.html',1,'']]],
   ['lmic_5fus_5flike_2eh_21',['lmic_us_like.h',['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic__us__like_8h.html',1,'']]],
   ['lmic_5futil_2eh_22',['lmic_util.h',['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic__util_8h.html',1,'']]],
   ['lorabase_2eh_23',['lorabase.h',['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html',1,'']]],
