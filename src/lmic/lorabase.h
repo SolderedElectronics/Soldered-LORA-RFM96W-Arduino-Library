@@ -713,7 +713,7 @@ enum _dr_configured_t
 #endif // LMIC_DR_LEGACY
 
 #else
-#error Unsupported configuration setting
+//#error Unsupported configuration setting
 #endif // ===================================================
 
     enum
