@@ -24,7 +24,7 @@ var searchData=
   ['lmic_5feu_5flike_2eh_21',['lmic_eu_like.h',['../lmic_2lmic__eu__like_8h.html',1,'']]],
   ['lmic_5fin866_2ec_22',['lmic_in866.c',['../lmic__in866_8c.html',1,'']]],
   ['lmic_5fkr920_2ec_23',['lmic_kr920.c',['../lmic__kr920_8c.html',1,'']]],
-  ['lmic_5fproject_5fconfig_2eh_24',['lmic_project_config.h',['../lmic__project__config_8h.html',1,'']]],
+  ['lmic_5fproject_5fconfig_2eh_24',['lmic_project_config.h',['../lmic_2lmic__project__config_8h.html',1,'']]],
   ['lmic_5fus915_2ec_25',['lmic_us915.c',['../lmic__us915_8c.html',1,'']]],
   ['lmic_5fus_5flike_2ec_26',['lmic_us_like.c',['../lmic__us__like_8c.html',1,'']]],
   ['lmic_5fus_5flike_2eh_27',['lmic_us_like.h',['../lmic_2lmic__us__like_8h.html',1,'']]],
