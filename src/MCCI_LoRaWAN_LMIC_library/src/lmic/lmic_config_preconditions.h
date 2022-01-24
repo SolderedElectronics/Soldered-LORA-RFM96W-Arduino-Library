@@ -55,7 +55,7 @@ Revision history:
 //
 // otherwise the lmic_project_config.h from the ../../project_config directory will be used.
 #ifndef ARDUINO_LMIC_PROJECT_CONFIG_H
-#define ARDUINO_LMIC_PROJECT_CONFIG_H lmic_project_config.h
+#define ARDUINO_LMIC_PROJECT_CONFIG_H ../../project_config/lmic_project_config.h
 #endif
 
 #define CFG_TEXT_1(x) CFG_TEXT_2(x)
