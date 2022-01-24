@@ -44,7 +44,6 @@ var files_dup =
     [ "MCCI_LoRaWAN_LMIC_library/src/lmic/lmic_eu_like.h", "_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic__eu__like_8h.html", "_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic__eu__like_8h" ],
     [ "lmic/lmic_project_config.h", "lmic_2lmic__project__config_8h.html", null ],
     [ "MCCI_LoRaWAN_LMIC_library/project_config/lmic_project_config.h", "_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2project__config_2lmic__project__config_8h.html", null ],
-    [ "MCCI_LoRaWAN_LMIC_library/src/lmic/lmic_project_config.h", "_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic__project__config_8h.html", null ],
     [ "lmic/lmic_us_like.h", "lmic_2lmic__us__like_8h.html", "lmic_2lmic__us__like_8h" ],
     [ "MCCI_LoRaWAN_LMIC_library/src/lmic/lmic_us_like.h", "_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic__us__like_8h.html", "_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic__us__like_8h" ],
     [ "lmic/lmic_util.h", "lmic_2lmic__util_8h.html", "lmic_2lmic__util_8h" ],
