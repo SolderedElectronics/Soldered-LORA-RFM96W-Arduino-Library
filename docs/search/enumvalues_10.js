@@ -1,12 +1,19 @@
 var searchData=
 [
-  ['sf10_0',['SF10',['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942a5d3fa41ffec0e56aeedd1cbdae5edc6f',1,'SF10():&#160;lorabase.h'],['../lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942a5d3fa41ffec0e56aeedd1cbdae5edc6f',1,'SF10():&#160;lorabase.h']]],
-  ['sf11_1',['SF11',['../lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942a632f797fa2870d292d02289550188b03',1,'SF11():&#160;lorabase.h'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942a632f797fa2870d292d02289550188b03',1,'SF11():&#160;lorabase.h']]],
-  ['sf12_2',['SF12',['../lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942a39aa6139e9e6aa23104f56225d667c85',1,'SF12():&#160;lorabase.h'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942a39aa6139e9e6aa23104f56225d667c85',1,'SF12():&#160;lorabase.h']]],
-  ['sf7_3',['SF7',['../lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942ace0573e0f4530c3749e6dbd1f465c0dc',1,'SF7():&#160;lorabase.h'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942ace0573e0f4530c3749e6dbd1f465c0dc',1,'SF7():&#160;lorabase.h']]],
-  ['sf8_4',['SF8',['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942acd9636e6b0a580e09fd1f40503719f7b',1,'SF8():&#160;lorabase.h'],['../lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942acd9636e6b0a580e09fd1f40503719f7b',1,'SF8():&#160;lorabase.h']]],
-  ['sf9_5',['SF9',['../lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942ad942ff07779feb519de652c0b6684414',1,'SF9():&#160;lorabase.h'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942ad942ff07779feb519de652c0b6684414',1,'SF9():&#160;lorabase.h']]],
-  ['sfrfu_6',['SFrfu',['../lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942a055fdb632a57bd23e1058b61b11bfd6c',1,'SFrfu():&#160;lorabase.h'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942a055fdb632a57bd23e1058b61b11bfd6c',1,'SFrfu():&#160;lorabase.h']]],
-  ['snr_5fscaleup_7',['SNR_SCALEUP',['../lmic_2lorabase_8h.html#a85c7862086c1f92e4fb4108e176d8140acf589dcb5e64588208c4dfd43d246478',1,'SNR_SCALEUP():&#160;lorabase.h'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#a5bc6c193b77b15ca30bb8821799616e3acf589dcb5e64588208c4dfd43d246478',1,'SNR_SCALEUP():&#160;lorabase.h']]],
-  ['std_5fpreamble_5flen_8',['STD_PREAMBLE_LEN',['../lmic_2lorabase_8h.html#a7ff5f2dff38e7639981794c43dc9167bab064f76a6b177447b83e4a4de0d234bd',1,'STD_PREAMBLE_LEN():&#160;lorabase.h'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#a4eeeead548222804e141df8f1b205ca8ab064f76a6b177447b83e4a4de0d234bd',1,'STD_PREAMBLE_LEN():&#160;lorabase.h']]]
+  ['sf10_0',['SF10',['../lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942a5d3fa41ffec0e56aeedd1cbdae5edc6f',1,'lorabase.h']]],
+  ['sf11_1',['SF11',['../lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942a632f797fa2870d292d02289550188b03',1,'lorabase.h']]],
+  ['sf12_2',['SF12',['../lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942a39aa6139e9e6aa23104f56225d667c85',1,'lorabase.h']]],
+  ['sf7_3',['SF7',['../lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942ace0573e0f4530c3749e6dbd1f465c0dc',1,'lorabase.h']]],
+  ['sf8_4',['SF8',['../lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942acd9636e6b0a580e09fd1f40503719f7b',1,'lorabase.h']]],
+  ['sf9_5',['SF9',['../lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942ad942ff07779feb519de652c0b6684414',1,'lorabase.h']]],
+  ['sfrfu_6',['SFrfu',['../lorabase_8h.html#accbbf81b89fb64feb333a36a5eccb942a055fdb632a57bd23e1058b61b11bfd6c',1,'lorabase.h']]],
+  ['snr_5fscaleup_7',['SNR_SCALEUP',['../lorabase_8h.html#abc3975f01f66a098a347a8262ff103e5acf589dcb5e64588208c4dfd43d246478',1,'lorabase.h']]],
+  ['spi_5f10_5f5mhz_8',['SPI_10_5MHZ',['../_s_t_m32_arduino_compat_2_hardware_s_p_i_8h.html#aa778307b2af3fee751838e73f501012eac96226c0dae563cf286e4d3cd7ee75e8',1,'HardwareSPI.h']]],
+  ['spi_5f1_5f3125mhz_9',['SPI_1_3125MHZ',['../_s_t_m32_arduino_compat_2_hardware_s_p_i_8h.html#aa778307b2af3fee751838e73f501012eac2cdc74ee1d594e4be3e0638b664b5f6',1,'HardwareSPI.h']]],
+  ['spi_5f21_5f0mhz_10',['SPI_21_0MHZ',['../_s_t_m32_arduino_compat_2_hardware_s_p_i_8h.html#aa778307b2af3fee751838e73f501012ea19d3245f14a408ab0efe15d2d86535ee',1,'HardwareSPI.h']]],
+  ['spi_5f2_5f625mhz_11',['SPI_2_625MHZ',['../_s_t_m32_arduino_compat_2_hardware_s_p_i_8h.html#aa778307b2af3fee751838e73f501012eae5472f5f2a4fbf5916560f411ba6383a',1,'HardwareSPI.h']]],
+  ['spi_5f328_5f125khz_12',['SPI_328_125KHZ',['../_s_t_m32_arduino_compat_2_hardware_s_p_i_8h.html#aa778307b2af3fee751838e73f501012ea3bdae9b978da50e19b598e291e7685d4',1,'HardwareSPI.h']]],
+  ['spi_5f5_5f25mhz_13',['SPI_5_25MHZ',['../_s_t_m32_arduino_compat_2_hardware_s_p_i_8h.html#aa778307b2af3fee751838e73f501012ea19c5e194bc0adce9e53d24aa9c43260a',1,'HardwareSPI.h']]],
+  ['spi_5f656_5f25khz_14',['SPI_656_25KHZ',['../_s_t_m32_arduino_compat_2_hardware_s_p_i_8h.html#aa778307b2af3fee751838e73f501012ea41443158f8ae2643762aada553fd608b',1,'HardwareSPI.h']]],
+  ['std_5fpreamble_5flen_15',['STD_PREAMBLE_LEN',['../lorabase_8h.html#a0944a4353780132eeab7b06e3e42291dab064f76a6b177447b83e4a4de0d234bd',1,'lorabase.h']]]
 ];

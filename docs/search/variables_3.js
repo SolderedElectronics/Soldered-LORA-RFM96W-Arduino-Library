@@ -1,24 +1,11 @@
 var searchData=
 [
-  ['databeg_0',['dataBeg',['../structlmic__t.html#aa825bc6cc186c37bbfe14479ef3383d2',1,'lmic_t']]],
-  ['datalen_1',['dataLen',['../structlmic__t.html#a5f08f3315ff7d86ba97421a7b059e5ad',1,'lmic_t']]],
-  ['datarate_2',['datarate',['../structlmic__t.html#a937999f8add7e13e29acdf8e0ab18218',1,'lmic_t']]],
-  ['deadline_3',['deadline',['../structosjob__t.html#a6cde88632404398f0df812e4e525fad3',1,'osjob_t']]],
-  ['decl_5fon_5flmic_5fevent_4',['DECL_ON_LMIC_EVENT',['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic_8h.html#aa911fc455cc4d2f9683c3adf69d15a58',1,'DECL_ON_LMIC_EVENT():&#160;lmic.h'],['../lmic_2lmic_8h.html#aa911fc455cc4d2f9683c3adf69d15a58',1,'DECL_ON_LMIC_EVENT():&#160;lmic.h']]],
-  ['declare_5flmic_5',['DECLARE_LMIC',['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic_8h.html#aea6c09d9ff0c2aea47e79e51ca8553c6',1,'DECLARE_LMIC():&#160;lmic.h'],['../lmic_2lmic_8h.html#aea6c09d9ff0c2aea47e79e51ca8553c6',1,'DECLARE_LMIC():&#160;lmic.h']]],
-  ['define_5flmic_6',['DEFINE_LMIC',['../lmic_2lmic_8c.html#a23a7f7fb605f562c494cdf86c14aad89',1,'lmic.c']]],
-  ['devaddr_7',['devaddr',['../structlmic__t.html#aa19e9a74c8d3b9b7ad97498351b78626',1,'lmic_t']]],
-  ['devansmargin_8',['devAnsMargin',['../structlmic__t.html#ae9c8335ba4f934f13c2d64da67296736',1,'lmic_t']]],
-  ['devnonce_9',['devNonce',['../structlmic__t.html#a58bb2c1a762f3c61ac4a2c9b928ea5e3',1,'lmic_t']]],
-  ['devstatusans_5fbattery_10',['devStatusAns_battery',['../structlmic__client__data__s.html#aaff5a5cfdea91338fada1276a01f8695',1,'lmic_client_data_s']]],
-  ['dio_11',['dio',['../struct_arduino___l_m_i_c_1_1_hal_pinmap__t.html#ac1de85d41b9c7a42972ed299df30d17c',1,'Arduino_LMIC::HalPinmap_t']]],
-  ['dio_5fstates_12',['dio_states',['../hal_8cpp.html#a8d89865d31633753e13549b91f2c82e1',1,'hal.cpp']]],
-  ['dn2ans_13',['dn2Ans',['../structlmic__t.html#a7a9509bdaf6ae6576e4f627945643d22',1,'lmic_t']]],
-  ['dn2dr_14',['dn2Dr',['../structlmic__t.html#ac6e6a97e0c6104cb5d7c9fede6881f17',1,'lmic_t']]],
-  ['dn2freq_15',['dn2Freq',['../structlmic__t.html#a5cf73985a55435ed7af737109d5e50ac',1,'lmic_t']]],
-  ['dnconf_16',['dnConf',['../structlmic__t.html#ae6746b7a219a75becf3b80082e1a2f25',1,'lmic_t']]],
-  ['dndr_17',['dndr',['../structlmic__t.html#ad7ec28f3f026bed438552e2a27af3a16',1,'lmic_t']]],
-  ['downlinkcount_18',['downlinkCount',['../structlmic__compliance__s.html#a6c32239d627eb1017db210bd202808bc',1,'lmic_compliance_s']]],
-  ['dr_19',['dr',['../structrxsched__t.html#ae764b9c56b44625c75293e38c2032dbf',1,'rxsched_t']]],
-  ['drift_20',['drift',['../structlmic__t.html#a6a7a7bebdbe6e219de9fecf4abbd391c',1,'lmic_t']]]
+  ['channeldlfreq_0',['channelDlFreq',['../structlmic__t.html#afdb5e0503823c356d0cd656399c04161',1,'lmic_t']]],
+  ['channeldrmap_1',['channelDrMap',['../structlmic__t.html#add4010c91e9306ff377222a17ff5522e',1,'lmic_t']]],
+  ['channelfreq_2',['channelFreq',['../structlmic__saved__adr__state__s.html#a19061542cd60d1f3f1d5a3476b9d36c9',1,'lmic_saved_adr_state_s::channelFreq()'],['../structlmic__t.html#a9b045a9c0fcdf732c41c4c091c23334a',1,'lmic_t::channelFreq()']]],
+  ['channelmap_3',['channelMap',['../structlmic__saved__adr__state__s.html#ac71cf4e9ef77df5ac72ed6716ebc7a17',1,'lmic_saved_adr_state_s::channelMap()'],['../structlmic__t.html#a036ac55ef528cbe41b27be3c1aba62a7',1,'lmic_t::channelMap()']]],
+  ['channelshufflemap_4',['channelShuffleMap',['../structlmic__t.html#a8d9c5fc234b3efad12e23766f93231c4',1,'lmic_t']]],
+  ['client_5',['client',['../structlmic__t.html#a6315d28b58103302f68ccd0317b1875f',1,'lmic_t']]],
+  ['clockerror_6',['clockError',['../structlmic__client__data__s.html#a56aa354cf42b6424996b027c24411baa',1,'lmic_client_data_s']]],
+  ['custom_5fhal_5ffailure_5fhandler_7',['custom_hal_failure_handler',['../hal_8cpp.html#a01a907bffdf3fc4a37fb2dcfa6a17dd5',1,'hal.cpp']]]
 ];

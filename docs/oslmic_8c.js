@@ -12,7 +12,7 @@ var oslmic_8c =
     [ "os_setTimedCallback", "oslmic_8c.html#abbbf755aa8b114824808030657c8b3f0", null ],
     [ "unlinkjob", "oslmic_8c.html#a02d5a7c0bdbb7b8dd3a8f6008378e266", null ],
     [ "lmic_pins", "oslmic_8c.html#a2acda911215f31f081ed0da7598fa190", null ],
-    [ "OS", "oslmic_8c.html#abda3279aac90b0a47908a31769ce3f4d", null ],
+    [ "OS", "oslmic_8c.html#a35978d55781a993e1a80796427b05fc6", null ],
     [ "runnablejobs", "oslmic_8c.html#a7abfc5fefaf19145d1658044cffa3382", null ],
     [ "scheduledjobs", "oslmic_8c.html#ae93da42f6dadc0a5f8bd9faff87e0163", null ]
 ];

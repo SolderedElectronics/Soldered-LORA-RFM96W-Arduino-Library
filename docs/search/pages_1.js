@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bug_20list_0',['Bug List',['../bug.html',1,'']]]
+  ['lora_20rfm96w_20arduino_20library_0',['LoRa RFM96W Arduino library',['../index.html',1,'']]]
 ];

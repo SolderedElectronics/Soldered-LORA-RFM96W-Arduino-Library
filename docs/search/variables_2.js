@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['channeldlfreq_0',['channelDlFreq',['../structlmic__t.html#a6e2e3ee0d5afaaedcb04132d583bbe78',1,'lmic_t']]],
-  ['channeldrmap_1',['channelDrMap',['../structlmic__t.html#a604193eed909a6b2cb84a88b3b9d99da',1,'lmic_t']]],
-  ['channelfreq_2',['channelFreq',['../structlmic__saved__adr__state__s.html#a83e48e2f8afbed79bc695b57fadcf748',1,'lmic_saved_adr_state_s::channelFreq()'],['../structlmic__t.html#a6100d21feb879ca541de6ad878bbf26c',1,'lmic_t::channelFreq()']]],
-  ['channelmap_3',['channelMap',['../structlmic__saved__adr__state__s.html#ac71cf4e9ef77df5ac72ed6716ebc7a17',1,'lmic_saved_adr_state_s::channelMap()'],['../structlmic__t.html#a036ac55ef528cbe41b27be3c1aba62a7',1,'lmic_t::channelMap()']]],
-  ['channelshufflemap_4',['channelShuffleMap',['../structlmic__t.html#a8d9c5fc234b3efad12e23766f93231c4',1,'lmic_t']]],
-  ['client_5',['client',['../structlmic__t.html#a6315d28b58103302f68ccd0317b1875f',1,'lmic_t']]],
-  ['clockerror_6',['clockError',['../structlmic__client__data__s.html#a56aa354cf42b6424996b027c24411baa',1,'lmic_client_data_s']]],
-  ['custom_5fhal_5ffailure_5fhandler_7',['custom_hal_failure_handler',['../hal_8cpp.html#a01a907bffdf3fc4a37fb2dcfa6a17dd5',1,'hal.cpp']]]
+  ['bands_0',['bands',['../structlmic__t.html#a48abf7c05e732534e7a4b543bea79c19',1,'lmic_t']]],
+  ['bcnchnl_1',['bcnChnl',['../structlmic__t.html#a7dfdc877f11742a9c6cf958beae2e1e0',1,'lmic_t']]],
+  ['bcninfo_2',['bcninfo',['../structlmic__t.html#a24b396140ced1460bddfd8ca456cecfa',1,'lmic_t']]],
+  ['bcninfotries_3',['bcninfoTries',['../structlmic__t.html#a94b876f55ced1882ab9e21e56a074b71',1,'lmic_t']]],
+  ['bcnrxsyms_4',['bcnRxsyms',['../structlmic__t.html#aaa269239c038b3d5e8bdcda473beb0e2',1,'lmic_t']]],
+  ['bcnrxtime_5',['bcnRxtime',['../structlmic__t.html#a7f8d51e37ad906a94d86832ef89dc895',1,'lmic_t']]],
+  ['bitorder_6',['bitOrder',['../class_hardware_s_p_i.html#ae60d62d2d5270dc067004f5b49d4af00',1,'HardwareSPI']]],
+  ['blocksize_7',['blockSize',['../struct_r_h_encrypted_driver_1_1_cipher_blocks.html#a0064943af4e8acf5bacd6e9ed406efa5',1,'RHEncryptedDriver::CipherBlocks']]]
 ];

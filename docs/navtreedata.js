@@ -25,59 +25,15 @@
 var NAVTREE =
 [
   [ "LoRa RFM96W Arduino library", "index.html", [
-    [ "Radio Driver parameters", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html", [
+    [ "packingdata", "packingdata.html", null ],
+    [ "Bug List", "bug.html", null ],
+    [ "Namespaces", "namespaces.html", [
       [ "Repository Contents", "index.html#autotoc_md1", null ],
       [ "Hardware design", "index.html#autotoc_md2", null ],
       [ "Documentation", "index.html#autotoc_md3", null ],
       [ "About Soldered", "index.html#autotoc_md4", null ],
       [ "Original source", "index.html#autotoc_md5", null ],
       [ "Open-source license", "index.html#autotoc_md6", null ],
-      [ "Radio Driver Operation", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md8", [
-        [ "<tt>os_radio(RADIO_RST)</tt>", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md9", null ],
-        [ "<tt>os_radio(RADIO_TX)</tt>", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md10", null ],
-        [ "<tt>os_radio(RADIO_RX)</tt>", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md11", null ],
-        [ "<tt>os_radio(RADIO_RXON)</tt>", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md12", null ],
-        [ "<tt>os_radio(RADIO_TX_AT)</tt>", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md13", null ]
-      ] ],
-      [ "Common parameters", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md14", [
-        [ "<tt>LMIC.rps</tt> (IN)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md15", null ],
-        [ "<tt>LMIC.freq</tt> (IN)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md16", null ],
-        [ "<tt>LMIC.saveIrqFlags</tt> (OUT)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md17", null ],
-        [ "<tt>LMIC.osjob</tt> (IN/OUT)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md18", null ]
-      ] ],
-      [ "Transmit parameters", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md19", [
-        [ "<tt>LMIC.radio_txpow</tt> (IN)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md20", null ],
-        [ "<tt>LMIC.frame[]</tt> (IN)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md21", null ],
-        [ "<tt>LMIC.datalen</tt> (IN)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md22", null ],
-        [ "<tt>LMIC.txend</tt> (IN, OUT)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md23", null ]
-      ] ],
-      [ "Receive parameters", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md24", [
-        [ "<tt>LMIC.frame[]</tt> (OUT)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md25", null ],
-        [ "<tt>LMIC.datalen</tt> (OUT)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md26", null ],
-        [ "<tt>LMIC.rxtime</tt> (IN/OUT)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md27", null ],
-        [ "<tt>LMIC.lbt_ticks</tt> (IN)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md28", null ],
-        [ "<tt>LMIC.lbt_dbmax</tt> (IN)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md29", null ],
-        [ "<tt>LMIC.rxsyms</tt> (IN)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md30", null ],
-        [ "<tt>LMIC.noRXIQinversion</tt> (IN)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md31", null ],
-        [ "<tt>LMIC.snr</tt> (OUT)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md32", null ],
-        [ "<tt>LMIC.rssi</tt> (OUT)", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md33", null ]
-      ] ]
-    ] ],
-    [ "Adding a new region to Arduino LMIC", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library__h_o_w_t_o__a_d_d__r_e_g_i_o_n.html", [
-      [ "Planning", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library__h_o_w_t_o__a_d_d__r_e_g_i_o_n.html#autotoc_md41", [
-        [ "Determine the region/region category", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library__h_o_w_t_o__a_d_d__r_e_g_i_o_n.html#autotoc_md42", null ],
-        [ "Check whether the region is already listed in <tt>lmic_config_preconditions.h</tt>", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library__h_o_w_t_o__a_d_d__r_e_g_i_o_n.html#autotoc_md43", null ]
-      ] ],
-      [ "Make the appropriate changes in <tt>lmic_config_preconditions.h</tt>", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library__h_o_w_t_o__a_d_d__r_e_g_i_o_n.html#autotoc_md44", null ],
-      [ "Document your region in <tt>README.md</tt>", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library__h_o_w_t_o__a_d_d__r_e_g_i_o_n.html#autotoc_md45", null ],
-      [ "Add the definitions for your region in <tt>lorabase.h</tt>", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library__h_o_w_t_o__a_d_d__r_e_g_i_o_n.html#autotoc_md46", null ],
-      [ "Edit <tt>lmic_bandplan.h</tt>", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library__h_o_w_t_o__a_d_d__r_e_g_i_o_n.html#autotoc_md47", null ],
-      [ "Create <code>lmic_<em>newregion</em>.c</code>", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library__h_o_w_t_o__a_d_d__r_e_g_i_o_n.html#autotoc_md48", null ],
-      [ "General Discussion", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library__h_o_w_t_o__a_d_d__r_e_g_i_o_n.html#autotoc_md49", null ],
-      [ "Adding the region to the Arduino_LoRaWAN library", "md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library__h_o_w_t_o__a_d_d__r_e_g_i_o_n.html#autotoc_md50", null ]
-    ] ],
-    [ "Bug List", "bug.html", null ],
-    [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
@@ -93,8 +49,8 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", null ]
       ] ]
@@ -109,30 +65,26 @@ var NAVTREE =
         [ "Enumerations", "globals_enum.html", null ],
         [ "Enumerator", "globals_eval.html", "globals_eval" ]
       ] ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
 "_a_e_s-128___v10_8cpp.html",
-"_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lmic__bandplan__au915_8h.html#aa709160f8bbad476dc6d455608bde45b",
-"_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#aaaf1b490270e0d46bc6b527d6c76cd0fa5fcbcd8fc726fcee63eb842870917cd1",
-"_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#aaaf1b490270e0d46bc6b527d6c76cd0fa959e6b66c0f2f84a4bb1a1760bd9c403",
-"_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#aaaf1b490270e0d46bc6b527d6c76cd0fad6e68740f9a033ba987e60969e00dec3",
-"_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase__au915_8h.html#a50eae6a4b2574db3ed2a790591f3d95ba3b746de0b69ac6f9a56af210da183382",
-"arduino__lmic__hal__configuration_8h.html#ae9453cd49c92c9fa52e033882c42e9b2ab4f85051516c5085ef86dd9ea36ae937",
-"class_arduino___l_m_i_c_1_1_hal_configuration___catena4630__t.html#a96a9540642dfd6b63260fdfc326695bda66d6148f0d28707fa9d56fa06bd7007a",
-"class_arduino___l_m_i_c_1_1_hal_configuration__ttgo__lora32__v21.html#ac245acacaafe22b8beaa31db18608d8b",
+"_s_t_m32_arduino_compat_2_hardware_serial_8cpp.html#a30ab037931edc17e4ef7e58826ee0245",
+"class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428caeebb24bc82df8f53b2b341e8923ce9c2",
+"class_arduino___l_m_i_c_1_1_hal_configuration__t.html#ab61caa20f3dc87afbc67b6d772e0d09e",
+"class_r_h_encrypted_driver.html#ae5396468eb5c68a0b3a21d83d71144a6",
+"functions_func_o.html",
 "lmic_2hal_8h.html#a37c725b812794d951863a61c9cb5b6c0",
-"lmic_2lmic_8h.html#ada05726cef44892e5b49f56a9584fd2b",
-"lmic_2lorabase_8h.html#a333009c51471e3e1d2d6a2a7b7faf2b3aa3c3748aaeb085da9bef981bb5a96aab",
-"lmic_2lorabase_8h.html#aaaf1b490270e0d46bc6b527d6c76cd0fa1f3df51947149dffc14fe80656781ff7",
-"lmic_2lorabase_8h.html#aaaf1b490270e0d46bc6b527d6c76cd0fada4802edff6acf89f8139bc8ae980287",
-"lmic_2lorabase_8h.html#abbc52915bcab1480ce2cf8f40a301bc9a89b9f329085d2e8be80749ccfdd10580",
-"lmic_2oslmic_8h.html#af3098fe50f5743778892e56bbedd4331",
-"md_src__m_c_c_i__lo_ra_w_a_n__l_m_i_c_library_doc__radio_driver.html#autotoc_md22",
-"structlmic__t.html#a5ed2bdf2ee93aa05fbe962ab42b14891"
+"lmic__as923_8c.html#a4e90a43b3557b73b2e180dd8286e5aaa",
+"lmic__eu__like_8c.html#a9fc933076af9a1d1ee116cb3c3bef7ab",
+"lorabase_8h.html#aaaf1b490270e0d46bc6b527d6c76cd0fa1c5a9e4d8787ecbbb21e220b6590b168",
+"lorabase_8h.html#aaaf1b490270e0d46bc6b527d6c76cd0faecc22a3fa409fd6a919073de38ece79d",
+"oslmic_8h.html#a9cc33e211e64f0594ae9165b556b3aef",
+"structlmic__t.html#a535de851d891ac4959f650fa9efaa5c9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

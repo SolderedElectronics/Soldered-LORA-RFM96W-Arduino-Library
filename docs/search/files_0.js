@@ -6,5 +6,6 @@ var searchData=
   ['arduino_5flmic_5fhal_5fconfiguration_2eh_3',['arduino_lmic_hal_configuration.h',['../arduino__lmic__hal__configuration_8h.html',1,'']]],
   ['arduino_5flmic_5florawan_5fcompliance_2eh_4',['arduino_lmic_lorawan_compliance.h',['../arduino__lmic__lorawan__compliance_8h.html',1,'']]],
   ['arduino_5flmic_5fuser_5fconfiguration_2eh_5',['arduino_lmic_user_configuration.h',['../arduino__lmic__user__configuration_8h.html',1,'']]],
-  ['lmic_2ec_6',['lmic.c',['../aes_2lmic_8c.html',1,'']]]
+  ['atomic_2eh_6',['atomic.h',['../atomic_8h.html',1,'']]],
+  ['lmic_2ec_7',['lmic.c',['../aes_2lmic_8c.html',1,'']]]
 ];

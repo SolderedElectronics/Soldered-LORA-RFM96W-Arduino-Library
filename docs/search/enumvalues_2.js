@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['chnl_5fbcn_0',['CHNL_BCN',['../lmic_2lorabase_8h.html#a098384b0034af0daa7c9c5c82b563567a9b0e0dcd9897f36056fb3e1fe969f620',1,'CHNL_BCN():&#160;lorabase.h'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#a3ee4e9f70475f3c684c23241163781aba71ce50037b3467082e63f9083153ac3f',1,'CHNL_BCN():&#160;lorabase.h']]],
-  ['cr_5f4_5f5_1',['CR_4_5',['../lmic_2lorabase_8h.html#a20bef04134b9ca7afaf12517f3f135a7a43f3ee8c5a099f26a2b1e74ab80b5d18',1,'CR_4_5():&#160;lorabase.h'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#a20bef04134b9ca7afaf12517f3f135a7a43f3ee8c5a099f26a2b1e74ab80b5d18',1,'CR_4_5():&#160;lorabase.h']]],
-  ['cr_5f4_5f6_2',['CR_4_6',['../lmic_2lorabase_8h.html#a20bef04134b9ca7afaf12517f3f135a7a63e7039c12c59913fe195a9cda8e842e',1,'CR_4_6():&#160;lorabase.h'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#a20bef04134b9ca7afaf12517f3f135a7a63e7039c12c59913fe195a9cda8e842e',1,'CR_4_6():&#160;lorabase.h']]],
-  ['cr_5f4_5f7_3',['CR_4_7',['../lmic_2lorabase_8h.html#a20bef04134b9ca7afaf12517f3f135a7afaec525569c1f205b98228986604a943',1,'CR_4_7():&#160;lorabase.h'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#a20bef04134b9ca7afaf12517f3f135a7afaec525569c1f205b98228986604a943',1,'CR_4_7():&#160;lorabase.h']]],
-  ['cr_5f4_5f8_4',['CR_4_8',['../lmic_2lorabase_8h.html#a20bef04134b9ca7afaf12517f3f135a7ad79275b6ea8d47cac828b698617afe42',1,'CR_4_8():&#160;lorabase.h'],['../_m_c_c_i___lo_ra_w_a_n___l_m_i_c__library_2src_2lmic_2lorabase_8h.html#a20bef04134b9ca7afaf12517f3f135a7ad79275b6ea8d47cac828b698617afe42',1,'CR_4_8():&#160;lorabase.h']]]
+  ['chnl_5fbcn_0',['CHNL_BCN',['../lorabase_8h.html#aeac2de18c0ed342a690b3e2ba3c52426a9b0e0dcd9897f36056fb3e1fe969f620',1,'lorabase.h']]],
+  ['cr_5f4_5f5_1',['CR_4_5',['../lorabase_8h.html#a20bef04134b9ca7afaf12517f3f135a7a43f3ee8c5a099f26a2b1e74ab80b5d18',1,'lorabase.h']]],
+  ['cr_5f4_5f6_2',['CR_4_6',['../lorabase_8h.html#a20bef04134b9ca7afaf12517f3f135a7a63e7039c12c59913fe195a9cda8e842e',1,'lorabase.h']]],
+  ['cr_5f4_5f7_3',['CR_4_7',['../lorabase_8h.html#a20bef04134b9ca7afaf12517f3f135a7afaec525569c1f205b98228986604a943',1,'lorabase.h']]],
+  ['cr_5f4_5f8_4',['CR_4_8',['../lorabase_8h.html#a20bef04134b9ca7afaf12517f3f135a7ad79275b6ea8d47cac828b698617afe42',1,'lorabase.h']]]
 ];
