@@ -42,7 +42,7 @@ static unsigned findNthSetBit(const uint16_t *pMask, uint16_t bitnum);
 |   Variables.
 |
 \****************************************************************************/
-
+
 /*
 
 Name:	LMIC_findNextChannel()
@@ -85,18 +85,15 @@ Notes:
 
 */
 
-int LMIC_findNextChannel(
-    uint16_t *pShuffleMask,
-    const uint16_t *pEnableMask,
-    uint16_t nEntries,
-    int lastChannel
-) {
+int LMIC_findNextChannel(uint16_t *pShuffleMask, const uint16_t *pEnableMask, uint16_t nEntries, int lastChannel)
+{
     unsigned nSet16;
     uint16_t saveLastChannelVal;
 
     // in case someone has changed the enable mask, update
     // the shuffle mask so there are no disable bits set.
-    for (unsigned i = 0; i < nEntries; ++i) {
+    for (unsigned i = 0; i < nEntries; ++i)
+    {
         pShuffleMask[i] &= pEnableMask[i];
     }
 
@@ -104,16 +101,20 @@ int LMIC_findNextChannel(
     nSet16 = sidewaysSum16(pShuffleMask, nEntries);
 
     // if zero, copy the enable mask to the shuffle mask, and recount
-    if (nSet16 == 0) {
+    if (nSet16 == 0)
+    {
         memcpy(pShuffleMask, pEnableMask, nEntries * sizeof(*pShuffleMask));
         nSet16 = sidewaysSum16(pShuffleMask, nEntries);
-    } else {
+    }
+    else
+    {
         // don't try to skip the last channel because it can't be chosen.
         lastChannel = -1;
     }
 
     // if still zero, return -1.
-    if (nSet16 == 0) {
+    if (nSet16 == 0)
+    {
         return -1;
     }
 
@@ -121,7 +122,8 @@ int LMIC_findNextChannel(
     // the last channel bit. Post condition: if we really clered a bit,
     // saveLastChannelVal will be non-zero.
     saveLastChannelVal = 0;
-    if (nSet16 > 16 && lastChannel >= 0 && lastChannel <= (int)(nEntries * 16)) {
+    if (nSet16 > 16 && lastChannel >= 0 && lastChannel <= (int)(nEntries * 16))
+    {
         uint16_t const saveLastChannelMask = (1 << (lastChannel & 0xF));
 
         saveLastChannelVal = pShuffleMask[lastChannel >> 4] & saveLastChannelMask;
@@ -132,7 +134,8 @@ int LMIC_findNextChannel(
             nSet16 -= 16;
     }
 
-    if (saveLastChannelVal == 0) {
+    if (saveLastChannelVal == 0)
+    {
         // We didn't eliminate a channel, so we don't have to worry.
         lastChannel = -1;
     }
@@ -145,18 +148,20 @@ int LMIC_findNextChannel(
     pShuffleMask[channel / 16] ^= (1 << (channel & 0xF));
 
     // handle channel skip
-    if (lastChannel >= 0) {
+    if (lastChannel >= 0)
+    {
         pShuffleMask[lastChannel >> 4] |= saveLastChannelVal;
     }
     return channel;
 }
 
-static unsigned sidewaysSum16(const uint16_t *pMask, uint16_t nEntries) {
+static unsigned sidewaysSum16(const uint16_t *pMask, uint16_t nEntries)
+{
     unsigned result;
 
     result = 0;
     for (; nEntries > 0; --nEntries, ++pMask)
-        {
+    {
         uint16_t v = *pMask;
 
         // the following is an adaptation of Knuth 7.1.3 (62). To avoid
@@ -166,37 +171,41 @@ static unsigned sidewaysSum16(const uint16_t *pMask, uint16_t nEntries) {
         // sum adjacent bits, making a series of 2-bit sums
         v = v - ((v >> 1) & 0x5555u);
         v = (v & 0x3333u) + ((v >> 2) & 0x3333u);
-        // this assumes multiplies are essentialy free; 
+        // this assumes multiplies are essentialy free;
         v = (v & 0xF0F0u) + ((v & 0x0F0Fu) * 16u);
         // Accumulate result, but note it's times 16.
         // AVR compiler should optimize the x8 shift.
         result += (v & 0xFF) + (v >> 8);
-        }
+    }
 
     //
     return result;
 }
 
-static unsigned findNthSetBit(const uint16_t *pMask, uint16_t bitnum) {
+static unsigned findNthSetBit(const uint16_t *pMask, uint16_t bitnum)
+{
     unsigned result;
     result = 0;
     bitnum = bitnum * 16;
-    for (;; result += 16) {
+    for (;; result += 16)
+    {
         uint16_t m = *pMask++;
         if (m == 0)
             continue;
         uint16_t v = m - ((m >> 1) & 0x5555u);
         v = (v & 0x3333u) + ((v >> 2) & 0x3333u);
-        // this assumes multiplies are essentialy free; 
+        // this assumes multiplies are essentialy free;
         v = (v & 0xF0F0u) + ((v & 0x0F0Fu) * 16u);
         // Accumulate result, but note it's times 16.
         // AVR compiler should optimize the x8 shift.
         v = (v & 0xFF) + (v >> 8);
         if (v <= bitnum)
             bitnum -= v;
-        else {
+        else
+        {
             // the selected bit is in this word. We need to count.
-            while (bitnum > 0) {
+            while (bitnum > 0)
+            {
                 m &= m - 1;
                 bitnum -= 16;
             }
@@ -204,11 +213,8 @@ static unsigned findNthSetBit(const uint16_t *pMask, uint16_t bitnum) {
             // get a mask, then use Knuth 7.1.3 (59) to find the
             // bit number.
             m &= -m;
-            result += ((m & 0x5555u) ? 0 : 1)
-                    + ((m & 0x3333u) ? 0 : 2)
-                    + ((m & 0x0F0Fu) ? 0 : 4)
-                    + ((m & 0x00FFu) ? 0 : 8)
-                    ;
+            result +=
+                ((m & 0x5555u) ? 0 : 1) + ((m & 0x3333u) ? 0 : 2) + ((m & 0x0F0Fu) ? 0 : 4) + ((m & 0x00FFu) ? 0 : 8);
             break;
         }
     }

@@ -1,9 +1,9 @@
 // RasPi.h
-//(9/22/2019)   Contributed by Brody M. This file is based off RHutil\RasPi.h 
+//(9/22/2019)   Contributed by Brody M. This file is based off RHutil\RasPi.h
 //              but modified for the pigpio library instead of BCM2835. Original
-//              code maintained where possible. Unused code commented out and 
-//              left in place. WiringPinMode enumeration declaration borrowed from 
-//              STM32ArduinoCompat\wirish.h. Also some enumeration declarations 
+//              code maintained where possible. Unused code commented out and
+//              left in place. WiringPinMode enumeration declaration borrowed from
+//              STM32ArduinoCompat\wirish.h. Also some enumeration declarations
 //              "borrowed" from bcm2835.h to maintain original code and for simplicity.
 
 // Routines for implementing RadioHead on Raspberry Pi
@@ -15,24 +15,24 @@
 
 #include <pigpio.h>
 
-#include <stdio.h>
-#include <string.h>
 #include <math.h>
-#include <stdlib.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 typedef unsigned char byte;
 
 #ifndef NULL
-  #define NULL 0
+#define NULL 0
 #endif
 
 #define HIGH 0x1
 #define LOW  0x0
 
-#define CHANGE 1
+#define CHANGE  1
 #define FALLING 2
-#define RISING 3
+#define RISING  3
 
 #define memcpy_P memcpy
 
@@ -43,17 +43,17 @@ typedef unsigned char byte;
 class SPIClass
 {
   public:
-    //pigpio SPI ID
-    //We need to make sure this handle can be accessed by all SPI Functions
+    // pigpio SPI ID
+    // We need to make sure this handle can be accessed by all SPI Functions
     static byte transfer(byte _data);
     // SPI Configuration methods
     static void begin(); // Default
-    //static void begin(uint32_t,uint32_t,uint32_t);
+    // static void begin(uint32_t,uint32_t,uint32_t);
     static void begin(uint16_t, uint8_t, uint8_t);
     static void end();
-    //static void setBitOrder(uint8_t);
-    //static void setDataMode(uint8_t);
-    //static void setClockDivider(uint16_t);
+    // static void setBitOrder(uint8_t);
+    // static void setDataMode(uint8_t);
+    // static void setClockDivider(uint16_t);
     static uint32_t convertClockDivider(uint16_t);
 };
 
@@ -62,15 +62,15 @@ extern SPIClass SPI;
 class SerialSimulator
 {
   public:
-    #define DEC 10
-    #define HEX 16
-    #define OCT 8
-    #define BIN 2
+#define DEC 10
+#define HEX 16
+#define OCT 8
+#define BIN 2
 
     // TODO: move these from being inlined
     static void begin(int baud);
-    static size_t println(const char* s);
-    static size_t print(const char* s);
+    static size_t println(const char *s);
+    static size_t print(const char *s);
     static size_t print(unsigned int n, int base = DEC);
     static size_t print(char ch);
     static size_t println(char ch);
@@ -82,9 +82,10 @@ extern SerialSimulator Serial;
 
 void RasPiSetup();
 
-//The WiringPinMode enumeration declaration is borrowed from STM32ArduinoCompat\wirish.h
+// The WiringPinMode enumeration declaration is borrowed from STM32ArduinoCompat\wirish.h
 
-typedef enum WiringPinMode {
+typedef enum WiringPinMode
+{
     OUTPUT, /**< Basic digital output: when the pin is HIGH, the
                voltage is held at +3.3v (Vcc) and when it is LOW, it
                is pulled down to ground. */
@@ -147,68 +148,67 @@ typedef enum WiringPinMode {
 
 void pinMode(uint8_t pin, WiringPinMode mode);
 
-//void pinMode(unsigned char pin, unsigned char mode);
+// void pinMode(unsigned char pin, unsigned char mode);
 
 void digitalWrite(unsigned char pin, unsigned char value);
 
 unsigned long millis();
 
-void delay (unsigned long delay);
+void delay(unsigned long delay);
 
 long random(long min, long max);
 
 void attachInterrupt(unsigned char pin, void (*handler)(void), int mode);
 
 
+// The following lines are borrowed from bcm2835.h, which is part of the BCM2835 library
+//(https://www.airspayce.com/mikem/bcm2835/). The original RadioHead library expects
+// BCM2835. We could eliminate this by modifying more RadioHead code, but this leaves
+// the library more "original". Another option would be to include bcm2835.h directly,
+// but this method is easier.
 
-//The following lines are borrowed from bcm2835.h, which is part of the BCM2835 library
-//(https://www.airspayce.com/mikem/bcm2835/). The original RadioHead library expects 
-//BCM2835. We could eliminate this by modifying more RadioHead code, but this leaves 
-//the library more "original". Another option would be to include bcm2835.h directly,
-//but this method is easier.
+typedef enum
+{
+    BCM2835_SPI_BIT_ORDER_LSBFIRST = 0,
+    BCM2835_SPI_BIT_ORDER_MSBFIRST = 1
+} bcm2835SPIBitOrder;
 
- typedef enum
- {
-     BCM2835_SPI_BIT_ORDER_LSBFIRST = 0,  
-     BCM2835_SPI_BIT_ORDER_MSBFIRST = 1   
- }bcm2835SPIBitOrder;
- 
- typedef enum
- {
-     BCM2835_SPI_MODE0 = 0,  
-     BCM2835_SPI_MODE1 = 1,  
-     BCM2835_SPI_MODE2 = 2,  
-     BCM2835_SPI_MODE3 = 3   
- }bcm2835SPIMode;
- 
- typedef enum
- {
-     BCM2835_SPI_CS0 = 0,     
-     BCM2835_SPI_CS1 = 1,     
-     BCM2835_SPI_CS2 = 2,     
-     BCM2835_SPI_CS_NONE = 3  
- } bcm2835SPIChipSelect;
- 
- typedef enum
- {
-     BCM2835_SPI_CLOCK_DIVIDER_65536 = 0,       
-     BCM2835_SPI_CLOCK_DIVIDER_32768 = 32768,   
-     BCM2835_SPI_CLOCK_DIVIDER_16384 = 16384,   
-     BCM2835_SPI_CLOCK_DIVIDER_8192  = 8192,    
-     BCM2835_SPI_CLOCK_DIVIDER_4096  = 4096,    
-     BCM2835_SPI_CLOCK_DIVIDER_2048  = 2048,    
-     BCM2835_SPI_CLOCK_DIVIDER_1024  = 1024,    
-     BCM2835_SPI_CLOCK_DIVIDER_512   = 512,     
-     BCM2835_SPI_CLOCK_DIVIDER_256   = 256,     
-     BCM2835_SPI_CLOCK_DIVIDER_128   = 128,     
-     BCM2835_SPI_CLOCK_DIVIDER_64    = 64,      
-     BCM2835_SPI_CLOCK_DIVIDER_32    = 32,      
-     BCM2835_SPI_CLOCK_DIVIDER_16    = 16,      
-     BCM2835_SPI_CLOCK_DIVIDER_8     = 8,       
-     BCM2835_SPI_CLOCK_DIVIDER_4     = 4,       
-     BCM2835_SPI_CLOCK_DIVIDER_2     = 2,       
-     BCM2835_SPI_CLOCK_DIVIDER_1     = 1        
- } bcm2835SPIClockDivider;
+typedef enum
+{
+    BCM2835_SPI_MODE0 = 0,
+    BCM2835_SPI_MODE1 = 1,
+    BCM2835_SPI_MODE2 = 2,
+    BCM2835_SPI_MODE3 = 3
+} bcm2835SPIMode;
+
+typedef enum
+{
+    BCM2835_SPI_CS0 = 0,
+    BCM2835_SPI_CS1 = 1,
+    BCM2835_SPI_CS2 = 2,
+    BCM2835_SPI_CS_NONE = 3
+} bcm2835SPIChipSelect;
+
+typedef enum
+{
+    BCM2835_SPI_CLOCK_DIVIDER_65536 = 0,
+    BCM2835_SPI_CLOCK_DIVIDER_32768 = 32768,
+    BCM2835_SPI_CLOCK_DIVIDER_16384 = 16384,
+    BCM2835_SPI_CLOCK_DIVIDER_8192 = 8192,
+    BCM2835_SPI_CLOCK_DIVIDER_4096 = 4096,
+    BCM2835_SPI_CLOCK_DIVIDER_2048 = 2048,
+    BCM2835_SPI_CLOCK_DIVIDER_1024 = 1024,
+    BCM2835_SPI_CLOCK_DIVIDER_512 = 512,
+    BCM2835_SPI_CLOCK_DIVIDER_256 = 256,
+    BCM2835_SPI_CLOCK_DIVIDER_128 = 128,
+    BCM2835_SPI_CLOCK_DIVIDER_64 = 64,
+    BCM2835_SPI_CLOCK_DIVIDER_32 = 32,
+    BCM2835_SPI_CLOCK_DIVIDER_16 = 16,
+    BCM2835_SPI_CLOCK_DIVIDER_8 = 8,
+    BCM2835_SPI_CLOCK_DIVIDER_4 = 4,
+    BCM2835_SPI_CLOCK_DIVIDER_2 = 2,
+    BCM2835_SPI_CLOCK_DIVIDER_1 = 1
+} bcm2835SPIClockDivider;
 
 
 #endif

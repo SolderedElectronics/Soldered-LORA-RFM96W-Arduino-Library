@@ -7,33 +7,30 @@
 // This can only build on Linux and compatible systems
 // Caution also requires Lora-file-ops driver to be installed
 // See https://github.com/starnight/LoRa/tree/file-ops
-#if (RH_PLATFORM == RH_PLATFORM_UNIX) 
+#if (RH_PLATFORM == RH_PLATFORM_UNIX)
 
-#include <unistd.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <sys/select.h>
+#include <unistd.h>
 
-RH_LoRaFileOps::RH_LoRaFileOps(const char* port)
-    :
-    _port(port),
-    _fd(-1)
+RH_LoRaFileOps::RH_LoRaFileOps(const char *port) : _port(port), _fd(-1)
 {
 }
 
 bool RH_LoRaFileOps::init()
 {
     if (!RHGenericDriver::init())
-	return false;
+        return false;
 
     _fd = open(_port, O_RDWR);
     if (_fd == -1)
     {
-	Serial.print("RH_LoRaFileOps::init LORA device port open failed: ");
-	Serial.println(strerror(errno));
-	return false;
+        Serial.print("RH_LoRaFileOps::init LORA device port open failed: ");
+        Serial.println(strerror(errno));
+        return false;
     }
-  
+
     // These settings are compatible with RH_RF95::Bw125Cr45Sf2048 and the other defaults
     // for RH_RF95
     setFrequency(434000000);
@@ -53,21 +50,22 @@ bool RH_LoRaFileOps::available()
     struct timeval tv = {.tv_sec = 0, .tv_usec = 0};
     FD_ZERO(&read_fds);
     FD_SET(_fd, &read_fds);
-    if (select(_fd+1, &read_fds, NULL, NULL, &tv) == -1)
+    if (select(_fd + 1, &read_fds, NULL, NULL, &tv) == -1)
     {
-	Serial.println("Select failed");
-	return false;
+        Serial.println("Select failed");
+        return false;
     }
-  
+
     return FD_ISSET(_fd, &read_fds) ? true : false;
-    
 }
 
-bool RH_LoRaFileOps::recv(uint8_t* buf, uint8_t* len)
+bool RH_LoRaFileOps::recv(uint8_t *buf, uint8_t *len)
 {
-    if (_fd == -1) return false;
+    if (_fd == -1)
+        return false;
 
-    if (!available()) return false;
+    if (!available())
+        return false;
 
     // Read the available packet from the driver
     uint8_t readbuf[RH_LORAFILEOPS_MAX_PAYLOAD_LEN];
@@ -79,42 +77,39 @@ bool RH_LoRaFileOps::recv(uint8_t* buf, uint8_t* len)
     _lastSNR = getSNR();
 
     // Remember the RSSI of this packet, LORA mode
-    // This figure has already been massaged by the driver 
+    // This figure has already been massaged by the driver
     _lastRssi = getRSSI();
 
     // Test if its really for us
     if (sz < 4)
-	return false; // Too short to be a real message
+        return false; // Too short to be a real message
     // Extract the 4 headers
-    _rxHeaderTo    = readbuf[0];
-    _rxHeaderFrom  = readbuf[1];
-    _rxHeaderId    = readbuf[2];
+    _rxHeaderTo = readbuf[0];
+    _rxHeaderFrom = readbuf[1];
+    _rxHeaderId = readbuf[2];
     _rxHeaderFlags = readbuf[3];
-    if (_promiscuous ||
-	_rxHeaderTo == _thisAddress ||
-	_rxHeaderTo == RH_BROADCAST_ADDRESS)
+    if (_promiscuous || _rxHeaderTo == _thisAddress || _rxHeaderTo == RH_BROADCAST_ADDRESS)
     {
-	// Yes its for us
-	// Skip the 4 headers that are at the beginning of the rxBuf
-	if (*len > (sz - RH_LORAFILEOPS_HEADER_LEN))
-	    *len = sz - RH_LORAFILEOPS_HEADER_LEN;
-	memcpy(buf, readbuf + RH_LORAFILEOPS_HEADER_LEN, *len);
-	Serial.println("recv OK");
-	return true;
+        // Yes its for us
+        // Skip the 4 headers that are at the beginning of the rxBuf
+        if (*len > (sz - RH_LORAFILEOPS_HEADER_LEN))
+            *len = sz - RH_LORAFILEOPS_HEADER_LEN;
+        memcpy(buf, readbuf + RH_LORAFILEOPS_HEADER_LEN, *len);
+        Serial.println("recv OK");
+        return true;
     }
 
     // Not for us
     return false;
-  
-    
 }
 
-bool RH_LoRaFileOps::send(const uint8_t* data, uint8_t len)
+bool RH_LoRaFileOps::send(const uint8_t *data, uint8_t len)
 {
-    if (_fd == -1) return false;
+    if (_fd == -1)
+        return false;
 
     if (len > RH_LORAFILEOPS_MAX_MESSAGE_LEN)
-	return false;
+        return false;
 
     // Should never need to wait for a packet to be sent since the driver always
     // waits before returning from write
@@ -127,14 +122,14 @@ bool RH_LoRaFileOps::send(const uint8_t* data, uint8_t len)
     buf[1] = _txHeaderFrom;
     buf[2] = _txHeaderId;
     buf[3] = _txHeaderFlags;
-    memcpy(buf+4, data, len);
+    memcpy(buf + 4, data, len);
 
     // Send the message to the driver
-  
+
     ssize_t sz;
     // Returns when the packet has been transmtted:
-    sz = write(_fd, buf, len+RH_LORAFILEOPS_HEADER_LEN);
-    return sz == len+RH_LORAFILEOPS_HEADER_LEN;
+    sz = write(_fd, buf, len + RH_LORAFILEOPS_HEADER_LEN);
+    return sz == len + RH_LORAFILEOPS_HEADER_LEN;
 }
 
 uint8_t RH_LoRaFileOps::maxMessageLength()
@@ -144,7 +139,8 @@ uint8_t RH_LoRaFileOps::maxMessageLength()
 
 bool RH_LoRaFileOps::setFrequency(uint32_t centre)
 {
-    if (_fd == -1) return false;
+    if (_fd == -1)
+        return false;
 
     ioctl(_fd, LORA_SET_FREQUENCY, &centre);
     return true; // FIXME??
@@ -152,7 +148,8 @@ bool RH_LoRaFileOps::setFrequency(uint32_t centre)
 
 uint32_t RH_LoRaFileOps::getFrequency()
 {
-    if (_fd == -1) return 0;
+    if (_fd == -1)
+        return 0;
 
     uint32_t freq;
     ioctl(_fd, LORA_GET_FREQUENCY, &freq);
@@ -161,14 +158,16 @@ uint32_t RH_LoRaFileOps::getFrequency()
 
 void RH_LoRaFileOps::setTxPower(int32_t power)
 {
-    if (_fd == -1) return;
+    if (_fd == -1)
+        return;
 
     ioctl(_fd, LORA_SET_POWER, &power);
 }
 
 int32_t RH_LoRaFileOps::getTxPower()
 {
-    if (_fd == -1) return 0;
+    if (_fd == -1)
+        return 0;
 
     int32_t power;
     ioctl(_fd, LORA_GET_POWER, &power);
@@ -177,14 +176,16 @@ int32_t RH_LoRaFileOps::getTxPower()
 
 void RH_LoRaFileOps::setState(uint32_t state)
 {
-    if (_fd == -1) return;
+    if (_fd == -1)
+        return;
 
     ioctl(_fd, LORA_SET_STATE, &state);
 }
 
 uint32_t RH_LoRaFileOps::getState()
 {
-    if (_fd == -1) return LORA_STATE_SLEEP;
+    if (_fd == -1)
+        return LORA_STATE_SLEEP;
 
     uint32_t state;
     ioctl(_fd, LORA_GET_STATE, &state);
@@ -198,7 +199,8 @@ void RH_LoRaFileOps::setSpreadingFactor(int32_t sf)
 
 int32_t RH_LoRaFileOps::getSpreadingFactor()
 {
-    if (_fd == -1) return 0;
+    if (_fd == -1)
+        return 0;
 
     uint32_t sprf;
     ioctl(_fd, LORA_GET_SPRFACTOR, &sprf);
@@ -208,7 +210,8 @@ int32_t RH_LoRaFileOps::getSpreadingFactor()
 // This gets the raw RSSI figure. Its not adjusted to dBm
 int32_t RH_LoRaFileOps::getRSSI()
 {
-    if (_fd == -1) return 0;
+    if (_fd == -1)
+        return 0;
 
     int32_t rssi;
     ioctl(_fd, LORA_GET_RSSI, &rssi);
@@ -218,7 +221,8 @@ int32_t RH_LoRaFileOps::getRSSI()
 // Last packet SNR
 int32_t RH_LoRaFileOps::getSNR()
 {
-    if (_fd == -1) return 0;
+    if (_fd == -1)
+        return 0;
 
     int32_t snr;
     ioctl(_fd, LORA_GET_SNR, &snr);
@@ -227,38 +231,43 @@ int32_t RH_LoRaFileOps::getSNR()
 
 void RH_LoRaFileOps::setLNA(int32_t lna)
 {
-    if (_fd == -1) return;
+    if (_fd == -1)
+        return;
 
     ioctl(_fd, LORA_SET_LNA, &lna);
 }
 
 int32_t RH_LoRaFileOps::getLNA()
 {
-    if (_fd == -1) return 0;
+    if (_fd == -1)
+        return 0;
 
     int32_t lna;
     ioctl(_fd, LORA_GET_LNA, &lna);
     return lna;
 }
-    
+
 void RH_LoRaFileOps::setLNAAGC(int32_t lnaagc)
 {
-    if (_fd == -1) return;
+    if (_fd == -1)
+        return;
 
     ioctl(_fd, LORA_SET_LNAAGC, &lnaagc);
 }
-			    
+
 void RH_LoRaFileOps::setBW(int32_t bw)
 {
-    if (_fd == -1) return;
+    if (_fd == -1)
+        return;
 
     ioctl(_fd, LORA_SET_BANDWIDTH, &bw);
 }
 
 int32_t RH_LoRaFileOps::getBW()
 {
-    if (_fd == -1) return 0;
-  
+    if (_fd == -1)
+        return 0;
+
     uint32_t bw;
     ioctl(_fd, LORA_GET_BANDWIDTH, &bw);
     return bw;
@@ -266,7 +275,8 @@ int32_t RH_LoRaFileOps::getBW()
 
 void RH_LoRaFileOps::setCRC(uint32_t crc)
 {
-    if (_fd == -1) return;
+    if (_fd == -1)
+        return;
 
     ioctl(_fd, LORA_SET_CRC, &crc);
 }

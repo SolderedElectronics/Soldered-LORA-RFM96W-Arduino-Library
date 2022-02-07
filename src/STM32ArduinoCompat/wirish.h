@@ -3,16 +3,17 @@
 #ifndef _wirish_h
 #define _wirish_h
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <stm32f4xx_rng.h>
+#include <string.h>
 
 #define PROGMEM
 #define memcpy_P memcpy
 
-typedef enum WiringPinMode {
+typedef enum WiringPinMode
+{
     OUTPUT, /**< Basic digital output: when the pin is HIGH, the
                voltage is held at +3.3v (Vcc) and when it is LOW, it
                is pulled down to ground. */
@@ -80,8 +81,8 @@ extern void attachInterrupt(uint8_t, void (*)(void), int mode);
 extern void digitalWrite(uint8_t pin, uint8_t val);
 extern uint8_t digitalRead(uint8_t pin);
 
-//extern long random(long to);
-//extern long random(long from, long to);
+// extern long random(long to);
+// extern long random(long from, long to);
 
 #define HIGH 0x1
 #define LOW  0x0
@@ -89,29 +90,31 @@ extern uint8_t digitalRead(uint8_t pin);
 #define LSBFIRST 0
 #define MSBFIRST 1
 
-#define CHANGE 1
+#define CHANGE  1
 #define FALLING 2
-#define RISING 3
+#define RISING  3
 
 // Equivalent to HardwareSerial in Arduino
 class SerialUSBClass
 {
-public:
+  public:
 #define DEC 10
 #define HEX 16
 #define OCT 8
 #define BIN 2
 
     // TODO: move these from being inlined
-    void begin(int baud) {}
+    void begin(int baud)
+    {
+    }
 
-    size_t println(const char* s)
+    size_t println(const char *s)
     {
         print(s);
         printf("\n");
         return 0;
     }
-    size_t print(const char* s)
+    size_t print(const char *s)
     {
         printf(s);
         return 0;
@@ -123,19 +126,19 @@ public:
         else if (base == HEX)
             printf("%02x", n);
         else if (base == OCT)
-	    printf("%o", n);
+            printf("%o", n);
         // TODO: BIN
-	return 0;
+        return 0;
     }
     size_t print(char ch)
     {
-       printf("%c", ch);
-       return 0;
+        printf("%c", ch);
+        return 0;
     }
     size_t println(char ch)
     {
         printf("%c\n", ch);
-	return 0;
+        return 0;
     }
     size_t print(unsigned char ch, int base = DEC)
     {
@@ -145,13 +148,11 @@ public:
     {
         print((unsigned int)ch, base);
         printf("\n");
-	return 0;
+        return 0;
     }
-
 };
 
 // Global instance of the Serial output
 extern SerialUSBClass SerialUSB;
 
 #endif
-
