@@ -15,11 +15,14 @@ Author:
 
 #include <Arduino.h>
 
+#define LORAWAN
+
 #include <LoRa-SOLDERED.h>
 #include <arduino_lmic_hal_boards.h>
 #include <arduino_lmic_lorawan_compliance.h>
 
 #include <SPI.h>
+
 class cEventQueue;
 
 #define APPLICATION_VERSION ARDUINO_LMIC_VERSION_CALC(4, 0, 0, 0)

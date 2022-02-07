@@ -37,6 +37,8 @@
  *		soldered.com
  *
  *******************************************************************************/
+ 
+ #define LORAWAN
 
 #include <LoRa-SOLDERED.h>
 #include <hal/hal.h>

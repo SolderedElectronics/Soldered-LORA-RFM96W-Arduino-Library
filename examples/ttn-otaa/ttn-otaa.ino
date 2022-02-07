@@ -35,10 +35,16 @@
  *		soldered.com
  *
  *******************************************************************************/
+ 
+ #define LORAWAN
 
 #include <LoRa-SOLDERED.h>
 #include <hal/hal.h>
 #include <SPI.h>
+
+
+
+
 
 //
 // For normal use, we require that you edit the sketch to replace FILLMEIN
