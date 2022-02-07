@@ -17,10 +17,13 @@
  *	  soldered.com
 
  *******************************************************************************/
+ 
+ #define LORAWAN
 
 #include <LoRa-SOLDERED.h>
 #include <hal/hal.h>
 #include <SPI.h>
+
 
 // we formerly would check this configuration; but now there is a flag,
 // in the LMIC, LMIC.noRXIQinversion;

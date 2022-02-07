@@ -41,6 +41,8 @@
 // requires library: github.com/PaulStoffregen/Time
 #include <TimeLib.h>    // can't use <Time.h> starting with v1.6.1
 
+#define LORAWAN
+
 #include <LoRa-SOLDERED.h>
 #include <hal/hal.h>
 #include <SPI.h>

@@ -24,9 +24,14 @@
  *		soldered.com
  *
  *******************************************************************************/
+ 
+ #define LORAWAN
+ 
 #include <LoRa-SOLDERED.h>
 #include <hal/hal.h>
 #include <SPI.h>
+
+
 
 // include the DHT22 Sensor Library
 #include "DHT.h"

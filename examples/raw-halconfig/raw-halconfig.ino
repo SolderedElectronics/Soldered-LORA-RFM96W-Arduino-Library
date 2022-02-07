@@ -33,6 +33,8 @@ Modified:
  * when not transmitting. Running this sketch on two nodes should allow
  * them to communicate.
  *******************************************************************************/
+ 
+ #define LORAWAN
 
 #include <LoRa-SOLDERED.h>
 #include <hal/hal.h>

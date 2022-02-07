@@ -16,6 +16,8 @@ Modified:
 
 */
 
+#define LORAWAN
+
 #include <LoRa-SOLDERED.h>
 
 # define STATIC_ASSERT(e)	\

@@ -16,11 +16,10 @@ Author:
 #pragma once
 
 #ifndef _ARDUINO_LMIC_LORAWAN_COMPLIANCE_H_
-#define _ARDUINO_LMIC_LORAWAN_COMPLIANCE_H_
+# define _ARDUINO_LMIC_LORAWAN_COMPLIANCE_H_
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C"{
 #endif
 
 #include "lmic/lorawan_spec_compliance.h"

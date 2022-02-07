@@ -9,10 +9,15 @@
  * @authors     Goran Juric @ soldered.com
  ***************************************************/
 
-#ifndef __SENSOR__
-#define __SENSOR__
-
 #include "Arduino.h"
+#ifdef LORAWAN
+
 #include "arduino_lmic.h"
+
+#endif
+
+#ifdef LORA
+
+#include "RH_RF95.h"
 
 #endif
