@@ -35,12 +35,14 @@
 void lmic_aes_encrypt(u1_t *data, u1_t *key);
 
 // global area for passing parameters (aux, key)
-u4_t AESAUX[16/sizeof(u4_t)];
-u4_t AESKEY[16/sizeof(u4_t)];
+u4_t AESAUX[16 / sizeof(u4_t)];
+u4_t AESKEY[16 / sizeof(u4_t)];
 
 // Shift the given buffer left one bit
-static void shift_left(xref2u1_t buf, u1_t len) {
-    while (len--) {
+static void shift_left(xref2u1_t buf, u1_t len)
+{
+    while (len--)
+    {
         u1_t next = len ? buf[1] : 0;
 
         u1_t val = (*buf << 1);
@@ -53,16 +55,20 @@ static void shift_left(xref2u1_t buf, u1_t len) {
 // Apply RFC4493 CMAC, using AESKEY as the key. If prepend_aux is true,
 // AESAUX is prepended to the message. AESAUX is used as working memory
 // in any case. The CMAC result is returned in AESAUX as well.
-static void os_aes_cmac(xref2u1_t buf, u2_t len, u1_t prepend_aux) {
+static void os_aes_cmac(xref2u1_t buf, u2_t len, u1_t prepend_aux)
+{
     if (prepend_aux)
         lmic_aes_encrypt(AESaux, AESkey);
     else
-        memset (AESaux, 0, 16);
+        memset(AESaux, 0, 16);
 
-    while (len > 0) {
+    while (len > 0)
+    {
         u1_t need_padding = 0;
-        for (u1_t i = 0; i < 16; ++i, ++buf, --len) {
-            if (len == 0) {
+        for (u1_t i = 0; i < 16; ++i, ++buf, --len)
+        {
+            if (len == 0)
+            {
                 // The message is padded with 0x80 and then zeroes.
                 // Since zeroes are no-op for xor, we can just skip them
                 // and leave AESAUX unchanged for them.
@@ -73,7 +79,8 @@ static void os_aes_cmac(xref2u1_t buf, u2_t len, u1_t prepend_aux) {
             AESaux[i] ^= *buf;
         }
 
-        if (len == 0) {
+        if (len == 0)
+        {
             // Final block, xor with K1 or K2. K1 and K2 are calculated
             // by encrypting the all-zeroes block and then applying some
             // shifts and xor on that.
@@ -85,14 +92,15 @@ static void os_aes_cmac(xref2u1_t buf, u2_t len, u1_t prepend_aux) {
             u1_t msb = final_key[0] & 0x80;
             shift_left(final_key, sizeof(final_key));
             if (msb)
-                final_key[sizeof(final_key)-1] ^= 0x87;
+                final_key[sizeof(final_key) - 1] ^= 0x87;
 
             // If the final block was not complete, calculate K2 from K1
-            if (need_padding) {
+            if (need_padding)
+            {
                 msb = final_key[0] & 0x80;
                 shift_left(final_key, sizeof(final_key));
                 if (msb)
-                    final_key[sizeof(final_key)-1] ^= 0x87;
+                    final_key[sizeof(final_key) - 1] ^= 0x87;
             }
 
             // Xor with K1 or K2
@@ -107,9 +115,11 @@ static void os_aes_cmac(xref2u1_t buf, u2_t len, u1_t prepend_aux) {
 // Run AES-CTR using the key in AESKEY and using AESAUX as the
 // counter block. The last byte of the counter block will be incremented
 // for every block. The given buffer will be encrypted in place.
-static void os_aes_ctr (xref2u1_t buf, u2_t len) {
+static void os_aes_ctr(xref2u1_t buf, u2_t len)
+{
     u1_t ctr[16];
-    while (len) {
+    while (len)
+    {
         // Encrypt the counter block with the selected key
         memcpy(ctr, AESaux, sizeof(ctr));
         lmic_aes_encrypt(ctr, AESkey);
@@ -123,21 +133,23 @@ static void os_aes_ctr (xref2u1_t buf, u2_t len) {
     }
 }
 
-u4_t os_aes (u1_t mode, xref2u1_t buf, u2_t len) {
-    switch (mode & ~AES_MICNOAUX) {
-        case AES_MIC:
-            os_aes_cmac(buf, len, /* prepend_aux */ !(mode & AES_MICNOAUX));
-            return os_rmsbf4(AESaux);
+u4_t os_aes(u1_t mode, xref2u1_t buf, u2_t len)
+{
+    switch (mode & ~AES_MICNOAUX)
+    {
+    case AES_MIC:
+        os_aes_cmac(buf, len, /* prepend_aux */ !(mode & AES_MICNOAUX));
+        return os_rmsbf4(AESaux);
 
-        case AES_ENC:
-            // TODO: Check / handle when len is not a multiple of 16
-            for (u1_t i = 0; i < len; i += 16)
-                lmic_aes_encrypt(buf+i, AESkey);
-            break;
+    case AES_ENC:
+        // TODO: Check / handle when len is not a multiple of 16
+        for (u1_t i = 0; i < len; i += 16)
+            lmic_aes_encrypt(buf + i, AESkey);
+        break;
 
-        case AES_CTR:
-            os_aes_ctr(buf, len);
-            break;
+    case AES_CTR:
+        os_aes_ctr(buf, len);
+        break;
     }
     return 0;
 }
