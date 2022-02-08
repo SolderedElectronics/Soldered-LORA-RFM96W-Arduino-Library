@@ -5,7 +5,7 @@ var searchData=
   ['u4_5ft_2',['u4_t',['../oslmic__types_8h.html#a7a23144c3efa098ee169498ef48a087e',1,'oslmic_types.h']]],
   ['uart4_5firqhandler_3',['UART4_IRQHandler',['../_s_t_m32_arduino_compat_2_hardware_serial_8cpp.html#a88774889b903ae43403cd7e7a11a8f4f',1,'HardwareSerial.cpp']]],
   ['uart5_5firqhandler_4',['UART5_IRQHandler',['../_s_t_m32_arduino_compat_2_hardware_serial_8cpp.html#aa1c474cac5abda23ebbe8a9e8f4d7551',1,'HardwareSerial.cpp']]],
-  ['uart_5fputchar_5',['uart_putchar',['../hal_8cpp.html#aff9ef4243ccc2080ba672bd63cd070d0',1,'uart_putchar(char c, FILE *):&#160;hal.cpp'],['../hal_8cpp.html#adda197a9672a51d54cd7cb029619b4dc',1,'uart_putchar(void *, const char *buf, size_t len):&#160;hal.cpp']]],
+  ['uart_5fputchar_5',['uart_putchar',['../hal_8cpp.html#aff9ef4243ccc2080ba672bd63cd070d0',1,'uart_putchar(char c, FILE *):&#160;hal.cpp'],['../hal_8cpp.html#a434fd10d98e0763d0a7df27cbbcf675f',1,'uart_putchar(void *, const char *buf, int32_t len):&#160;hal.cpp']]],
   ['uartindex_6',['uartIndex',['../class_hardware_serial.html#ae11b91c62757abae2e54c02514939a01',1,'HardwareSerial']]],
   ['uint_7',['uint',['../oslmic__types_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'oslmic_types.h']]],
   ['unjoinandrejoin_8',['unjoinAndRejoin',['../lmic_2lmic_8c.html#a1d8217d732ce6bc6be7048218bf696e8',1,'lmic.c']]],

@@ -132,8 +132,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a8bfb55377db1d97b761cfbb2e6e1be6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fd22fc4482a013f8a81675b623fd46e"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="oslmic__types_8h.html#a2632168607a8616a00f85be00516f336">s1_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2lmic_8h.html#a1fd22fc4482a013f8a81675b623fd46e">lmic_beacon_error_t</a></td></tr>
 <tr class="separator:a1fd22fc4482a013f8a81675b623fd46e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affd6804766f68e9a1b74f5f294670292"><td class="memItemLeft" align="right" valign="top">typedef void LMIC_ABI_STD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2lmic_8h.html#affd6804766f68e9a1b74f5f294670292">lmic_rxmessage_cb_t</a>(void *pUserData, uint8_t port, const uint8_t *pMessage, size_t nMessage)</td></tr>
-<tr class="separator:affd6804766f68e9a1b74f5f294670292"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b60fd9c847492cb7a1b38a731221208"><td class="memItemLeft" align="right" valign="top">typedef void LMIC_ABI_STD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2lmic_8h.html#a2b60fd9c847492cb7a1b38a731221208">lmic_rxmessage_cb_t</a>(void *pUserData, uint8_t port, const uint8_t *pMessage, int32_t nMessage)</td></tr>
+<tr class="separator:a2b60fd9c847492cb7a1b38a731221208"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade10e0af6bda757c51ec45943af658da"><td class="memItemLeft" align="right" valign="top">typedef void LMIC_ABI_STD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2lmic_8h.html#ade10e0af6bda757c51ec45943af658da">lmic_txmessage_cb_t</a>(void *pUserData, int fSuccess)</td></tr>
 <tr class="separator:ade10e0af6bda757c51ec45943af658da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab097e188f8fe157d0cfa55d4a1841254"><td class="memItemLeft" align="right" valign="top">typedef void LMIC_ABI_STD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2lmic_8h.html#ab097e188f8fe157d0cfa55d4a1841254">lmic_event_cb_t</a>(void *pUserData, <a class="el" href="lmic_2lmic_8h.html#afc29a49549924847aaf843f099911cbd">ev_t</a> e)</td></tr>
@@ -433,7 +433,7 @@ Functions</h2></td></tr>
 <tr class="separator:a77608f784b2c43bf17f1d57eb0f24cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47b05756009dbf9ea848c2430ff88fe4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2lmic_8h.html#a47b05756009dbf9ea848c2430ff88fe4">LMIC_getNetworkTimeReference</a> (<a class="el" href="lmic_2lmic_8h.html#a3a576ff46dc3952efe4a109138b82ea9">lmic_time_reference_t</a> *pReference)</td></tr>
 <tr class="separator:a47b05756009dbf9ea848c2430ff88fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa51a8f4393902869e397d457ceca55b2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2lmic_8h.html#aa51a8f4393902869e397d457ceca55b2">LMIC_registerRxMessageCb</a> (<a class="el" href="lmic_2lmic_8h.html#affd6804766f68e9a1b74f5f294670292">lmic_rxmessage_cb_t</a> *pRxMessageCb, void *pUserData)</td></tr>
+<tr class="memitem:aa51a8f4393902869e397d457ceca55b2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2lmic_8h.html#aa51a8f4393902869e397d457ceca55b2">LMIC_registerRxMessageCb</a> (<a class="el" href="lmic_2lmic_8h.html#a2b60fd9c847492cb7a1b38a731221208">lmic_rxmessage_cb_t</a> *pRxMessageCb, void *pUserData)</td></tr>
 <tr class="separator:aa51a8f4393902869e397d457ceca55b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7cd34dad4c7d1e946ad73961e0dd169"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2lmic_8h.html#ad7cd34dad4c7d1e946ad73961e0dd169">LMIC_registerEventCb</a> (<a class="el" href="lmic_2lmic_8h.html#ab097e188f8fe157d0cfa55d4a1841254">lmic_event_cb_t</a> *pEventCb, void *pUserData)</td></tr>
 <tr class="separator:ad7cd34dad4c7d1e946ad73961e0dd169"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -445,8 +445,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a01d9cbde6e495f2dc9a530b705a5da37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2lmic_8h.html#a01d9cbde6e495f2dc9a530b705a5da37">LMIC_setBatteryLevel</a> (<a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a>)</td></tr>
 <tr class="memdesc:a01d9cbde6e495f2dc9a530b705a5da37"><td class="mdescLeft">&#160;</td><td class="mdescRight">set battery level to be returned by <code>DevStatusAns</code>.  <a href="lmic_2lmic_8h.html#a01d9cbde6e495f2dc9a530b705a5da37">More...</a><br /></td></tr>
 <tr class="separator:a01d9cbde6e495f2dc9a530b705a5da37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b58749aed5115f952b2b1339a5048cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lmic_2lmic_8h.html#abcfee2ef96ba05ac49efd893703e310b">lmic_compliance_rx_action_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2lmic_8h.html#a9b58749aed5115f952b2b1339a5048cb">LMIC_complianceRxMessage</a> (<a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a> port, const <a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a> *pMessage, size_t nMessage)</td></tr>
-<tr class="separator:a9b58749aed5115f952b2b1339a5048cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb35631ca118f834651bb50c721ce0ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lmic_2lmic_8h.html#abcfee2ef96ba05ac49efd893703e310b">lmic_compliance_rx_action_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2lmic_8h.html#adb35631ca118f834651bb50c721ce0ec">LMIC_complianceRxMessage</a> (<a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a> port, const <a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a> *pMessage, int32_t nMessage)</td></tr>
+<tr class="separator:adb35631ca118f834651bb50c721ce0ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -604,14 +604,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="affd6804766f68e9a1b74f5f294670292" name="affd6804766f68e9a1b74f5f294670292"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affd6804766f68e9a1b74f5f294670292">&#9670;&nbsp;</a></span>lmic_rxmessage_cb_t</h2>
+<a id="a2b60fd9c847492cb7a1b38a731221208" name="a2b60fd9c847492cb7a1b38a731221208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b60fd9c847492cb7a1b38a731221208">&#9670;&nbsp;</a></span>lmic_rxmessage_cb_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef void LMIC_ABI_STD lmic_rxmessage_cb_t(void *pUserData, uint8_t port, const uint8_t *pMessage, size_t nMessage)</td>
+          <td class="memname">typedef void LMIC_ABI_STD lmic_rxmessage_cb_t(void *pUserData, uint8_t port, const uint8_t *pMessage, int32_t nMessage)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1265,8 +1265,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a9b58749aed5115f952b2b1339a5048cb" name="a9b58749aed5115f952b2b1339a5048cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b58749aed5115f952b2b1339a5048cb">&#9670;&nbsp;</a></span>LMIC_complianceRxMessage()</h2>
+<a id="adb35631ca118f834651bb50c721ce0ec" name="adb35631ca118f834651bb50c721ce0ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb35631ca118f834651bb50c721ce0ec">&#9670;&nbsp;</a></span>LMIC_complianceRxMessage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1286,7 +1286,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
+          <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>nMessage</em>&#160;</td>
         </tr>
         <tr>
@@ -1674,7 +1674,7 @@ are fixed. Return the total channel count.
         <tr>
           <td class="memname">int LMIC_registerRxMessageCb </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="lmic_2lmic_8h.html#affd6804766f68e9a1b74f5f294670292">lmic_rxmessage_cb_t</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="lmic_2lmic_8h.html#a2b60fd9c847492cb7a1b38a731221208">lmic_rxmessage_cb_t</a> *&#160;</td>
           <td class="paramname"><em>pRxMessageCb</em>, </td>
         </tr>
         <tr>
@@ -2453,7 +2453,7 @@ according to LoRaWAN 1.0.3 section 5.6, "the acceptable range
     <ul>
         <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_cdd1077a2fc0e5a6c28e7acb993a0e2a.html">lmic</a></li><li class="navelem"><a class="el" href="lmic_2lmic_8h.html">lmic.h</a></li>
         <li class="footer">
-            Generated on Tue Feb 8 2022 13:40:50 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Feb 8 2022 14:20:02 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

@@ -503,13 +503,13 @@ Additional Inherited Members</h2></td></tr>
 <div class="line">  <a class="code hl_variable" href="_r_hutil_2_ras_pi_8h.html#a25518c636d2f05e1fb53aaa4ac624305">Serial</a>.<a class="code hl_function" href="class_serial_simulator.html#ad02476735003ae14b468fbdfc8252253">begin</a>(9600);</div>
 <div class="line">  <span class="keywordflow">while</span> (!<a class="code hl_variable" href="_r_hutil_2_ras_pi_8h.html#a25518c636d2f05e1fb53aaa4ac624305">Serial</a>) ; <span class="comment">// Wait for serial port to be available</span></div>
 <div class="line">  <span class="keywordflow">if</span> (!rf95.init())</div>
-<div class="line">    <a class="code hl_variable" href="_r_hutil_2_ras_pi_8h.html#a25518c636d2f05e1fb53aaa4ac624305">Serial</a>.<a class="code hl_function" href="class_serial_simulator.html#a7091e824733afdea0ff2a8baa2ad83d6">println</a>(<span class="stringliteral">&quot;init failed&quot;</span>);</div>
+<div class="line">    <a class="code hl_variable" href="_r_hutil_2_ras_pi_8h.html#a25518c636d2f05e1fb53aaa4ac624305">Serial</a>.<a class="code hl_function" href="class_serial_simulator.html#a07ab79c16fbb26f9a83b13c41522e29a">println</a>(<span class="stringliteral">&quot;init failed&quot;</span>);</div>
 <div class="line">  rf95.setFrequency(915.0);</div>
 <div class="line">}</div>
 <div class="line">...</div>
 <div class="ttc" id="a_r_h___r_f95_8h_html"><div class="ttname"><a href="_r_h___r_f95_8h.html">RH_RF95.h</a></div></div>
 <div class="ttc" id="a_r_hutil_2_ras_pi_8h_html_a25518c636d2f05e1fb53aaa4ac624305"><div class="ttname"><a href="_r_hutil_2_ras_pi_8h.html#a25518c636d2f05e1fb53aaa4ac624305">Serial</a></div><div class="ttdeci">SerialSimulator Serial</div><div class="ttdef"><b>Definition:</b> simMain.cpp:15</div></div>
-<div class="ttc" id="aclass_serial_simulator_html_a7091e824733afdea0ff2a8baa2ad83d6"><div class="ttname"><a href="class_serial_simulator.html#a7091e824733afdea0ff2a8baa2ad83d6">SerialSimulator::println</a></div><div class="ttdeci">static size_t println(const char *s)</div><div class="ttdef"><b>Definition:</b> RHutil/RasPi.cpp:133</div></div>
+<div class="ttc" id="aclass_serial_simulator_html_a07ab79c16fbb26f9a83b13c41522e29a"><div class="ttname"><a href="class_serial_simulator.html#a07ab79c16fbb26f9a83b13c41522e29a">SerialSimulator::println</a></div><div class="ttdeci">static int32_t println(const char *s)</div><div class="ttdef"><b>Definition:</b> RHutil/RasPi.cpp:133</div></div>
 <div class="ttc" id="aclass_serial_simulator_html_ad02476735003ae14b468fbdfc8252253"><div class="ttname"><a href="class_serial_simulator.html#ad02476735003ae14b468fbdfc8252253">SerialSimulator::begin</a></div><div class="ttdeci">static void begin(int baud)</div><div class="ttdef"><b>Definition:</b> RHutil/RasPi.cpp:124</div></div>
 <div class="ttc" id="awirish_8cpp_html_a4fc01d736fe50cf5b977f755b675f11d"><div class="ttname"><a href="wirish_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a></div><div class="ttdeci">void setup()</div></div>
 </div><!-- fragment --></li>
@@ -1796,7 +1796,7 @@ Additional Inherited Members</h2></td></tr>
     <ul>
         <li class="navelem"><a class="el" href="class_r_h___r_f95.html">RH_RF95</a></li>
         <li class="footer">
-            Generated on Tue Feb 8 2022 13:40:50 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Feb 8 2022 14:20:03 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

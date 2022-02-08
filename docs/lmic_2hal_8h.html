@@ -119,10 +119,10 @@ Functions</h2></td></tr>
 <tr class="separator:af873418e2e1882da1ccea33280648b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab64b94176df587a25a1466cc1e0643fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2hal_8h.html#ab64b94176df587a25a1466cc1e0643fc">hal_pin_rst</a> (<a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a> val)</td></tr>
 <tr class="separator:ab64b94176df587a25a1466cc1e0643fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac488cdbd275f3f5287538784bdf63f85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2hal_8h.html#ac488cdbd275f3f5287538784bdf63f85">hal_spi_write</a> (<a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a> cmd, const <a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a> *buf, size_t len)</td></tr>
-<tr class="separator:ac488cdbd275f3f5287538784bdf63f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a194cf427533763095f40fae7d1c09483"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2hal_8h.html#a194cf427533763095f40fae7d1c09483">hal_spi_read</a> (<a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a> cmd, <a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a> *buf, size_t len)</td></tr>
-<tr class="separator:a194cf427533763095f40fae7d1c09483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8ce3ff79f9d680f6ddcb6aac2272e29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2hal_8h.html#ad8ce3ff79f9d680f6ddcb6aac2272e29">hal_spi_write</a> (<a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a> cmd, const <a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a> *buf, int32_t len)</td></tr>
+<tr class="separator:ad8ce3ff79f9d680f6ddcb6aac2272e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c269c7f796b1d37d499464b1da53a10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2hal_8h.html#a7c269c7f796b1d37d499464b1da53a10">hal_spi_read</a> (<a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a> cmd, <a class="el" href="oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24">u1_t</a> *buf, int32_t len)</td></tr>
+<tr class="separator:a7c269c7f796b1d37d499464b1da53a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d8595d039d4b232a8b556a7f93d95a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2hal_8h.html#a1d8595d039d4b232a8b556a7f93d95a8">hal_disableIRQs</a> (void)</td></tr>
 <tr class="separator:a1d8595d039d4b232a8b556a7f93d95a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37c725b812794d951863a61c9cb5b6c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lmic_2hal_8h.html#a37c725b812794d951863a61c9cb5b6c0">hal_enableIRQs</a> (void)</td></tr>
@@ -552,8 +552,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a194cf427533763095f40fae7d1c09483" name="a194cf427533763095f40fae7d1c09483"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a194cf427533763095f40fae7d1c09483">&#9670;&nbsp;</a></span>hal_spi_read()</h2>
+<a id="a7c269c7f796b1d37d499464b1da53a10" name="a7c269c7f796b1d37d499464b1da53a10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c269c7f796b1d37d499464b1da53a10">&#9670;&nbsp;</a></span>hal_spi_read()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -573,7 +573,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
+          <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
@@ -586,8 +586,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac488cdbd275f3f5287538784bdf63f85" name="ac488cdbd275f3f5287538784bdf63f85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac488cdbd275f3f5287538784bdf63f85">&#9670;&nbsp;</a></span>hal_spi_write()</h2>
+<a id="ad8ce3ff79f9d680f6ddcb6aac2272e29" name="ad8ce3ff79f9d680f6ddcb6aac2272e29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8ce3ff79f9d680f6ddcb6aac2272e29">&#9670;&nbsp;</a></span>hal_spi_write()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -607,7 +607,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
+          <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
@@ -664,7 +664,7 @@ Functions</h2></td></tr>
     <ul>
         <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_cdd1077a2fc0e5a6c28e7acb993a0e2a.html">lmic</a></li><li class="navelem"><a class="el" href="lmic_2hal_8h.html">hal.h</a></li>
         <li class="footer">
-            Generated on Tue Feb 8 2022 13:40:50 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Feb 8 2022 14:20:02 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

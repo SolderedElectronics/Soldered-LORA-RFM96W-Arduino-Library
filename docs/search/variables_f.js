@@ -17,7 +17,7 @@ var searchData=
   ['rx1droffset_14',['rx1DrOffset',['../structlmic__t.html#af070fb60c3c1ed48ab4ec45493f61151',1,'lmic_t']]],
   ['rxbase_15',['rxbase',['../structrxsched__t.html#a13c300dfe7dcf8a14b437adcc0129e77',1,'rxsched_t']]],
   ['rxbyte_16',['rxByte',['../class_hardware_serial.html#a510cb42d4ed8516eba8000a90f890ace',1,'HardwareSerial']]],
-  ['rxbytecountavail_17',['rxByteCountAvail',['../class_hardware_serial.html#a6bcd390c4da3a8cb369d13e886fa490e',1,'HardwareSerial']]],
+  ['rxbytecountavail_17',['rxByteCountAvail',['../class_hardware_serial.html#aeeb2314fcffcf793e26eec01759fe1c1',1,'HardwareSerial']]],
   ['rxdelay_18',['rxDelay',['../structlmic__t.html#a0eddb5d5ed0a505174475f4a91cf0800',1,'lmic_t']]],
   ['rxlate_5fcount_19',['rxlate_count',['../structlmic__radio__data__s.html#aec1607bd81411239e6f0ab227ea6fa5e',1,'lmic_radio_data_s']]],
   ['rxlate_5fticks_20',['rxlate_ticks',['../structlmic__radio__data__s.html#a6bc07c446e3df94affc07a392964c6c9',1,'lmic_radio_data_s']]],

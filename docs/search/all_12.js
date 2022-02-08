@@ -104,7 +104,7 @@ var searchData=
   ['rxbad_101',['rxBad',['../class_r_h_encrypted_driver.html#aa40fee1b2a46713ee04f39b05319a97e',1,'RHEncryptedDriver::rxBad()'],['../class_r_h_generic_driver.html#a0163fb71dc8d0cd86136882886adba7f',1,'RHGenericDriver::rxBad()']]],
   ['rxbase_102',['rxbase',['../structrxsched__t.html#a13c300dfe7dcf8a14b437adcc0129e77',1,'rxsched_t']]],
   ['rxbyte_103',['rxByte',['../class_hardware_serial.html#a510cb42d4ed8516eba8000a90f890ace',1,'HardwareSerial']]],
-  ['rxbytecountavail_104',['rxByteCountAvail',['../class_hardware_serial.html#a6bcd390c4da3a8cb369d13e886fa490e',1,'HardwareSerial']]],
+  ['rxbytecountavail_104',['rxByteCountAvail',['../class_hardware_serial.html#aeeb2314fcffcf793e26eec01759fe1c1',1,'HardwareSerial']]],
   ['rxdelay_105',['rxDelay',['../structlmic__t.html#a0eddb5d5ed0a505174475f4a91cf0800',1,'lmic_t']]],
   ['rxfsk_106',['rxfsk',['../radio_8c.html#ae9aec50bfb47cdec9f3c5781894278d5',1,'radio.c']]],
   ['rxgood_107',['rxGood',['../class_r_h_encrypted_driver.html#a9deed71eb4f29f778e729ac344018346',1,'RHEncryptedDriver::rxGood()'],['../class_r_h_generic_driver.html#a5f730e644ab1f5f529fdfa82fdb2ed69',1,'RHGenericDriver::rxGood()']]],

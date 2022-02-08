@@ -78,12 +78,12 @@ var NAVTREEINDEX =
 "class_arduino___l_m_i_c_1_1_hal_configuration__t.html#ab61caa20f3dc87afbc67b6d772e0d09e",
 "class_r_h_encrypted_driver.html#ae5396468eb5c68a0b3a21d83d71144a6",
 "functions_func_o.html",
-"lmic_2hal_8h.html#a37c725b812794d951863a61c9cb5b6c0",
+"lmic_2hal_8h.html#a39288b2bbd006b85373d621df760b685",
 "lmic__as923_8c.html#a4e90a43b3557b73b2e180dd8286e5aaa",
 "lmic__eu__like_8c.html#a9fc933076af9a1d1ee116cb3c3bef7ab",
 "lorabase_8h.html#aaaf1b490270e0d46bc6b527d6c76cd0fa1c5a9e4d8787ecbbb21e220b6590b168",
 "lorabase_8h.html#aaaf1b490270e0d46bc6b527d6c76cd0faecc22a3fa409fd6a919073de38ece79d",
-"oslmic_8h.html#a9cc33e211e64f0594ae9165b556b3aef",
+"oslmic_8h.html#a9d095ca84687f8ce7103cd088621f273",
 "structlmic__t.html#a535de851d891ac4959f650fa9efaa5c9"
 ];
 

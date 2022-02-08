@@ -66,7 +66,7 @@ var searchData=
   ['bitorder_63',['BitOrder',['../class_r_h_generic_s_p_i.html#a5ab2180e32e8877ceed6e3835ede3380',1,'RHGenericSPI']]],
   ['bitorderlsbfirst_64',['BitOrderLSBFirst',['../class_r_h_generic_s_p_i.html#a5ab2180e32e8877ceed6e3835ede3380abf5b887c3287ce242c4aea8ae1524a5d',1,'RHGenericSPI']]],
   ['bitordermsbfirst_65',['BitOrderMSBFirst',['../class_r_h_generic_s_p_i.html#a5ab2180e32e8877ceed6e3835ede3380a6b29dd73167fc50e899b9c5a43993c6c',1,'RHGenericSPI']]],
-  ['blocksize_66',['blockSize',['../struct_r_h_encrypted_driver_1_1_cipher_blocks.html#a0064943af4e8acf5bacd6e9ed406efa5',1,'RHEncryptedDriver::CipherBlocks']]],
+  ['blocksize_66',['blockSize',['../struct_r_h_encrypted_driver_1_1_cipher_blocks.html#a031b24b993d10f0f8c64b88999d252d0',1,'RHEncryptedDriver::CipherBlocks']]],
   ['bug_20list_67',['Bug List',['../bug.html',1,'']]],
   ['builddataframe_68',['buildDataFrame',['../lmic_2lmic_8c.html#a7944e7aa93818adf89e60e586b91a5db',1,'lmic.c']]],
   ['buildjoinrequest_69',['buildJoinRequest',['../lmic_2lmic_8c.html#a47f8c57134cfe5444acbca7cdc0a233b',1,'lmic.c']]],

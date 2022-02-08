@@ -19,8 +19,8 @@ var lmic_2hal_8h =
     [ "hal_set_failure_handler", "lmic_2hal_8h.html#a04d69fc5cd461684513ebd71f87fe1ec", null ],
     [ "hal_setModuleActive", "lmic_2hal_8h.html#abd9d65c66e40f028bb87645dccc36ffa", null ],
     [ "hal_sleep", "lmic_2hal_8h.html#a92419ba4b3e68d9ac3ce9f721e2ae0c6", null ],
-    [ "hal_spi_read", "lmic_2hal_8h.html#a194cf427533763095f40fae7d1c09483", null ],
-    [ "hal_spi_write", "lmic_2hal_8h.html#ac488cdbd275f3f5287538784bdf63f85", null ],
+    [ "hal_spi_read", "lmic_2hal_8h.html#a7c269c7f796b1d37d499464b1da53a10", null ],
+    [ "hal_spi_write", "lmic_2hal_8h.html#ad8ce3ff79f9d680f6ddcb6aac2272e29", null ],
     [ "hal_ticks", "lmic_2hal_8h.html#af18cdb975b37c6d3c809f61c9312096f", null ],
     [ "hal_waitUntil", "lmic_2hal_8h.html#a3f47543cbb2c40851db33fb7e1ddbf30", null ]
 ];

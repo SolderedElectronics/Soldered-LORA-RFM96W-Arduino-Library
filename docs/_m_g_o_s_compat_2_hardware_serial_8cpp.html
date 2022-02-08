@@ -109,12 +109,12 @@ Functions</h2></td></tr>
 <tr class="separator:a17c765ba4f0c072c7c2aaeef46ac1289"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb3f01ff00e908c984bb449492fcc0fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_m_g_o_s_compat_2_hardware_serial_8cpp.html#adb3f01ff00e908c984bb449492fcc0fd">mgos_uart_set_rx_enabled</a> (int uart_no, bool enabled)</td></tr>
 <tr class="separator:adb3f01ff00e908c984bb449492fcc0fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1980f280a025bbc79c934a4cbe077075"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_m_g_o_s_compat_2_hardware_serial_8cpp.html#a1980f280a025bbc79c934a4cbe077075">mgos_uart_read_avail</a> (int uart_no)</td></tr>
-<tr class="separator:a1980f280a025bbc79c934a4cbe077075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af11488ebea03b9105ce8b84754fac0eb"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_m_g_o_s_compat_2_hardware_serial_8cpp.html#af11488ebea03b9105ce8b84754fac0eb">mgos_uart_read</a> (int uart_no, void *buf, size_t len)</td></tr>
-<tr class="separator:af11488ebea03b9105ce8b84754fac0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc71dd74221fdb27fa78140bf0c92a75"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_m_g_o_s_compat_2_hardware_serial_8cpp.html#acc71dd74221fdb27fa78140bf0c92a75">mgos_uart_write</a> (int uart_no, const void *buf, size_t len)</td></tr>
-<tr class="separator:acc71dd74221fdb27fa78140bf0c92a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b4314030da258d6bdaaf9539702baaa"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_m_g_o_s_compat_2_hardware_serial_8cpp.html#a4b4314030da258d6bdaaf9539702baaa">mgos_uart_read_avail</a> (int uart_no)</td></tr>
+<tr class="separator:a4b4314030da258d6bdaaf9539702baaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f31a4c5789df041552598874d4e965f"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_m_g_o_s_compat_2_hardware_serial_8cpp.html#a2f31a4c5789df041552598874d4e965f">mgos_uart_read</a> (int uart_no, void *buf, int32_t len)</td></tr>
+<tr class="separator:a2f31a4c5789df041552598874d4e965f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5419962d0be393bff75e718be3cb2f1"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_m_g_o_s_compat_2_hardware_serial_8cpp.html#aa5419962d0be393bff75e718be3cb2f1">mgos_uart_write</a> (int uart_no, const void *buf, int32_t len)</td></tr>
+<tr class="separator:aa5419962d0be393bff75e718be3cb2f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -286,14 +286,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="af11488ebea03b9105ce8b84754fac0eb" name="af11488ebea03b9105ce8b84754fac0eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af11488ebea03b9105ce8b84754fac0eb">&#9670;&nbsp;</a></span>mgos_uart_read()</h2>
+<a id="a2f31a4c5789df041552598874d4e965f" name="a2f31a4c5789df041552598874d4e965f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f31a4c5789df041552598874d4e965f">&#9670;&nbsp;</a></span>mgos_uart_read()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t mgos_uart_read </td>
+          <td class="memname">int32_t mgos_uart_read </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>uart_no</em>, </td>
@@ -307,7 +307,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
+          <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
@@ -320,14 +320,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a1980f280a025bbc79c934a4cbe077075" name="a1980f280a025bbc79c934a4cbe077075"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1980f280a025bbc79c934a4cbe077075">&#9670;&nbsp;</a></span>mgos_uart_read_avail()</h2>
+<a id="a4b4314030da258d6bdaaf9539702baaa" name="a4b4314030da258d6bdaaf9539702baaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b4314030da258d6bdaaf9539702baaa">&#9670;&nbsp;</a></span>mgos_uart_read_avail()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t mgos_uart_read_avail </td>
+          <td class="memname">int32_t mgos_uart_read_avail </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>uart_no</em></td><td>)</td>
@@ -366,14 +366,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="acc71dd74221fdb27fa78140bf0c92a75" name="acc71dd74221fdb27fa78140bf0c92a75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc71dd74221fdb27fa78140bf0c92a75">&#9670;&nbsp;</a></span>mgos_uart_write()</h2>
+<a id="aa5419962d0be393bff75e718be3cb2f1" name="aa5419962d0be393bff75e718be3cb2f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5419962d0be393bff75e718be3cb2f1">&#9670;&nbsp;</a></span>mgos_uart_write()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t mgos_uart_write </td>
+          <td class="memname">int32_t mgos_uart_write </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>uart_no</em>, </td>
@@ -387,7 +387,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
+          <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
@@ -463,7 +463,7 @@ Variables</h2></td></tr>
     <ul>
         <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_a94a8422079f2d53ecfe25e63ce8e9ee.html">MGOSCompat</a></li><li class="navelem"><a class="el" href="_m_g_o_s_compat_2_hardware_serial_8cpp.html">HardwareSerial.cpp</a></li>
         <li class="footer">
-            Generated on Tue Feb 8 2022 13:40:50 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Feb 8 2022 14:20:03 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

@@ -2,7 +2,7 @@ var searchData=
 [
   ['uart4_5firqhandler_0',['UART4_IRQHandler',['../_s_t_m32_arduino_compat_2_hardware_serial_8cpp.html#a88774889b903ae43403cd7e7a11a8f4f',1,'HardwareSerial.cpp']]],
   ['uart5_5firqhandler_1',['UART5_IRQHandler',['../_s_t_m32_arduino_compat_2_hardware_serial_8cpp.html#aa1c474cac5abda23ebbe8a9e8f4d7551',1,'HardwareSerial.cpp']]],
-  ['uart_5fputchar_2',['uart_putchar',['../hal_8cpp.html#adda197a9672a51d54cd7cb029619b4dc',1,'uart_putchar(void *, const char *buf, size_t len):&#160;hal.cpp'],['../hal_8cpp.html#aff9ef4243ccc2080ba672bd63cd070d0',1,'uart_putchar(char c, FILE *):&#160;hal.cpp']]],
+  ['uart_5fputchar_2',['uart_putchar',['../hal_8cpp.html#a434fd10d98e0763d0a7df27cbbcf675f',1,'uart_putchar(void *, const char *buf, int32_t len):&#160;hal.cpp'],['../hal_8cpp.html#aff9ef4243ccc2080ba672bd63cd070d0',1,'uart_putchar(char c, FILE *):&#160;hal.cpp']]],
   ['unjoinandrejoin_3',['unjoinAndRejoin',['../lmic_2lmic_8c.html#a1d8217d732ce6bc6be7048218bf696e8',1,'lmic.c']]],
   ['unlinkjob_4',['unlinkjob',['../oslmic_8c.html#a02d5a7c0bdbb7b8dd3a8f6008378e266',1,'oslmic.c']]],
   ['updatadone_5',['updataDone',['../lmic_2lmic_8c.html#ae965643e53c025cb509d93c19ed5e371',1,'lmic.c']]],
