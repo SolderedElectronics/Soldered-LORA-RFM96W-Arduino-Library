@@ -16,9 +16,9 @@ extern "C" {
     void mgos_uart_config_set_defaults(int uart_no, struct mgos_uart_config *cfg);
     bool mgos_uart_configure(int uart_no, const struct mgos_uart_config *cfg);
     void mgos_uart_set_rx_enabled(int uart_no, bool enabled);
-    size_t mgos_uart_read_avail(int uart_no);
-    size_t mgos_uart_read(int uart_no, void *buf, size_t len);
-    size_t mgos_uart_write(int uart_no, const void *buf, size_t len);
+    int32_t mgos_uart_read_avail(int uart_no);
+    int32_t mgos_uart_read(int uart_no, void *buf, int32_t len);
+    int32_t mgos_uart_write(int uart_no, const void *buf, int32_t len);
 };
 
 
@@ -115,7 +115,7 @@ void HardwareSerial::end()
 
 int HardwareSerial::available(void)
 {
-    size_t  reqRxByteCount=1;
+    int32_t  reqRxByteCount=1;
     //We have to read the byte because Mongoose OS requires a return
     //to the RTOS in order to update the value read by mgos_uart_read_avail()
     rxByteCountAvail = mgos_uart_read(this->uartIndex, &rxByte, reqRxByteCount);
@@ -127,28 +127,28 @@ int HardwareSerial::read(void)
     return rxByte;
 }
 
-size_t HardwareSerial::write(uint8_t ch)
+int32_t HardwareSerial::write(uint8_t ch)
 {
-    size_t wr_byte_count = 0;
+    int32_t wr_byte_count = 0;
 
     wr_byte_count = mgos_uart_write(this->uartIndex, &ch, 1);
 
     return wr_byte_count;
 }
 
-size_t HardwareSerial::print(char ch)
+int32_t HardwareSerial::print(char ch)
 {
   printf("%c", ch);
   return 0;
 }
 
-size_t HardwareSerial::println(char ch)
+int32_t HardwareSerial::println(char ch)
 {
   printf("%c\n", ch);
   return 0;
 }
 
-size_t HardwareSerial::print(unsigned char ch, int base)
+int32_t HardwareSerial::print(unsigned char ch, int base)
 {
   if( base == DEC ) {
       printf("%d", ch);
@@ -163,14 +163,14 @@ size_t HardwareSerial::print(unsigned char ch, int base)
   return 0;
 }
 
-size_t HardwareSerial::println(unsigned char ch, int base)
+int32_t HardwareSerial::println(unsigned char ch, int base)
 {
   print((unsigned int)ch, base);
   printf("\n");
   return 0;
 }
 
-size_t HardwareSerial::println(const char* s)
+int32_t HardwareSerial::println(const char* s)
 {
     if( s ) {
         printf("%s\n",s);
@@ -178,7 +178,7 @@ size_t HardwareSerial::println(const char* s)
     return 0;
 }
 
-size_t HardwareSerial::print(const char* s)
+int32_t HardwareSerial::print(const char* s)
 {
     if( s) {
         printf(s);

@@ -73,9 +73,9 @@ int HardwareSerial::read()
     return data;
 }
 
-size_t HardwareSerial::write(uint8_t ch)
+int32_t HardwareSerial::write(uint8_t ch)
 {
-    size_t result = ::write(_device, &ch, 1);
+    int32_t result = ::write(_device, &ch, 1);
     if (result != 1)
     {
 	fprintf(stderr, "HardwareSerial::write failed: %s\n", strerror(errno));

@@ -40,7 +40,7 @@ public:
 
 
 private:
-	char *strnstr(const char *haystack, const char *needle, size_t len);
+	char *strnstr(const char *haystack, const char *needle, int32_t len);
 	char longitude[LEN_GPS_INFO_BUFFER]="NoInit";
 	char latitude[LEN_GPS_INFO_BUFFER]="NoInit";
 	char timestamp[LEN_GPS_INFO_BUFFER]="NoInit";

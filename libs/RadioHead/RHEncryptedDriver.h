@@ -225,7 +225,7 @@ private:
     /// Struct for with buffers for ciphering
     typedef struct
     {
-	size_t  blockSize    = 0;
+	int32_t  blockSize    = 0;
 	uint8_t *inputBlock  = NULL;
 	//uint8_t *outputBlock = NULL;		
     } CipherBlocks;

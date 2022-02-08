@@ -41,20 +41,20 @@ class HardwareSerial
     void end();
     virtual int available(void);
     virtual int read(void);
-    virtual size_t write(uint8_t);
-    inline size_t write(unsigned long n)
+    virtual int32_t write(uint8_t);
+    inline int32_t write(unsigned long n)
     {
         return write((uint8_t)n);
     }
-    inline size_t write(long n)
+    inline int32_t write(long n)
     {
         return write((uint8_t)n);
     }
-    inline size_t write(unsigned int n)
+    inline int32_t write(unsigned int n)
     {
         return write((uint8_t)n);
     }
-    inline size_t write(int n)
+    inline int32_t write(int n)
     {
         return write((uint8_t)n);
     }

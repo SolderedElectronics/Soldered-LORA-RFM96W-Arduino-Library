@@ -463,14 +463,14 @@ void eventPrint(cEventQueue::eventnode_t &e) {
                     Serial.print(F("devaddr: "));
                     Serial.println(devaddr, HEX);
                     Serial.print(F("artKey: "));
-                    for (size_t i=0; i<sizeof(artKey); ++i) {
+                    for (int32_t i=0; i<sizeof(artKey); ++i) {
                         if (i != 0)
                             Serial.print('-');
                         printHex2(artKey[i]);
                     }
                     printNl();
                     Serial.print(F("nwkKey: "));
-                    for (size_t i=0; i<sizeof(nwkKey); ++i) {
+                    for (int32_t i=0; i<sizeof(nwkKey); ++i) {
                             if (i != 0)
                                     Serial.print('-');
                             printHex2(nwkKey[i]);
@@ -573,7 +573,7 @@ Definition:
                 void *pUserData,
                 uint8_t port,
                 const uint8_t *pMessage,
-                size_t nMessage
+                int32_t nMessage
                 );
         }
 
@@ -592,7 +592,7 @@ void myRxMessageCb(
     void *pUserData,
     uint8_t port,
     const uint8_t *pMessage,
-    size_t nMessage
+    int32_t nMessage
 ) {
     lmic_compliance_rx_action_t const action = LMIC_complianceRxMessage(port, pMessage, nMessage);
     switch (action) {

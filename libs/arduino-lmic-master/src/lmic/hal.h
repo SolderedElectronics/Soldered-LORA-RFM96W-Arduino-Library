@@ -73,14 +73,14 @@ void hal_pin_rst (u1_t val);
  *   - write the command byte 'cmd'
  *   - write 'len' bytes out of 'buf'
  */
-void hal_spi_write(u1_t cmd, const u1_t* buf, size_t len);
+void hal_spi_write(u1_t cmd, const u1_t* buf, int32_t len);
 
 /*
  * Perform SPI read transaction with radio chip
  *   - write the command byte 'cmd'
  *   - read 'len' bytes into 'buf'
  */
-void hal_spi_read(u1_t cmd, u1_t* buf, size_t len);
+void hal_spi_read(u1_t cmd, u1_t* buf, int32_t len);
 
 /*
  * disable all CPU interrupts.

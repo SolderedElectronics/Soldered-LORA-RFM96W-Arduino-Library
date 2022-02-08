@@ -43,13 +43,13 @@ static void acSendUplinkBuffer(void);
 static void evActivate(void);
 static void evDeactivate(void);
 static void evJoinCommand(void);
-static void evMessage(const uint8_t *pMessage, size_t nMessage);
+static void evMessage(const uint8_t *pMessage, int32_t nMessage);
 static lmic_compliance_fsmstate_t fsmDispatch(lmic_compliance_fsmstate_t, bool);
 static void fsmEval(void);
 static void fsmEvalDeferred(void);
 static osjobcbfn_t fsmJobCb;
-static bool isActivateMessage(const uint8_t *pMessage, size_t nMessage);
-static void evEchoCommand(const uint8_t *pMessage, size_t nMessage);
+static bool isActivateMessage(const uint8_t *pMessage, int32_t nMessage);
+static void evEchoCommand(const uint8_t *pMessage, int32_t nMessage);
 static lmic_event_cb_t lmicEventCb;
 static lmic_txmessage_cb_t sendUplinkCompleteCb;
 static osjobcbfn_t timerExpiredCb;
@@ -83,7 +83,7 @@ Definition:
         lmic_compliance_rx_action_t LMIC_complianceRxMessage(
                                 u1_t        port,
                                 const u1_t *pMessage,
-                                size_t      nMessage
+                                int32_t      nMessage
                                 );
 
 Description:
@@ -110,7 +110,7 @@ lmic_compliance_rx_action_t
 LMIC_complianceRxMessage(
     uint8_t port,
     const uint8_t *pMessage,
-    size_t nMessage
+    int32_t nMessage
 ) {
     lmic_compliance_state_t const complianceState = LMIC_Compliance.state;
 
@@ -152,7 +152,7 @@ Function:
 Definition:
         static bool isActivateMessage(
                         const uint8_t *pMessage,
-                        size_t nMessage
+                        int32_t nMessage
                         );
 
 Description:
@@ -168,7 +168,7 @@ Returns:
 static bool
 isActivateMessage(
         const uint8_t *pMessage,
-        size_t nMessage
+        int32_t nMessage
 ) {
     const uint8_t body[LORAWAN_COMPLIANCE_CMD_ACTIVATE_LEN] = {
         LORAWAN_COMPLIANCE_CMD_ACTIVATE,
@@ -240,7 +240,7 @@ Function:
         Process an inbound message while active.
 
 Definition:
-        void evMessage(const uint8_t *pMessage, size_t nMessage);
+        void evMessage(const uint8_t *pMessage, int32_t nMessage);
 
 Description:
         The event is parsed, and the appropriate event(s) are sent into
@@ -255,7 +255,7 @@ Returns:
 
 static void evMessage(
     const uint8_t *pMessage,
-    size_t nMessage
+    int32_t nMessage
 ) {
     if (nMessage == 0)
         return;
@@ -375,7 +375,7 @@ Function:
 Definition:
         void evEchoCommand(
                 const uint8_t *pMessage,
-                size_t nMessage
+                int32_t nMessage
                 );
 
 Description:
@@ -389,7 +389,7 @@ Returns:
 
 static void evEchoCommand(
     const uint8_t *pMessage,
-    size_t nMessage
+    int32_t nMessage
 ) {
     uint8_t *pResponse;
 

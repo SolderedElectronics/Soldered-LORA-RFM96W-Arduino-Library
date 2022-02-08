@@ -53,7 +53,7 @@ bool RH_TCP::connectToServer()
     
     std::string server(_server);
     std::string port("4000");
-    size_t indexOfSeparator = server.find_first_of(':');
+    int32_t indexOfSeparator = server.find_first_of(':');
     if (indexOfSeparator != std::string::npos)
     {
 	port = server.substr(indexOfSeparator+1);

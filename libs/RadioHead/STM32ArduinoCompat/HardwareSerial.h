@@ -41,11 +41,11 @@ public:
     void end();
     virtual int available(void);
     virtual int read(void);
-    virtual size_t write(uint8_t);
-    inline size_t write(unsigned long n) { return write((uint8_t)n); }
-    inline size_t write(long n) { return write((uint8_t)n); }
-    inline size_t write(unsigned int n) { return write((uint8_t)n); }
-    inline size_t write(int n) { return write((uint8_t)n); }
+    virtual int32_t write(uint8_t);
+    inline int32_t write(unsigned long n) { return write((uint8_t)n); }
+    inline int32_t write(long n) { return write((uint8_t)n); }
+    inline int32_t write(unsigned int n) { return write((uint8_t)n); }
+    inline int32_t write(int n) { return write((uint8_t)n); }
 
     // These need to be public so the IRQ handler can read and write to them:
     RingBuffer     _rxRingBuffer;

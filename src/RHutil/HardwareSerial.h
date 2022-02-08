@@ -72,7 +72,7 @@ class HardwareSerial
     /// IO errors are repored by printing aa message to stderr.
     /// \param[in] ch The character to send. Anything in the range 0x00 to 0xff is permitted
     /// \return 1 if successful else 0
-    size_t write(uint8_t ch);
+    int32_t write(uint8_t ch);
 
     // These are not usually in HardwareSerial but we
     // need them in a Unix environment

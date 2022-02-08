@@ -212,50 +212,50 @@ void SerialSimulator::begin(int baud)
   gettimeofday(&RHStartTime, NULL);
 }
 
-size_t SerialSimulator::println(const char* s)
+int32_t SerialSimulator::println(const char* s)
 {
-  size_t charsPrinted = 0;
+  int32_t charsPrinted = 0;
   charsPrinted = print(s);
   printf("\n");
   return charsPrinted + 1;
 }
 
-size_t SerialSimulator::print(const char* s)
+int32_t SerialSimulator::print(const char* s)
 {
-  return (size_t)printf(s);
+  return (int32_t)printf(s);
 }
 
-size_t SerialSimulator::print(unsigned int n, int base)
+int32_t SerialSimulator::print(unsigned int n, int base)
 {
   if (base == DEC)
-    return (size_t)printf("%d", n);
+    return (int32_t)printf("%d", n);
   else if (base == HEX)
-    return (size_t)printf("%02x", n);
+    return (int32_t)printf("%02x", n);
   else if (base == OCT)
-    return (size_t)printf("%o", n);
+    return (int32_t)printf("%o", n);
   // TODO: BIN
   else
     return 0;
 }
 
-size_t SerialSimulator::print(char ch)
+int32_t SerialSimulator::print(char ch)
 {
-  return (size_t)printf("%c", ch);
+  return (int32_t)printf("%c", ch);
 }
 
-size_t SerialSimulator::println(char ch)
+int32_t SerialSimulator::println(char ch)
 {
-  return (size_t)printf("%c\n", ch);
+  return (int32_t)printf("%c\n", ch);
 }
 
-size_t SerialSimulator::print(unsigned char ch, int base)
+int32_t SerialSimulator::print(unsigned char ch, int base)
 {
   return print((unsigned int)ch, base);
 }
 
-size_t SerialSimulator::println(unsigned char ch, int base)
+int32_t SerialSimulator::println(unsigned char ch, int base)
 {
-  size_t charsPrinted = 0;
+  int32_t charsPrinted = 0;
   charsPrinted = print((unsigned int)ch, base);
   printf("\n");
   return charsPrinted + 1;

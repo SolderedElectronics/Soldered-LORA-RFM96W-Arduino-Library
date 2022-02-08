@@ -20,35 +20,35 @@ class HardwareSerial
     void end();
     virtual int available(void);
     virtual int read(void);
-    virtual size_t write(uint8_t);
-    inline size_t write(unsigned long n)
+    virtual int32_t write(uint8_t);
+    inline int32_t write(unsigned long n)
     {
         return write((uint8_t)n);
     }
-    inline size_t write(long n)
+    inline int32_t write(long n)
     {
         return write((uint8_t)n);
     }
-    inline size_t write(unsigned int n)
+    inline int32_t write(unsigned int n)
     {
         return write((uint8_t)n);
     }
-    inline size_t write(int n)
+    inline int32_t write(int n)
     {
         return write((uint8_t)n);
     }
 
     // These methods will send debug info on the debug serial port (if enabled)
-    size_t println(unsigned char ch, int base);
-    size_t print(unsigned char ch, int base);
-    size_t println(const char ch);
-    size_t print(const char ch);
-    size_t println(const char *s);
-    size_t print(const char *s);
+    int32_t println(unsigned char ch, int base);
+    int32_t print(unsigned char ch, int base);
+    int32_t println(const char ch);
+    int32_t print(const char ch);
+    int32_t println(const char *s);
+    int32_t print(const char *s);
 
   private:
     int uartIndex;
-    size_t rxByteCountAvail;
+    int32_t rxByteCountAvail;
     uint8_t rxByte;
 };
 
