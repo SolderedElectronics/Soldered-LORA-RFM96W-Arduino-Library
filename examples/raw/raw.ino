@@ -46,10 +46,10 @@
 
 // Pin mapping
 const lmic_pinmap lmic_pins = {
-    .nss = 6,
-    .rxtx = LMIC_UNUSED_PIN,
-    .rst = 5,
-    .dio = {2, 3, 4},
+    .nss = 6,                 //CS pin
+    .rxtx = LMIC_UNUSED_PIN,  
+    .rst = 5,                 //Reset pin
+    .dio = {2, 3, 4},         //{DIO0,IO1,IO2}
 };
 
 
