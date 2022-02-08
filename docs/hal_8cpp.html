@@ -196,7 +196,7 @@ Variables</h2></td></tr>
 <tr class="separator:a9a947da01bf9ab1b865dd7d17690bc6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a754057a223e99ebe4cb71ddc3bc958c5"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hal_8cpp.html#a754057a223e99ebe4cb71ddc3bc958c5">irqlevel</a> = 0</td></tr>
 <tr class="separator:a754057a223e99ebe4cb71ddc3bc958c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50e43015d3e4522c9ca122bf9f12824b"><td class="memItemLeft" align="right" valign="top">static cookie_io_functions_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hal_8cpp.html#a50e43015d3e4522c9ca122bf9f12824b">functions</a></td></tr>
+<tr class="memitem:a50e43015d3e4522c9ca122bf9f12824b"><td class="memItemLeft" align="right" valign="top">static cookie_io_functions_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hal_8cpp.html#a50e43015d3e4522c9ca122bf9f12824b">functions</a> = {.read = NULL, .write = <a class="el" href="hal_8cpp.html#aff9ef4243ccc2080ba672bd63cd070d0">uart_putchar</a>, .seek = NULL, .close = NULL}</td></tr>
 <tr class="separator:a50e43015d3e4522c9ca122bf9f12824b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -1049,7 +1049,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">cookie_io_functions_t functions</td>
+          <td class="memname">cookie_io_functions_t functions = {.read = NULL, .write = <a class="el" href="hal_8cpp.html#aff9ef4243ccc2080ba672bd63cd070d0">uart_putchar</a>, .seek = NULL, .close = NULL}</td>
         </tr>
       </table>
   </td>
@@ -1058,15 +1058,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line"> {</div>
-<div class="line">     .read = NULL,</div>
-<div class="line">     .write = <a class="code hl_function" href="hal_8cpp.html#adda197a9672a51d54cd7cb029619b4dc">uart_putchar</a>,</div>
-<div class="line">     .seek = NULL,</div>
-<div class="line">     .close = NULL</div>
-<div class="line"> }</div>
-<div class="ttc" id="ahal_8cpp_html_adda197a9672a51d54cd7cb029619b4dc"><div class="ttname"><a href="hal_8cpp.html#adda197a9672a51d54cd7cb029619b4dc">uart_putchar</a></div><div class="ttdeci">static ssize_t uart_putchar(void *, const char *buf, size_t len)</div><div class="ttdef"><b>Definition:</b> hal.cpp:376</div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a9a947da01bf9ab1b865dd7d17690bc6f" name="a9a947da01bf9ab1b865dd7d17690bc6f"></a>
@@ -1231,7 +1223,7 @@ Variables</h2></td></tr>
     <ul>
         <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_4ce6a7f885e2866a554ba9e7335035f1.html">hal</a></li><li class="navelem"><a class="el" href="hal_8cpp.html">hal.cpp</a></li>
         <li class="footer">
-            Generated on Mon Feb 7 2022 15:32:24 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Feb 8 2022 08:43:53 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

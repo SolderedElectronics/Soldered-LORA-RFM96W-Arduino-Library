@@ -473,7 +473,7 @@ Additional Inherited Members</h2></td></tr>
 <p >Note that if you are using Modtronix inAir4 or inAir9,or any other module which uses the transmitter RFO pins and not the PA_BOOST pins that you must configure the power transmitter power for -1 to 14 dBm and with useRFO true. Failure to do that will result in extremely low transmit powers.</p>
 <p >If you have an Arduino M0 Pro from arduino.org, you should note that you cannot use Pin 2 for the interrupt line (Pin 2 is for the NMI only). The same comments apply to Pin 4 on Arduino Zero from arduino.cc. Instead you can use any other pin (we use Pin 3) and initialise RH_RF69 like this: </p><div class="fragment"><div class="line"><span class="comment">// Slave Select is pin 10, interrupt is Pin 3</span></div>
 <div class="line"><a class="code hl_class" href="class_r_h___r_f95.html">RH_RF95</a> driver(10, 3);</div>
-<div class="ttc" id="aclass_r_h___r_f95_html"><div class="ttname"><a href="class_r_h___r_f95.html">RH_RF95</a></div><div class="ttdoc">Driver to send and receive unaddressed, unreliable datagrams via a LoRa capable radio transceiver.</div><div class="ttdef"><b>Definition:</b> RH_RF95.h:573</div></div>
+<div class="ttc" id="aclass_r_h___r_f95_html"><div class="ttname"><a href="class_r_h___r_f95.html">RH_RF95</a></div><div class="ttdoc">Driver to send and receive unaddressed, unreliable datagrams via a LoRa capable radio transceiver.</div><div class="ttdef"><b>Definition:</b> RH_RF95.h:574</div></div>
 </div><!-- fragment --><p> You can use the same constructor for Arduino Due, and this pinout diagram may be useful: <a href="http://www.robgray.com/temp/Due-pinout-WEB.png">http://www.robgray.com/temp/Due-pinout-WEB.png</a></p>
 <p >If you have a Rocket Scream Mini Ultra Pro with the RFM95W:</p><ul>
 <li>Ensure you have Arduino SAMD board support 1.6.5 or later in Arduino IDE 1.6.8 or later.</li>
@@ -481,13 +481,12 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- fragment --></li>
 <li>The name of the serial port on that board is 'SerialUSB', not 'Serial', so this may be helpful at the top of our sample sketches: <div class="fragment"><div class="line"><span class="preprocessor">#define Serial SerialUSB</span></div>
 </div><!-- fragment --></li>
-<li>You also need this in setup before radio initialisation <br  />
- <div class="fragment"><div class="line"><span class="comment">// Ensure serial flash is not interfering with radio communication on SPI bus</span></div>
+<li>You also need this in setup before radio initialisation <div class="fragment"><div class="line"><span class="comment">// Ensure serial flash is not interfering with radio communication on SPI bus</span></div>
 <div class="line"> <a class="code hl_function" href="_m_g_o_s_8cpp.html#a34d257d1f45a539062543dc6f0aea730">pinMode</a>(4, <a class="code hl_enumvalue" href="_m_g_o_s_8h.html#a3e6ca6f0b3c7bbe79de5d3ec07877da1a2ab08d3e103968f5f4f26b66a52e99d6">OUTPUT</a>);</div>
 <div class="line"> <a class="code hl_function" href="_m_g_o_s_8cpp.html#a21c224d04b05de3f68dce98958d02b7c">digitalWrite</a>(4, HIGH);</div>
-<div class="ttc" id="a_m_g_o_s_8cpp_html_a21c224d04b05de3f68dce98958d02b7c"><div class="ttname"><a href="_m_g_o_s_8cpp.html#a21c224d04b05de3f68dce98958d02b7c">digitalWrite</a></div><div class="ttdeci">void digitalWrite(unsigned char pin, unsigned char value)</div><div class="ttdoc">Set the state of a GPIO pin.</div><div class="ttdef"><b>Definition:</b> MGOS.cpp:70</div></div>
+<div class="ttc" id="a_m_g_o_s_8cpp_html_a21c224d04b05de3f68dce98958d02b7c"><div class="ttname"><a href="_m_g_o_s_8cpp.html#a21c224d04b05de3f68dce98958d02b7c">digitalWrite</a></div><div class="ttdeci">void digitalWrite(unsigned char pin, unsigned char value)</div><div class="ttdoc">Set the state of a GPIO pin.</div><div class="ttdef"><b>Definition:</b> MGOS.cpp:72</div></div>
 <div class="ttc" id="a_m_g_o_s_8cpp_html_a34d257d1f45a539062543dc6f0aea730"><div class="ttname"><a href="_m_g_o_s_8cpp.html#a34d257d1f45a539062543dc6f0aea730">pinMode</a></div><div class="ttdeci">void pinMode(uint8_t pin, WiringPinMode mode)</div><div class="ttdoc">Set the direction of a GPIO pin.</div><div class="ttdef"><b>Definition:</b> MGOS.cpp:23</div></div>
-<div class="ttc" id="a_m_g_o_s_8h_html_a3e6ca6f0b3c7bbe79de5d3ec07877da1a2ab08d3e103968f5f4f26b66a52e99d6"><div class="ttname"><a href="_m_g_o_s_8h.html#a3e6ca6f0b3c7bbe79de5d3ec07877da1a2ab08d3e103968f5f4f26b66a52e99d6">OUTPUT</a></div><div class="ttdeci">@ OUTPUT</div><div class="ttdef"><b>Definition:</b> MGOS.h:29</div></div>
+<div class="ttc" id="a_m_g_o_s_8h_html_a3e6ca6f0b3c7bbe79de5d3ec07877da1a2ab08d3e103968f5f4f26b66a52e99d6"><div class="ttname"><a href="_m_g_o_s_8h.html#a3e6ca6f0b3c7bbe79de5d3ec07877da1a2ab08d3e103968f5f4f26b66a52e99d6">OUTPUT</a></div><div class="ttdeci">@ OUTPUT</div><div class="ttdef"><b>Definition:</b> MGOS.h:30</div></div>
 </div><!-- fragment --></li>
 <li>and if you have a 915MHz part, you need this after driver/manager intitalisation: <div class="fragment"><div class="line">rf95.setFrequency(915.0);</div>
 </div><!-- fragment --> which adds up to modifying sample sketches something like: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
@@ -495,7 +494,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><a class="code hl_class" href="class_r_h___r_f95.html">RH_RF95</a> rf95(5, 2); <span class="comment">// Rocket Scream Mini Ultra Pro with the RFM95W</span></div>
 <div class="line"><span class="preprocessor">#define Serial SerialUSB</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="wirish_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a>() </div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="wirish_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a>()</div>
 <div class="line">{</div>
 <div class="line">  <span class="comment">// Ensure serial flash is not interfering with radio communication on SPI bus</span></div>
 <div class="line">  <a class="code hl_function" href="_m_g_o_s_8cpp.html#a34d257d1f45a539062543dc6f0aea730">pinMode</a>(4, <a class="code hl_enumvalue" href="_m_g_o_s_8h.html#a3e6ca6f0b3c7bbe79de5d3ec07877da1a2ab08d3e103968f5f4f26b66a52e99d6">OUTPUT</a>);</div>
@@ -553,7 +552,7 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section user"><dt>Transmitter Power</dt><dd></dd></dl>
 <p>You can control the transmitter power on the RF transceiver with the <a class="el" href="class_r_h___r_f95.html#ab273e242758e3cc2ed2679ef795a7196">RH_RF95::setTxPower()</a> function. The argument can be any of +2 to +20 (for modules that use PA_BOOST) 0 to +15 (for modules that use RFO transmitter pin) The default is 13. Eg: </p><div class="fragment"><div class="line">driver.<a class="code hl_function" href="class_r_h___r_f95.html#ab273e242758e3cc2ed2679ef795a7196">setTxPower</a>(10); <span class="comment">// use PA_BOOST transmitter pin</span></div>
 <div class="line">driver.<a class="code hl_function" href="class_r_h___r_f95.html#ab273e242758e3cc2ed2679ef795a7196">setTxPower</a>(10, <span class="keyword">true</span>); <span class="comment">// use PA_RFO pin transmitter pin instead of PA_BOOST</span></div>
-<div class="ttc" id="aclass_r_h___r_f95_html_ab273e242758e3cc2ed2679ef795a7196"><div class="ttname"><a href="class_r_h___r_f95.html#ab273e242758e3cc2ed2679ef795a7196">RH_RF95::setTxPower</a></div><div class="ttdeci">void setTxPower(int8_t power, bool useRFO=false)</div><div class="ttdef"><b>Definition:</b> RH_RF95.cpp:435</div></div>
+<div class="ttc" id="aclass_r_h___r_f95_html_ab273e242758e3cc2ed2679ef795a7196"><div class="ttname"><a href="class_r_h___r_f95.html#ab273e242758e3cc2ed2679ef795a7196">RH_RF95::setTxPower</a></div><div class="ttdeci">void setTxPower(int8_t power, bool useRFO=false)</div><div class="ttdef"><b>Definition:</b> RH_RF95.cpp:430</div></div>
 </div><!-- fragment --><p >We have made some actual power measurements against programmed power for Anarduino MiniWirelessLoRa (which has RFM96W-433Mhz installed, and which includes an RF power amp for addition 3dBm of power</p><ul>
 <li>MiniWirelessLoRa RFM96W-433Mhz, USB power</li>
 <li>30cm RG316 soldered direct to RFM96W module ANT and GND</li>
@@ -571,10 +570,10 @@ Additional Inherited Members</h2></td></tr>
 <div class="line">    12                          15</div>
 <div class="line">    14                          16</div>
 <div class="line">    16                          18</div>
-<div class="line">    17                          20 </div>
-<div class="line">    18                          21 </div>
-<div class="line">    19                          22 </div>
-<div class="line">    20                          23 </div>
+<div class="line">    17                          20</div>
+<div class="line">    18                          21</div>
+<div class="line">    19                          22</div>
+<div class="line">    20                          23</div>
 </div><!-- fragment --></li>
 </ul>
 <p >We have also measured the actual power output from a Modtronix inAir4 <a href="http://modtronix.com/inair4.html">http://modtronix.com/inair4.html</a> connected to a Teensy 3.1: Teensy 3.1 this is a 3.3V part, connected directly to: Modtronix inAir4 with SMA antenna connector, connected as above: 10cm SMA-SMA cable</p><ul>
@@ -654,7 +653,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p >Constructor. You can have multiple instances, but each instance must have its own interrupt and slave select pin. After constructing, you must call <a class="el" href="class_r_h___r_f95.html#aa7bee6fb7ad0e0d0ae5e04ed27cfd79d">init()</a> to initialise the interface and the radio module. A maximum of 3 instances can co-exist on one processor, provided there are sufficient distinct interrupt lines, one for each instance. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">slaveSelectPin</td><td>the Arduino pin number of the output to use to select the RH_RF22 before accessing it. Defaults to the normal SS pin for your Arduino (D10 for Diecimila, Uno etc, D53 for Mega, D10 for Maple) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">slaveSelectPin</td><td>the Arduino pin number of the output to use to select the RH_RF22 before accessing it. Defaults to the normal SS pin for your Arduino (D10 for Diecimila, Uno etc, D53 for Mega, D10 for Maple)</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">interruptPin</td><td>The interrupt Pin number that is connected to the RFM DIO0 interrupt line. Defaults to pin 2, as required by Anarduino MinWirelessLoRa module. Caution: You must specify an interrupt capable pin. On many Arduino boards, there are limitations as to which pins may be used as interrupts. On Leonardo pins 0, 1, 2 or 3. On Mega2560 pins 2, 3, 18, 19, 20, 21. On Due and Teensy, any digital pin. On Arduino Zero from arduino.cc, any digital pin other than 4. On Arduino M0 Pro from arduino.org, any digital pin other than 2. On other Arduinos pins 2 or 3. See <a href="http://arduino.cc/en/Reference/attachInterrupt">http://arduino.cc/en/Reference/attachInterrupt</a> for more details. On Chipkit Uno32, pins 38, 2, 7, 8, 35. On other boards, any digital pin may be used. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">spi</td><td>Pointer to the SPI interface object to use. Defaults to the standard Arduino hardware SPI interface </td></tr>
   </table>
@@ -864,8 +863,7 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >Use the radio's Channel Activity Detect (CAD) function to detect channel activity. Sets the RF95 radio into CAD mode and waits until CAD detection is complete. To be used in a listen-before-talk mechanism (Collision Avoidance) with a reasonable time backoff algorithm. This is called automatically by <a class="el" href="class_r_h_generic_driver.html#ac577b932ba8b042b8170b24d513635c7">waitCAD()</a>. </p><dl class="section return"><dt>Returns</dt><dd>true if channel is in use. <br  />
- </dd></dl>
+<p >Use the radio's Channel Activity Detect (CAD) function to detect channel activity. Sets the RF95 radio into CAD mode and waits until CAD detection is complete. To be used in a listen-before-talk mechanism (Collision Avoidance) with a reasonable time backoff algorithm. This is called automatically by <a class="el" href="class_r_h_generic_driver.html#ac577b932ba8b042b8170b24d513635c7">waitCAD()</a>. </p><dl class="section return"><dt>Returns</dt><dd>true if channel is in use. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="class_r_h_generic_driver.html#af4bc85a58ebc777ea1f3b57f3ae87b1b">RHGenericDriver</a>.</p>
 
@@ -1352,8 +1350,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p >Sets the length of the preamble in bytes. Caution: this should be set to the same value on all nodes in your network. Default is 8. Sets the message preamble length in RH_RF95_REG_??_PREAMBLE_?SB </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">bytes</td><td>Preamble length in bytes. <br  />
- </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bytes</td><td>Preamble length in bytes. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1799,7 +1796,7 @@ Additional Inherited Members</h2></td></tr>
     <ul>
         <li class="navelem"><a class="el" href="class_r_h___r_f95.html">RH_RF95</a></li>
         <li class="footer">
-            Generated on Mon Feb 7 2022 15:32:24 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Feb 8 2022 08:43:53 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

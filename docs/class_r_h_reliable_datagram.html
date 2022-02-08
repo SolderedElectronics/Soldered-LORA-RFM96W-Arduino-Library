@@ -364,7 +364,7 @@ Additional Inherited Members</h2></td></tr>
 <p >If there is a valid message available for this node, send an acknowledgement to the SRC address (blocking until this is complete), then copy the message to buf and return true else return false. If a message is copied, *len is set to the length. If from is not NULL, the SRC address is placed in *from. If to is not NULL, the DEST address is placed in *to. This is the preferred function for getting messages addressed to this node. If the message is not a broadcast, acknowledge to the sender before returning. You should be sure to call this function frequently enough to not miss any messages. It is recommended that you call it in your main loop. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">buf</td><td>Location to copy the received message </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">len</td><td>Pointer to the number of octets available in buf. The number be reset to the actual number of octets copied. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">len</td><td>Pointer to the number of octets available in buf. The number be reset to the actual number of octets copied.</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">from</td><td>If present and not NULL, the referenced uint8_t will be set to the SRC address </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">to</td><td>If present and not NULL, the referenced uint8_t will be set to the DEST address </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>If present and not NULL, the referenced uint8_t will be set to the ID </td></tr>
@@ -439,11 +439,11 @@ Additional Inherited Members</h2></td></tr>
 <p >Similar to <a class="el" href="class_r_h_reliable_datagram.html#af172410589842760babf938a0538334c">recvfromAck()</a>, this will block until either a valid message available for this node or the timeout expires. Starts the receiver automatically. You should be sure to call this function frequently enough to not miss any messages. It is recommended that you call it in your main loop. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">buf</td><td>Location to copy the received message </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">len</td><td>Pointer to the number of octets available in buf. The number be reset to the actual number of octets copied. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">timeout</td><td>Maximum time to wait in milliseconds </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">from</td><td>If present and not NULL, the referenced uint8_t will be set to the SRC address </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">to</td><td>If present and not NULL, the referenced uint8_t will be set to the DEST address </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>If present and not NULL, the referenced uint8_t will be set to the ID </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">len</td><td>Pointer to the number of octets available in buf. The number be reset to the actual number of octets copied.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">timeout</td><td>Maximum time to wait in milliseconds</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">from</td><td>If present and not NULL, the referenced uint8_t will be set to the SRC address</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">to</td><td>If present and not NULL, the referenced uint8_t will be set to the DEST address</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>If present and not NULL, the referenced uint8_t will be set to the ID</td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">flags</td><td>If present and not NULL, the referenced uint8_t will be set to the FLAGS (not just those addressed to this node). </td></tr>
   </table>
   </dd>
@@ -466,8 +466,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Resets the count of the number of retransmissions to 0. <br  />
- </p>
+<p >Resets the count of the number of retransmissions to 0. </p>
 
 </div>
 </div>
@@ -724,7 +723,7 @@ Additional Inherited Members</h2></td></tr>
     <ul>
         <li class="navelem"><a class="el" href="class_r_h_reliable_datagram.html">RHReliableDatagram</a></li>
         <li class="footer">
-            Generated on Mon Feb 7 2022 15:32:24 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Feb 8 2022 08:43:53 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
