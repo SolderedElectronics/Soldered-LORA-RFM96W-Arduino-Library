@@ -16,17 +16,21 @@ Description:
 
 */
 
-#include "lmic.h"
 #include "lmic_compliance.h"
+#include "lmic.h"
 #include "lorawan_spec_compliance.h"
 #include <stdbool.h>
 #include <string.h>
 
 #if defined(LMIC_PRINTF_TO)
-# include <stdio.h>
-# define LMIC_COMPLIANCE_PRINTF(f, ...) printf(f, ## __VA_ARGS__)
+#include <stdio.h>
+#define LMIC_COMPLIANCE_PRINTF(f, ...) printf(f, ##__VA_ARGS__)
 #else
-# define LMIC_COMPLIANCE_PRINTF(f, ...) do { ; } while (0)
+#define LMIC_COMPLIANCE_PRINTF(f, ...)                                                                                 \
+    do                                                                                                                 \
+    {                                                                                                                  \
+        ;                                                                                                              \
+    } while (0)
 #endif
 
 /****************************************************************************\
@@ -56,7 +60,7 @@ static osjobcbfn_t timerExpiredCb;
 
 /* these are declared global so the optimizer can chuck them without warnings */
 const char *LMICcompliance_txSuccessToString(int fSuccess);
-const char * LMICcompliance_fsmstate_getName(lmic_compliance_fsmstate_t state);
+const char *LMICcompliance_fsmstate_getName(lmic_compliance_fsmstate_t state);
 
 /****************************************************************************\
 |
@@ -106,37 +110,36 @@ Returns:
 
 */
 
-lmic_compliance_rx_action_t
-LMIC_complianceRxMessage(
-    uint8_t port,
-    const uint8_t *pMessage,
-    size_t nMessage
-) {
+lmic_compliance_rx_action_t LMIC_complianceRxMessage(uint8_t port, const uint8_t *pMessage, size_t nMessage)
+{
     lmic_compliance_state_t const complianceState = LMIC_Compliance.state;
 
     // update the counter used by the status message.
     ++LMIC_Compliance.downlinkCount;
 
     // filter normal messages.
-    if (port != LORAWAN_PORT_COMPLIANCE) {
-        return lmic_compliance_state_IsActive(complianceState)
-                    ? LMIC_COMPLIANCE_RX_ACTION_PROCESS
-                    : LMIC_COMPLIANCE_RX_ACTION_IGNORE
-                    ;
+    if (port != LORAWAN_PORT_COMPLIANCE)
+    {
+        return lmic_compliance_state_IsActive(complianceState) ? LMIC_COMPLIANCE_RX_ACTION_PROCESS
+                                                               : LMIC_COMPLIANCE_RX_ACTION_IGNORE;
     }
 
     // it's a message to port 224.
     // if we're not active, ignore everything but activation messages
-    if (! lmic_compliance_state_IsActive(complianceState)) {
-        if (isActivateMessage(pMessage, nMessage)) {
+    if (!lmic_compliance_state_IsActive(complianceState))
+    {
+        if (isActivateMessage(pMessage, nMessage))
+        {
             evActivate();
         } // else ignore.
-    } else {
+    }
+    else
+    {
         evMessage(pMessage, nMessage);
     }
     if (lmic_compliance_state_IsActive(complianceState) == lmic_compliance_state_IsActive(LMIC_Compliance.state))
         return LMIC_COMPLIANCE_RX_ACTION_IGNORE;
-    else if (! lmic_compliance_state_IsActive(complianceState))
+    else if (!lmic_compliance_state_IsActive(complianceState))
         return LMIC_COMPLIANCE_RX_ACTION_START;
     else
         return LMIC_COMPLIANCE_RX_ACTION_END;
@@ -165,17 +168,14 @@ Returns:
 
 */
 
-static bool
-isActivateMessage(
-        const uint8_t *pMessage,
-        size_t nMessage
-) {
+static bool isActivateMessage(const uint8_t *pMessage, size_t nMessage)
+{
     const uint8_t body[LORAWAN_COMPLIANCE_CMD_ACTIVATE_LEN] = {
         LORAWAN_COMPLIANCE_CMD_ACTIVATE,
         LORAWAN_COMPLIANCE_CMD_ACTIVATE_MAGIC,
         LORAWAN_COMPLIANCE_CMD_ACTIVATE_MAGIC,
         LORAWAN_COMPLIANCE_CMD_ACTIVATE_MAGIC,
-        };
+    };
 
     if (nMessage != sizeof(body))
         return false;
@@ -204,8 +204,10 @@ Returns:
 
 */
 
-static void evActivate(void) {
-    if (! lmic_compliance_state_IsActive(LMIC_Compliance.state)) {
+static void evActivate(void)
+{
+    if (!lmic_compliance_state_IsActive(LMIC_Compliance.state))
+    {
         LMIC_Compliance.downlinkCount = 0;
         LMIC_Compliance.eventflags |= LMIC_COMPLIANCE_EVENT_ACTIVATE;
         LMIC_Compliance.state = LMIC_COMPLIANCE_STATE_ACTIVATING;
@@ -217,7 +219,8 @@ static void evActivate(void) {
         band_t *b = LMIC.bands;
         lmic_compliance_band_t *b_save = LMIC_Compliance.saveBands;
 
-        for (; b < &LMIC.bands[MAX_BANDS]; ++b, ++b_save) {
+        for (; b < &LMIC.bands[MAX_BANDS]; ++b, ++b_save)
+        {
             b_save->txcap = b->txcap;
             b->txcap = 1;
             b->avail = os_getTime();
@@ -227,7 +230,9 @@ static void evActivate(void) {
         LMIC_registerEventCb(lmicEventCb, NULL);
 
         fsmEvalDeferred();
-    } else {
+    }
+    else
+    {
         LMIC_COMPLIANCE_PRINTF("Redundant ActivateTM message ignored.\n");
     }
 }
@@ -253,46 +258,45 @@ Returns:
 
 */
 
-static void evMessage(
-    const uint8_t *pMessage,
-    size_t nMessage
-) {
+static void evMessage(const uint8_t *pMessage, size_t nMessage)
+{
     if (nMessage == 0)
         return;
 
     const uint8_t cmd = pMessage[0];
-    switch (cmd) {
-        case LORAWAN_COMPLIANCE_CMD_DEACTIVATE: {
-            evDeactivate();
-            break;
-        }
-        case LORAWAN_COMPLIANCE_CMD_ACTIVATE: {
-            if (isActivateMessage(pMessage, nMessage))
-                evActivate();
-            break;
-        }
-        case LORAWAN_COMPLIANCE_CMD_SET_CONFIRM: {
-            LMIC_Compliance.fsmFlags |= LMIC_COMPLIANCE_FSM_CONFIRM;
-            break;
-        }
-        case LORAWAN_COMPLIANCE_CMD_SET_UNCONFIRM: {
-            LMIC_Compliance.fsmFlags &= ~LMIC_COMPLIANCE_FSM_CONFIRM;
-            break;
-        }
-        case LORAWAN_COMPLIANCE_CMD_ECHO: {
-            evEchoCommand(pMessage, nMessage);
-            break;
-            }
-        case LORAWAN_COMPLIANCE_CMD_LINK: {
-            // we are required to initiate a Link
-            break;
-        }
-        case LORAWAN_COMPLIANCE_CMD_JOIN: {
-            evJoinCommand();
-            break;
-        }
-        default:
-            break;
+    switch (cmd)
+    {
+    case LORAWAN_COMPLIANCE_CMD_DEACTIVATE: {
+        evDeactivate();
+        break;
+    }
+    case LORAWAN_COMPLIANCE_CMD_ACTIVATE: {
+        if (isActivateMessage(pMessage, nMessage))
+            evActivate();
+        break;
+    }
+    case LORAWAN_COMPLIANCE_CMD_SET_CONFIRM: {
+        LMIC_Compliance.fsmFlags |= LMIC_COMPLIANCE_FSM_CONFIRM;
+        break;
+    }
+    case LORAWAN_COMPLIANCE_CMD_SET_UNCONFIRM: {
+        LMIC_Compliance.fsmFlags &= ~LMIC_COMPLIANCE_FSM_CONFIRM;
+        break;
+    }
+    case LORAWAN_COMPLIANCE_CMD_ECHO: {
+        evEchoCommand(pMessage, nMessage);
+        break;
+    }
+    case LORAWAN_COMPLIANCE_CMD_LINK: {
+        // we are required to initiate a Link
+        break;
+    }
+    case LORAWAN_COMPLIANCE_CMD_JOIN: {
+        evJoinCommand();
+        break;
+    }
+    default:
+        break;
     }
 }
 
@@ -317,7 +321,8 @@ Returns:
 
 */
 
-static void evDeactivate(void) {
+static void evDeactivate(void)
+{
     LMIC_Compliance.eventflags |= LMIC_COMPLIANCE_EVENT_DEACTIVATE;
     LMIC_Compliance.state = LMIC_COMPLIANCE_STATE_STOPPING;
 
@@ -329,7 +334,8 @@ static void evDeactivate(void) {
     band_t *b = LMIC.bands;
     lmic_compliance_band_t const *b_save = LMIC_Compliance.saveBands;
 
-    for (; b < &LMIC.bands[MAX_BANDS]; ++b, ++b_save) {
+    for (; b < &LMIC.bands[MAX_BANDS]; ++b, ++b_save)
+    {
         b->txcap = b_save->txcap;
     }
 #endif // CFG_LMIC_EU_like
@@ -358,9 +364,8 @@ Returns:
 
 */
 
-static void evJoinCommand(
-    void
-) {
+static void evJoinCommand(void)
+{
     LMIC_unjoin();
     evDeactivate();
 }
@@ -387,10 +392,8 @@ Returns:
 
 */
 
-static void evEchoCommand(
-    const uint8_t *pMessage,
-    size_t nMessage
-) {
+static void evEchoCommand(const uint8_t *pMessage, size_t nMessage)
+{
     uint8_t *pResponse;
 
     if (nMessage > sizeof(LMIC_Compliance.uplinkMessage))
@@ -404,13 +407,14 @@ static void evEchoCommand(
     --nMessage;
 
     // each byte in the body has to be incremented by one.
-    for (; nMessage > 0; --nMessage) {
+    for (; nMessage > 0; --nMessage)
+    {
         *pResponse++ = (uint8_t)(*pMessage++ + 1);
     }
 
     // now that the message is formatted, tell the fsm to send it;
     // need to use a separate job.
-    LMIC_Compliance.uplinkSize = (uint8_t) (pResponse - LMIC_Compliance.uplinkMessage);
+    LMIC_Compliance.uplinkSize = (uint8_t)(pResponse - LMIC_Compliance.uplinkMessage);
     LMIC_Compliance.eventflags |= LMIC_COMPLIANCE_EVENT_ECHO_REQUEST;
     fsmEvalDeferred();
 }
@@ -438,32 +442,38 @@ Returns:
 
 */
 
-const char * LMICcompliance_fsmstate_getName(lmic_compliance_fsmstate_t state) {
-    const char * const names[] = { LMIC_COMPLIANCE_FSMSTATE__NAMES };
+const char *LMICcompliance_fsmstate_getName(lmic_compliance_fsmstate_t state)
+{
+    const char *const names[] = {LMIC_COMPLIANCE_FSMSTATE__NAMES};
 
-    if ((unsigned) state >= sizeof(names)/sizeof(names[0]))
+    if ((unsigned)state >= sizeof(names) / sizeof(names[0]))
         return "<<unknown>>";
     else
         return names[state];
 }
 
-static void fsmEvalDeferred(void) {
+static void fsmEvalDeferred(void)
+{
     os_setCallback(&LMIC_Compliance.fsmJob, fsmJobCb);
 }
 
-static void fsmJobCb(osjob_t *j) {
+static void fsmJobCb(osjob_t *j)
+{
     LMIC_API_PARAMETER(j);
     fsmEval();
 }
 
-static void fsmEval(void) {
+static void fsmEval(void)
+{
     bool fNewState;
 
     // check for reentry.
-    do {
+    do
+    {
         lmic_compliance_fsmflags_t const fsmFlags = LMIC_Compliance.fsmFlags;
 
-        if (fsmFlags & LMIC_COMPLIANCE_FSM_ACTIVE) {
+        if (fsmFlags & LMIC_COMPLIANCE_FSM_ACTIVE)
+        {
             LMIC_Compliance.fsmFlags = fsmFlags | LMIC_COMPLIANCE_FSM_REENTERED;
             return;
         }
@@ -474,31 +484,36 @@ static void fsmEval(void) {
 
     // evaluate and change state
     fNewState = false;
-    for (;;) {
+    for (;;)
+    {
         lmic_compliance_fsmstate_t const oldState = LMIC_Compliance.fsmState;
         lmic_compliance_fsmstate_t newState;
 
         newState = fsmDispatch(oldState, fNewState);
 
-        if (newState == LMIC_COMPLIANCE_FSMSTATE_NOCHANGE) {
+        if (newState == LMIC_COMPLIANCE_FSMSTATE_NOCHANGE)
+        {
             lmic_compliance_fsmflags_t const fsmFlags = LMIC_Compliance.fsmFlags;
 
-            if ((fsmFlags & LMIC_COMPLIANCE_FSM_REENTERED) == 0) {
+            if ((fsmFlags & LMIC_COMPLIANCE_FSM_REENTERED) == 0)
+            {
                 // not reentered, no change: get out.
                 LMIC_Compliance.fsmFlags = fsmFlags & ~LMIC_COMPLIANCE_FSM_ACTIVE;
                 return;
-            } else {
+            }
+            else
+            {
                 // reentered. reset reentered flag and keep going.
                 LMIC_Compliance.fsmFlags = fsmFlags & ~LMIC_COMPLIANCE_FSM_REENTERED;
                 fNewState = false;
             }
-        } else {
+        }
+        else
+        {
             // state change!
-            LMIC_COMPLIANCE_PRINTF("%s: change state %s(%u) => %s(%u)\n",
-                __func__,
-                LMICcompliance_fsmstate_getName(oldState), (unsigned) oldState,
-                LMICcompliance_fsmstate_getName(newState), (unsigned) newState
-                );
+            LMIC_COMPLIANCE_PRINTF("%s: change state %s(%u) => %s(%u)\n", __func__,
+                                   LMICcompliance_fsmstate_getName(oldState), (unsigned)oldState,
+                                   LMICcompliance_fsmstate_getName(newState), (unsigned)newState);
             fNewState = true;
             LMIC_Compliance.fsmState = newState;
         }
@@ -531,8 +546,8 @@ Returns:
 
 */
 
-static inline lmic_compliance_eventflags_t
-eventflags_TestAndClear(lmic_compliance_eventflags_t flag) {
+static inline lmic_compliance_eventflags_t eventflags_TestAndClear(lmic_compliance_eventflags_t flag)
+{
     const lmic_compliance_eventflags_t old = LMIC_Compliance.eventflags;
     const lmic_compliance_eventflags_t result = old & flag;
 
@@ -542,199 +557,209 @@ eventflags_TestAndClear(lmic_compliance_eventflags_t flag) {
     return result;
 }
 
-static lmic_compliance_fsmstate_t
-fsmDispatch(
-    lmic_compliance_fsmstate_t state,
-    bool fEntry
-) {
+static lmic_compliance_fsmstate_t fsmDispatch(lmic_compliance_fsmstate_t state, bool fEntry)
+{
     lmic_compliance_fsmstate_t newState;
 
     // currently, this is a stub.
     newState = LMIC_COMPLIANCE_FSMSTATE_NOCHANGE;
 
-    switch (state) {
-        case LMIC_COMPLIANCE_FSMSTATE_INITIAL: {
+    switch (state)
+    {
+    case LMIC_COMPLIANCE_FSMSTATE_INITIAL: {
+        newState = LMIC_COMPLIANCE_FSMSTATE_INACTIVE;
+        break;
+    }
+
+    case LMIC_COMPLIANCE_FSMSTATE_INACTIVE: {
+        if (fEntry)
+        {
+            acExitActiveMode();
+        }
+
+        if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_ACTIVATE))
+        {
+            newState = LMIC_COMPLIANCE_FSMSTATE_ACTIVE;
+        }
+        break;
+    }
+
+    case LMIC_COMPLIANCE_FSMSTATE_ACTIVE: {
+        if (fEntry)
+        {
+            acEnterActiveMode();
+            acSetTimer(sec2osticks(1));
+        }
+        if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_TIMER_EXPIRED))
+        {
+            newState = LMIC_COMPLIANCE_FSMSTATE_TESTMODE;
+        }
+        break;
+    }
+
+    case LMIC_COMPLIANCE_FSMSTATE_TXBUSY: {
+        if (fEntry)
+        {
+            acSetTimer(sec2osticks(1));
+        }
+        if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_TIMER_EXPIRED))
+        {
+            newState = LMIC_COMPLIANCE_FSMSTATE_TESTMODE;
+        }
+        break;
+    }
+
+    case LMIC_COMPLIANCE_FSMSTATE_TESTMODE: {
+        if (LMIC.opmode & OP_TXDATA)
+        {
+            // go back and wait some more.
+            newState = LMIC_COMPLIANCE_FSMSTATE_TXBUSY;
+        }
+        if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_DEACTIVATE))
+        {
             newState = LMIC_COMPLIANCE_FSMSTATE_INACTIVE;
-            break;
         }
-
-        case LMIC_COMPLIANCE_FSMSTATE_INACTIVE: {
-            if (fEntry) {
-                acExitActiveMode();
-            }
-
-            if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_ACTIVATE)) {
-                newState = LMIC_COMPLIANCE_FSMSTATE_ACTIVE;
-            }
-            break;
+        else if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_ECHO_REQUEST))
+        {
+            newState = LMIC_COMPLIANCE_FSMSTATE_ECHOING;
         }
+        else
+        {
+            newState = LMIC_COMPLIANCE_FSMSTATE_REPORTING;
+        }
+        break;
+    }
 
-        case LMIC_COMPLIANCE_FSMSTATE_ACTIVE: {
-            if (fEntry) {
-                acEnterActiveMode();
+    case LMIC_COMPLIANCE_FSMSTATE_ECHOING: {
+        if (fEntry)
+            acSendUplinkBuffer();
+
+        if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_UPLINK_COMPLETE))
+        {
+            newState = LMIC_COMPLIANCE_FSMSTATE_RECOVERY;
+        }
+        break;
+    }
+
+    case LMIC_COMPLIANCE_FSMSTATE_REPORTING: {
+        if (fEntry)
+            acSendUplink();
+
+        if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_UPLINK_COMPLETE))
+        {
+            newState = LMIC_COMPLIANCE_FSMSTATE_RECOVERY;
+        }
+        break;
+    }
+
+    case LMIC_COMPLIANCE_FSMSTATE_RECOVERY: {
+        if (fEntry)
+        {
+            if (LMIC_Compliance.eventflags & (LMIC_COMPLIANCE_EVENT_DEACTIVATE | LMIC_COMPLIANCE_EVENT_ECHO_REQUEST))
+            {
                 acSetTimer(sec2osticks(1));
             }
-            if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_TIMER_EXPIRED)) {
-                newState = LMIC_COMPLIANCE_FSMSTATE_TESTMODE;
+            else
+            {
+                acSetTimer(sec2osticks(5));
             }
-            break;
         }
 
-        case LMIC_COMPLIANCE_FSMSTATE_TXBUSY: {
-            if (fEntry) {
-                acSetTimer(sec2osticks(1));
-            }
-            if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_TIMER_EXPIRED)) {
-                newState = LMIC_COMPLIANCE_FSMSTATE_TESTMODE;
-            }
-            break;
+        if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_TIMER_EXPIRED))
+        {
+            newState = LMIC_COMPLIANCE_FSMSTATE_TESTMODE;
         }
+        break;
+    }
 
-        case LMIC_COMPLIANCE_FSMSTATE_TESTMODE: {
-            if (LMIC.opmode & OP_TXDATA) {
-                // go back and wait some more.
-                newState = LMIC_COMPLIANCE_FSMSTATE_TXBUSY;
-            }
-            if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_DEACTIVATE)) {
-                newState = LMIC_COMPLIANCE_FSMSTATE_INACTIVE;
-            } else if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_ECHO_REQUEST)) {
-                newState = LMIC_COMPLIANCE_FSMSTATE_ECHOING;
-            } else {
-                newState = LMIC_COMPLIANCE_FSMSTATE_REPORTING;
-            }
-            break;
-        }
-
-        case LMIC_COMPLIANCE_FSMSTATE_ECHOING: {
-            if (fEntry)
-                acSendUplinkBuffer();
-
-            if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_UPLINK_COMPLETE)) {
-                newState = LMIC_COMPLIANCE_FSMSTATE_RECOVERY;
-            }
-            break;
-        }
-
-        case LMIC_COMPLIANCE_FSMSTATE_REPORTING: {
-            if (fEntry)
-                acSendUplink();
-
-            if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_UPLINK_COMPLETE)) {
-                newState = LMIC_COMPLIANCE_FSMSTATE_RECOVERY;
-            }
-            break;
-        }
-
-        case LMIC_COMPLIANCE_FSMSTATE_RECOVERY: {
-            if (fEntry) {
-                if (LMIC_Compliance.eventflags & (LMIC_COMPLIANCE_EVENT_DEACTIVATE |
-                                                  LMIC_COMPLIANCE_EVENT_ECHO_REQUEST)) {
-                    acSetTimer(sec2osticks(1));
-                } else {
-                    acSetTimer(sec2osticks(5));
-                }
-            }
-
-            if (eventflags_TestAndClear(LMIC_COMPLIANCE_EVENT_TIMER_EXPIRED)) {
-                newState = LMIC_COMPLIANCE_FSMSTATE_TESTMODE;
-            }
-            break;
-        }
-
-        default: {
-            break;
-        }
+    default: {
+        break;
+    }
     }
 
     return newState;
 }
 
-static void acEnterActiveMode(void) {
+static void acEnterActiveMode(void)
+{
     // indicate to the outer world that we're active.
     LMIC_Compliance.state = LMIC_COMPLIANCE_STATE_ACTIVE;
 }
 
-void acSetTimer(ostime_t delay) {
+void acSetTimer(ostime_t delay)
+{
     os_setTimedCallback(&LMIC_Compliance.timerJob, os_getTime() + delay, timerExpiredCb);
 }
 
-static void timerExpiredCb(osjob_t *j) {
+static void timerExpiredCb(osjob_t *j)
+{
     LMIC_API_PARAMETER(j);
     LMIC_Compliance.eventflags |= LMIC_COMPLIANCE_EVENT_TIMER_EXPIRED;
     fsmEval();
 }
 
-static void lmicEventCb(
-    void *pUserData,
-    ev_t ev
-) {
+static void lmicEventCb(void *pUserData, ev_t ev)
+{
     LMIC_API_PARAMETER(pUserData);
 
     // pass to user handler
-    if (LMIC_Compliance.saveEvent.pEventCb) {
-        LMIC_Compliance.saveEvent.pEventCb(
-            LMIC_Compliance.saveEvent.pUserData, ev
-            );
+    if (LMIC_Compliance.saveEvent.pEventCb)
+    {
+        LMIC_Compliance.saveEvent.pEventCb(LMIC_Compliance.saveEvent.pUserData, ev);
     }
 
     // if it's a EV_JOINED, or a TXCMOMPLETE, we should tell the FSM.
-    if ((UINT32_C(1) << ev) & (EV_JOINED | EV_TXCOMPLETE)) {
+    if ((UINT32_C(1) << ev) & (EV_JOINED | EV_TXCOMPLETE))
+    {
         fsmEvalDeferred();
     }
 }
 
 
-static void acExitActiveMode(void) {
+static void acExitActiveMode(void)
+{
     LMIC_Compliance.state = LMIC_COMPLIANCE_STATE_IDLE;
     os_clearCallback(&LMIC_Compliance.timerJob);
     LMIC_clrTxData();
 }
 
 
-static void acSendUplink(void) {
+static void acSendUplink(void)
+{
     uint8_t payload[2];
     uint32_t const downlink = LMIC_Compliance.downlinkCount;
 
     // build the uplink message
-    payload[0] = (uint8_t) (downlink >> 8);
-    payload[1] = (uint8_t) downlink;
+    payload[0] = (uint8_t)(downlink >> 8);
+    payload[1] = (uint8_t)downlink;
 
     // reset the flags
     LMIC_Compliance.eventflags &= ~LMIC_COMPLIANCE_EVENT_UPLINK_COMPLETE;
 
     // don't try to send if busy; might be sending echo message.
-    lmic_tx_error_t const eSend =
-        LMIC_sendWithCallback_strict(
-            LORAWAN_PORT_COMPLIANCE,
-            payload, sizeof(payload),
-            /* confirmed? */
-            !! (LMIC_Compliance.fsmFlags & LMIC_COMPLIANCE_FSM_CONFIRM),
-            sendUplinkCompleteCb, NULL
-            );
+    lmic_tx_error_t const eSend = LMIC_sendWithCallback_strict(
+        LORAWAN_PORT_COMPLIANCE, payload, sizeof(payload),
+        /* confirmed? */
+        !!(LMIC_Compliance.fsmFlags & LMIC_COMPLIANCE_FSM_CONFIRM), sendUplinkCompleteCb, NULL);
 
-    if (eSend == LMIC_ERROR_SUCCESS) {
+    if (eSend == LMIC_ERROR_SUCCESS)
+    {
         // queued successfully
-        LMIC_COMPLIANCE_PRINTF(
-                "lmic_compliance.%s: queued uplink message(%u, %p)\n",
-                __func__,
-                (unsigned) downlink & 0xFFFF,
-                LMIC.client.txMessageCb
-                );
-    } else {
+        LMIC_COMPLIANCE_PRINTF("lmic_compliance.%s: queued uplink message(%u, %p)\n", __func__,
+                               (unsigned)downlink & 0xFFFF, LMIC.client.txMessageCb);
+    }
+    else
+    {
         // failed to queue; just skip this cycle.
-        LMIC_COMPLIANCE_PRINTF(
-                "lmic_compliance.%s: error(%d) sending uplink message(%u), %u bytes\n",
-                __func__,
-                eSend,
-                (unsigned) downlink & 0xFFFF,
-                (unsigned) sizeof(payload)
-                );
+        LMIC_COMPLIANCE_PRINTF("lmic_compliance.%s: error(%d) sending uplink message(%u), %u bytes\n", __func__, eSend,
+                               (unsigned)downlink & 0xFFFF, (unsigned)sizeof(payload));
         LMIC_Compliance.eventflags |= LMIC_COMPLIANCE_EVENT_UPLINK_COMPLETE;
         fsmEval();
     }
 }
 
-static void sendUplinkCompleteCb(void *pUserData, int fSuccess) {
+static void sendUplinkCompleteCb(void *pUserData, int fSuccess)
+{
     LMIC_API_PARAMETER(pUserData);
     LMIC_API_PARAMETER(fSuccess);
     LMIC_Compliance.eventflags |= LMIC_COMPLIANCE_EVENT_UPLINK_COMPLETE;
@@ -742,21 +767,22 @@ static void sendUplinkCompleteCb(void *pUserData, int fSuccess) {
     fsmEvalDeferred();
 }
 
-static void acSendUplinkBuffer(void) {
+static void acSendUplinkBuffer(void)
+{
     // send uplink data.
-    lmic_tx_error_t const eSend =
-        LMIC_sendWithCallback_strict(
-            LORAWAN_PORT_COMPLIANCE,
-            LMIC_Compliance.uplinkMessage, LMIC_Compliance.uplinkSize,
-            /* confirmed? */ (LMIC_Compliance.fsmFlags & LMIC_COMPLIANCE_FSM_CONFIRM) != 0,
-            sendUplinkCompleteCb,
-            NULL);
+    lmic_tx_error_t const eSend = LMIC_sendWithCallback_strict(
+        LORAWAN_PORT_COMPLIANCE, LMIC_Compliance.uplinkMessage, LMIC_Compliance.uplinkSize,
+        /* confirmed? */ (LMIC_Compliance.fsmFlags & LMIC_COMPLIANCE_FSM_CONFIRM) != 0, sendUplinkCompleteCb, NULL);
 
-    if (eSend == LMIC_ERROR_SUCCESS) {
+    if (eSend == LMIC_ERROR_SUCCESS)
+    {
         LMIC_COMPLIANCE_PRINTF("%s: queued %u bytes\n", __func__, LMIC_Compliance.uplinkSize);
-    } else {
+    }
+    else
+    {
         LMIC_COMPLIANCE_PRINTF("%s: uplink %u bytes failed (error %d)\n", __func__, LMIC_Compliance.uplinkSize, eSend);
-        if (eSend == LMIC_ERROR_TX_NOT_FEASIBLE) {
+        if (eSend == LMIC_ERROR_TX_NOT_FEASIBLE)
+        {
             // Reverse the increment of the downlink count. Needed for US compliance.
             if (CFG_region == LMIC_REGION_us915)
                 --LMIC_Compliance.downlinkCount;
@@ -766,6 +792,7 @@ static void acSendUplinkBuffer(void) {
     }
 }
 
-const char *LMICcompliance_txSuccessToString(int fSuccess) {
+const char *LMICcompliance_txSuccessToString(int fSuccess)
+{
     return fSuccess ? "ok" : "failed";
 }

@@ -4,6 +4,7 @@
 // http://rweather.github.io/arduinolibs/index.html
 //  Philippe.Rochat'at'gmail.com
 //  06.07.2017
+//Modified by soldered.com
 
 #define LORA
 
@@ -11,7 +12,13 @@
 #include <RHEncryptedDriver.h>
 #include <Speck.h>
 
-RH_RF95 rf95;     // Instanciate a LoRa driver
+#define CS_PIN  15
+#define INT_PIN 0
+
+// Singleton instance of the radio driver
+RH_RF95 rf95;
+//RH_RF95 rf95(CS_PIN, INT_PIN); // Custom pins can be used
+
 Speck myCipher;   // Instanciate a Speck block ciphering
 RHEncryptedDriver myDriver(rf95, myCipher); // Instantiate the driver with those two
 

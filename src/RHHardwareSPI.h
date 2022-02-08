@@ -20,16 +20,17 @@
 class RHHardwareSPI : public RHGenericSPI
 {
 #ifdef RH_HAVE_HARDWARE_SPI
-public:
+  public:
     /// Constructor
     /// Creates an instance of a hardware SPI interface, using whatever SPI hardware is available on
     /// your processor platform. On Arduino and Uno32, uses SPI. On Maple, uses HardwareSPI.
     /// \param[in] frequency One of RHGenericSPI::Frequency to select the SPI bus frequency. The frequency
     /// is mapped to the closest available bus frequency on the platform.
-    /// \param[in] bitOrder Select the SPI bus bit order, one of RHGenericSPI::BitOrderMSBFirst or 
+    /// \param[in] bitOrder Select the SPI bus bit order, one of RHGenericSPI::BitOrderMSBFirst or
     /// RHGenericSPI::BitOrderLSBFirst.
     /// \param[in] dataMode Selects the SPI bus data mode. One of RHGenericSPI::DataMode
-    RHHardwareSPI(Frequency frequency = Frequency1MHz, BitOrder bitOrder = BitOrderMSBFirst, DataMode dataMode = DataMode0);
+    RHHardwareSPI(Frequency frequency = Frequency1MHz, BitOrder bitOrder = BitOrderMSBFirst,
+                  DataMode dataMode = DataMode0);
 
     /// Transfer a single octet to and from the SPI interface
     /// \param[in] data The octet to send
@@ -48,14 +49,14 @@ public:
     /// \param[out] dest The buffer to hold the bytes read
     /// \param[in] len The number of bytes to read
     /// \return The NRF status byte
-    uint8_t spiBurstRead(uint8_t reg, uint8_t* dest, uint8_t len);
+    uint8_t spiBurstRead(uint8_t reg, uint8_t *dest, uint8_t len);
 
     /// Wrte a number of bytes on the SPI interface to an NRF device
     /// \param[in] reg The NRF device register to read
     /// \param[out] src The buffer to hold the bytes write
     /// \param[in] len The number of bytes to write
     /// \return The NRF status byte
-    uint8_t spiBurstWrite(uint8_t reg, const uint8_t* src, uint8_t len);
+    uint8_t spiBurstWrite(uint8_t reg, const uint8_t *src, uint8_t len);
 
 #endif
 
@@ -68,20 +69,27 @@ public:
     /// Disable SPI interrupts
     /// This can be used to diable the SPI interrupt in slaves where that is supported.
     void detachInterrupt();
-    
+
     /// Initialise the SPI library
     /// Call this after configuring the SPI interface and before using it to transfer data.
-    /// Initializes the SPI bus by setting SCK, MOSI, and SS to outputs, pulling SCK and MOSI low, and SS high. 
+    /// Initializes the SPI bus by setting SCK, MOSI, and SS to outputs, pulling SCK and MOSI low, and SS high.
     void begin();
 
-    /// Disables the SPI bus (leaving pin modes unchanged). 
+    /// Disables the SPI bus (leaving pin modes unchanged).
     /// Call this after you have finished using the SPI interface.
     void end();
 #else
     // not supported on ATTiny etc
-    uint8_t transfer(uint8_t /*data*/) {return 0;}
-    void begin(){}
-    void end(){}
+    uint8_t transfer(uint8_t /*data*/)
+    {
+        return 0;
+    }
+    void begin()
+    {
+    }
+    void end()
+    {
+    }
 
 #endif
 
@@ -102,11 +110,10 @@ public:
     /// \param[in] interruptNumber The number of the interrupt
     virtual void usingInterrupt(uint8_t interruptNumber);
 
-protected:
-
+  protected:
 #if defined(SPI_HAS_TRANSACTION)
     // Storage for SPI settings used in SPI transactions
-    SPISettings  _settings;
+    SPISettings _settings;
 #endif
 };
 

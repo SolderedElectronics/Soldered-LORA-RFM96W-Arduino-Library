@@ -88,10 +88,10 @@ const unsigned TX_INTERVAL = 60;
 
 // Pin mapping
 const lmic_pinmap lmic_pins = {
-    .nss = 6,
-    .rxtx = LMIC_UNUSED_PIN,
-    .rst = 5,
-    .dio = {2, 3, 4},
+    .nss = 6,                       //CS pin
+    .rxtx = LMIC_UNUSED_PIN,        
+    .rst = 5,                       //Reset pin
+    .dio = {2, 3, LMIC_UNUSED_PIN}, //{DIO0,IO1,IO2}
 };
 
 void printHex2(unsigned v) {

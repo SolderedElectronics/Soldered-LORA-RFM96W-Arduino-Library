@@ -7,6 +7,7 @@
 // It is designed to work with the other example rf95_server
 // Tested with Anarduino MiniWirelessLoRa, Rocket Scream Mini Ultra Pro with
 // the RFM95W, Adafruit Feather M0 with RFM95
+//Modified by soldered.com
 
 ///                 Arduino      RFM95/96/97/98
 ///                 GND----------GND   (ground in)
@@ -24,10 +25,12 @@
 #include <SPI.h>
 #include <LoRa-SOLDERED.h>
 
+#define CS_PIN  15
+#define INT_PIN 0
+
 // Singleton instance of the radio driver
 RH_RF95 rf95;
-//RH_RF95 rf95(5, 2); // Rocket Scream Mini Ultra Pro with the RFM95W
-//RH_RF95 rf95(8, 3); // Adafruit Feather M0 with RFM95 
+//RH_RF95 rf95(CS_PIN, INT_PIN); // Custom pins can be used
 
 // Need this on Arduino Zero with SerialUSB port (eg RocketScream Mini Ultra Pro)
 //#define Serial SerialUSB
@@ -92,4 +95,3 @@ void loop()
   }
   delay(400);
 }
-

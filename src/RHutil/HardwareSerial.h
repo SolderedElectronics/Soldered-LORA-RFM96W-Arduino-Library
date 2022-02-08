@@ -28,10 +28,10 @@
 /// A number of these methods print error messages to stderr in the event of an IO error.
 class HardwareSerial
 {
-public:
+  public:
     /// Constructor
     // \param [in] deviceName Name of the derial port device to connect to
-    HardwareSerial(const char* deviceName);
+    HardwareSerial(const char *deviceName);
 
     /// Open and configure the port.
     /// The named port is opened, and the given baud rate is set.
@@ -41,7 +41,7 @@ public:
     /// IO failures and unsupported baud rates will result in an error message on stderr.
     /// \param[in] baud The desired baud rate. The only rates supported are: 50, 75, 110, 134, 150
     /// 200, 300, 600, 1200, 1800, 2400, 4800, 9600, 19200, 38400, 57600, 115200, 230400. On some platform
-    /// such as Linux you may also use: 460800, 921600. 
+    /// such as Linux you may also use: 460800, 921600.
     void begin(int baud);
 
     /// Close the port.
@@ -74,7 +74,7 @@ public:
     /// \return 1 if successful else 0
     size_t write(uint8_t ch);
 
-    // These are not usually in HardwareSerial but we 
+    // These are not usually in HardwareSerial but we
     // need them in a Unix environment
 
     /// Wait until a character is available from the port.
@@ -86,15 +86,15 @@ public:
     /// \return true if a message is available as reported by available()
     bool waitAvailableTimeout(uint16_t timeout);
 
-protected:
+  protected:
     bool openDevice();
     bool closeDevice();
     bool setBaud(int baud);
 
-private:
-    const char* _deviceName;
-    int         _device; // file desriptor
-    int         _baud;
+  private:
+    const char *_deviceName;
+    int _device; // file desriptor
+    int _baud;
 };
 
 #endif

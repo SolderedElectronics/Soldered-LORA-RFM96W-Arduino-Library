@@ -4,6 +4,7 @@
 // with the RHReliableDatagram class, using the RH_RF95 driver to control a RF95 radio.
 // It is designed to work with the other example rf95_reliable_datagram_server
 // Tested with Anarduino MiniWirelessLoRa, Rocket Scream Mini Ultra Pro with the RFM95W 
+//Modified by soldered.com
 
 #define LORA
 
@@ -15,9 +16,12 @@
 #define CLIENT_ADDRESS 1
 #define SERVER_ADDRESS 2
 
+#define CS_PIN  15
+#define INT_PIN 0
+
 // Singleton instance of the radio driver
-RH_RF95 driver;
-//RH_RF95 driver(5, 2); // Rocket Scream Mini Ultra Pro with the RFM95W
+RH_RF95 rf95;
+//RH_RF95 rf95(CS_PIN, INT_PIN); // Custom pins can be used
 
 // Class to manage message delivery and receipt, using the driver declared above
 RHReliableDatagram manager(driver, CLIENT_ADDRESS);
@@ -84,4 +88,3 @@ void loop()
     Serial.println("sendtoWait failed");
   delay(500);
 }
-

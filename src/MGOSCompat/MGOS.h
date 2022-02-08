@@ -21,11 +21,12 @@
 #define LSBFIRST 0
 #define MSBFIRST 1
 
-#define CHANGE 1
+#define CHANGE  1
 #define FALLING 2
-#define RISING 3
+#define RISING  3
 
-typedef enum WiringPinMode {
+typedef enum WiringPinMode
+{
     OUTPUT, /**< Basic digital output: when the pin is HIGH, the
                voltage is held at +3.3v (Vcc) and when it is LOW, it
                is pulled down to ground. */
@@ -86,16 +87,17 @@ typedef enum WiringPinMode {
                        floating (disconnected). */
 } WiringPinMode;
 
-extern "C" {
-  void pinMode(uint8_t pin, WiringPinMode mode);
-  void digitalWrite(unsigned char pin, unsigned char value);
-  uint8_t digitalRead(uint8_t pin);
-  uint32_t millis(void);
-  void delay (unsigned long ms);
-  long random(long min, long max);
-  void attachInterrupt(uint8_t pin, void (*handler)(void), int rh_mode);
-  void mgosYield(void);
-  void enableInterupt(uint8_t pin);
+extern "C"
+{
+    void pinMode(uint8_t pin, WiringPinMode mode);
+    void digitalWrite(unsigned char pin, unsigned char value);
+    uint8_t digitalRead(uint8_t pin);
+    uint32_t millis(void);
+    void delay(unsigned long ms);
+    long random(long min, long max);
+    void attachInterrupt(uint8_t pin, void (*handler)(void), int rh_mode);
+    void mgosYield(void);
+    void enableInterupt(uint8_t pin);
 }
 
 #endif
