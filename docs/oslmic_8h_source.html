@@ -364,7 +364,7 @@ $(document).ready(function(){initNavTree('oslmic_8h_source.html',''); initResiza
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="comment">// progmem using pgm_read_xx, or accesses memory directly when the</span></div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="comment">// index is a constant so gcc can optimize it away;</span></div>
 <div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="preprocessor">#define TABLE_GETTER(postfix, type, pgm_type)                                                                          \</span></div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="preprocessor">    static inline type table_get##postfix(const type *table, int32_t index)                                             \</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="preprocessor">    static inline type table_get##postfix(const type *table, int32_t index)                                            \</span></div>
 <div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><span class="preprocessor">    {                                                                                                                  \</span></div>
 <div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="preprocessor">        if (__builtin_constant_p(table[index]))                                                                        \</span></div>
 <div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="preprocessor">            return table[index];                                                                                       \</span></div>
@@ -544,7 +544,7 @@ $(document).ready(function(){initNavTree('oslmic_8h_source.html',''); initResiza
     <ul>
         <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_cdd1077a2fc0e5a6c28e7acb993a0e2a.html">lmic</a></li><li class="navelem"><a class="el" href="oslmic_8h.html">oslmic.h</a></li>
         <li class="footer">
-            Generated on Tue Feb 8 2022 14:20:02 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue Feb 8 2022 14:23:17 for LoRa RFM96W Arduino library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.
