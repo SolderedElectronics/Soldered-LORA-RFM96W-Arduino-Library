@@ -106,9 +106,9 @@ Revision history:
 // TODO(tmm@mcci.com) consider moving this block to a central file as it's not
 // user-editable.
 #define LMIC_REGIONS_SUPPORTED                                                                                         \
-    ((1 << LMIC_REGION_eu868) |                                                                                        \
-     (1 << LMIC_REGION_us915) | /* (1 << LMIC_REGION_cn783) | */ /* (1 << LMIC_REGION_eu433) | */                      \
-     (1 << LMIC_REGION_au915) |                                  /* (1 << LMIC_REGION_cn490) | */                      \
+    ((1 << LMIC_REGION_eu868) | (1 << LMIC_REGION_us915) |                                                             \
+     /* (1 << LMIC_REGION_cn783) | */ /* (1 << LMIC_REGION_eu433) | */                                                 \
+     (1 << LMIC_REGION_au915) |       /* (1 << LMIC_REGION_cn490) | */                                                 \
      (1 << LMIC_REGION_as923) | (1 << LMIC_REGION_kr920) | (1 << LMIC_REGION_in866) | 0)
 
 // the selected region.
@@ -225,8 +225,8 @@ Revision history:
 /// user-editable.
 #define CFG_LMIC_EU_like_MASK                                                                                          \
     ((1 << LMIC_REGION_eu868) | /* (1 << LMIC_REGION_us915) | */                                                       \
-     (1 << LMIC_REGION_cn783) |                                                                                        \
-     (1 << LMIC_REGION_eu433) | /* (1 << LMIC_REGION_au915) | */ /* (1 << LMIC_REGION_cn490) | */                      \
+     (1 << LMIC_REGION_cn783) | (1 << LMIC_REGION_eu433) |                                                             \
+     /* (1 << LMIC_REGION_au915) | */ /* (1 << LMIC_REGION_cn490) | */                                                 \
      (1 << LMIC_REGION_as923) | (1 << LMIC_REGION_kr920) | (1 << LMIC_REGION_in866) | 0)
 
 /// \brief bitmask of` US-like regions

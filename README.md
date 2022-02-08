@@ -3,12 +3,12 @@
 [![Compile Sketches](http://github-actions.40ants.com/e-radionicacom/Soldered-LORA-RFM96W-Arduino-Library/matrix.svg?branch=dev&only=Compile%20Sketches)](https://github.com/e-radionicacom/Soldered-LORA-RFM96W-Arduino-Library/actions/workflows/compile_test.yml)
 [![Make docs and publish to GitHub Pages](https://github.com/e-radionicacom/Soldered-LORA-RFM96W-Arduino-Library/actions/workflows/make_docs.yml/badge.svg?branch=dev)](https://github.com/e-radionicacom/Soldered-LORA-RFM96W-Arduino-Library/actions/workflows/make_docs.yml)
 
-| ![Product name](https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg) |
+| ![LoRa breakout board](https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg) |
 | :---------------------------------------------------------------------------------------------: |
 | [LoRa breakout board 5V](https://www.solde.red/333157)                                                            |
 | [LoRa breakout board 3.3V](https://www.solde.red/333158)                                                            |
 
-LoRa RFM96W [easyC ecosystem](https://www.soldered.com/easyC). 
+LoRa RFM96W compliant with [easyC ecosystem](https://www.soldered.com/easyC). 
 
 ### Repository Contents
 - **/src** - source files for the library (.h & .cpp)
@@ -22,7 +22,7 @@ You can find hardware design for this board in LoRa RFM96W hardware repository
 
 Access Arduino library documentation [here](https://e-radionicacom.github.io/Soldered-LORA-RFM96W-Arduino-Library/).
 
-- Tutorial for using the LoRa RFM96W board
+- Tutorial for using the LoRa RFM96W breakout board
 - Installing an Arduino library
 
 ### About Soldered
@@ -38,7 +38,7 @@ At Soldered, we design and manufacture a wide selection of electronic products t
 
 ### Original source
 ​
-This library is possible thanks to original [MCCI LoRaWAN LMIC library](https://github.com/mcci-catena/arduino-lmic) library. Thank you, terrillmoore. 
+This library is possible thanks to original [MCCI LoRaWAN LMIC library](https://github.com/mcci-catena/arduino-lmic) library and [RadioHead](https://github.com/adafruit/RadioHead). Thank you, terrillmoore and Adafruit. 
 
 
 ### Open-source license
@@ -47,4 +47,3 @@ Soldered invests vast amounts of time into hardware & software for these product
 Check license details in the LICENSE file. Long story short, use these open-source files for any purpose you want to, as long as you apply the same open-source licence to it and disclose the original source. No warranty - all designs in this repository are distributed in the hope that they will be useful, but without any warranty. They are provided "AS IS", therefore without warranty of any kind, either expressed or implied. The entire quality and performance of what you do with the contents of this repository are your responsibility. In no event, Soldered (TAVU) will be liable for your damages, losses, including any general, special, incidental or consequential damage arising out of the use or inability to use the contents of this repository. 
 
 Thank you from your fellow makers at Soldered.
-
