@@ -108,18 +108,18 @@ class SerialUSBClass
     {
     }
 
-    size_t println(const char *s)
+    int32_t println(const char *s)
     {
         print(s);
         printf("\n");
         return 0;
     }
-    size_t print(const char *s)
+    int32_t print(const char *s)
     {
         printf(s);
         return 0;
     }
-    size_t print(unsigned int n, int base = DEC)
+    int32_t print(unsigned int n, int base = DEC)
     {
         if (base == DEC)
             printf("%d", n);
@@ -130,21 +130,21 @@ class SerialUSBClass
         // TODO: BIN
         return 0;
     }
-    size_t print(char ch)
+    int32_t print(char ch)
     {
         printf("%c", ch);
         return 0;
     }
-    size_t println(char ch)
+    int32_t println(char ch)
     {
         printf("%c\n", ch);
         return 0;
     }
-    size_t print(unsigned char ch, int base = DEC)
+    int32_t print(unsigned char ch, int base = DEC)
     {
         return print((unsigned int)ch, base);
     }
-    size_t println(unsigned char ch, int base = DEC)
+    int32_t println(unsigned char ch, int base = DEC)
     {
         print((unsigned int)ch, base);
         printf("\n");

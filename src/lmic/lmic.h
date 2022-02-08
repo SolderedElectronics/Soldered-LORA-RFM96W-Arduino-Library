@@ -488,7 +488,7 @@ struct lmic_saved_adr_state_s
     // callbacks for client alerts.
     // types and functions are always defined, to reduce #ifs in example code and libraries.
     typedef void LMIC_ABI_STD lmic_rxmessage_cb_t(void *pUserData, uint8_t port, const uint8_t *pMessage,
-                                                  size_t nMessage);
+                                                  int32_t nMessage);
     typedef void LMIC_ABI_STD lmic_txmessage_cb_t(void *pUserData, int fSuccess);
     typedef void LMIC_ABI_STD lmic_event_cb_t(void *pUserData, ev_t e);
 
@@ -877,7 +877,7 @@ struct lmic_saved_adr_state_s
         LMIC_COMPLIANCE_RX_ACTION_END          // exit compliance mode, discard this message
     };
 
-    lmic_compliance_rx_action_t LMIC_complianceRxMessage(u1_t port, const u1_t *pMessage, size_t nMessage);
+    lmic_compliance_rx_action_t LMIC_complianceRxMessage(u1_t port, const u1_t *pMessage, int32_t nMessage);
 
 // Declare onEvent() function, to make sure any definition will have the
 // C conventions, even when in a C++ file.

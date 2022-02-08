@@ -122,14 +122,14 @@ void onEvent (ev_t ev) {
               Serial.print("devaddr: ");
               Serial.println(devaddr, HEX);
               Serial.print("AppSKey: ");
-              for (size_t i=0; i<sizeof(artKey); ++i) {
+              for (int32_t i=0; i<sizeof(artKey); ++i) {
                 if (i != 0)
                   Serial.print("-");
                 printHex2(artKey[i]);
               }
               Serial.println("");
               Serial.print("NwkSKey: ");
-              for (size_t i=0; i<sizeof(nwkKey); ++i) {
+              for (int32_t i=0; i<sizeof(nwkKey); ++i) {
                       if (i != 0)
                               Serial.print("-");
                       printHex2(nwkKey[i]);

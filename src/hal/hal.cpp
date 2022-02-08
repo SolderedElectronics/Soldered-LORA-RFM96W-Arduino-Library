@@ -210,7 +210,7 @@ static void hal_spi_init()
     SPI.begin();
 }
 
-static void hal_spi_trx(u1_t cmd, u1_t *buf, size_t len, bit_t is_read)
+static void hal_spi_trx(u1_t cmd, u1_t *buf, int32_t len, bit_t is_read)
 {
     uint32_t spi_freq;
     u1_t nss = plmic_pins->nss;
@@ -236,12 +236,12 @@ static void hal_spi_trx(u1_t cmd, u1_t *buf, size_t len, bit_t is_read)
     SPI.endTransaction();
 }
 
-void hal_spi_write(u1_t cmd, const u1_t *buf, size_t len)
+void hal_spi_write(u1_t cmd, const u1_t *buf, int32_t len)
 {
     hal_spi_trx(cmd, (u1_t *)buf, len, 0);
 }
 
-void hal_spi_read(u1_t cmd, u1_t *buf, size_t len)
+void hal_spi_read(u1_t cmd, u1_t *buf, int32_t len)
 {
     hal_spi_trx(cmd, buf, len, 1);
 }
@@ -414,7 +414,7 @@ void hal_sleep()
 
 #if defined(LMIC_PRINTF_TO)
 #if !defined(__AVR)
-static ssize_t uart_putchar(void *, const char *buf, size_t len)
+static ssize_t uart_putchar(void *, const char *buf, int32_t len)
 {
     return LMIC_PRINTF_TO.write((const uint8_t *)buf, len);
 }
