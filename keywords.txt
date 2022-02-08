@@ -1,18 +1,27 @@
 ##################################################
-# Syntax Coloring Map For Obstacle-Sensor-SOLDERED
+# Syntax Coloring Map For LoRa-SOLDERED
 ##################################################
 
 ##################################################
 # Datatypes (KEYWORD1)
 ##################################################
 
-LMIC  KEYWORD1
+LMIC	KEYWORD1
+RH_RF95	KEYWORD1
 
 ##################################################
 # Methods and Functions (KEYWORD2)
 ##################################################
 
 begin	KEYWORD2
+waitPacketSent KEYWORD2
+waitAvailableTimeout KEYWORD2
+recv KEYWORD2
+lastRssi KEYWORD2
+setFrequency KEYWORD2
+setTxPower KEYWORD2
+send KEYWORD2
+LMIC_getSessionKeys KEYWORD2
 
 ##################################################
 # Constants (LITERAL1)
