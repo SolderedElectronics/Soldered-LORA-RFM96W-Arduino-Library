@@ -418,9 +418,7 @@ enum _dr_configured_t {
         DR_NONE = IN866_DR_NONE
 };
 # endif // LMIC_DR_LEGACY
-
-#else
-# error Unsupported configuration setting
+ 
 #endif // ===================================================
 
 enum {
