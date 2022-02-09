@@ -78,17 +78,6 @@ Revision history:
 // specific countries. Only the ones that are needed by the code are defined.
 #define LMIC_COUNTRY_CODE_JP LMIC_COUNTRY_CODE_C('J', 'P')
 
-// project-specific definitions
-#define CFG_eu868 1
-//#define CFG_us915 1
-//#define CFG_au915 1
-//#define CFG_as923 1
-// #define LMIC_COUNTRY_CODE LMIC_COUNTRY_CODE_JP      /* for as923-JP; also define CFG_as923 */
-//#define CFG_kr920 1
-//#define CFG_in866 1
-#define CFG_sx1276_radio 1
-//#define LMIC_USE_INTERRUPTS
-
 #if defined(CFG_au921) && !defined(CFG_au915)
 #warning "CFG_au921 was deprecated in favour of CFG_au915. Support for CFG_au921 might be removed in the future."
 #define CFG_au915
