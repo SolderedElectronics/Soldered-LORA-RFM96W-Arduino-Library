@@ -22,6 +22,11 @@
 #define CFG_sx1276_radio 1
 //#define LMIC_USE_INTERRUPTS
 
+/// \brief true if configured region is EU-like, false otherwise.
+#define CFG_LMIC_EU_like (!!(CFG_LMIC_REGION_MASK & CFG_LMIC_EU_like_MASK))
+/// \brief true if configured region is US-like, false otherwise.
+#define CFG_LMIC_US_like (!!(CFG_LMIC_REGION_MASK & CFG_LMIC_US_like_MASK))
+
 
 typedef uint8_t bit_t;
 typedef uint8_t u1_t;
