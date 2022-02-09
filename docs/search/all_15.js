@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['u1_5ft_0',['u1_t',['../oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24',1,'oslmic_types.h']]],
-  ['u2_5ft_1',['u2_t',['../oslmic__types_8h.html#afa7774dcdd691ff76a6d6338f957f6be',1,'oslmic_types.h']]],
-  ['u4_5ft_2',['u4_t',['../oslmic__types_8h.html#a7a23144c3efa098ee169498ef48a087e',1,'oslmic_types.h']]],
+  ['u1_5ft_0',['u1_t',['../oslmic__types_8h.html#a525841d9a7dd2ca9d1a006b065637d24',1,'u1_t():&#160;oslmic_types.h'],['../_lo_ra-_s_o_l_d_e_r_e_d_8h.html#a525841d9a7dd2ca9d1a006b065637d24',1,'u1_t():&#160;LoRa-SOLDERED.h']]],
+  ['u2_5ft_1',['u2_t',['../oslmic__types_8h.html#afa7774dcdd691ff76a6d6338f957f6be',1,'u2_t():&#160;oslmic_types.h'],['../_lo_ra-_s_o_l_d_e_r_e_d_8h.html#afa7774dcdd691ff76a6d6338f957f6be',1,'u2_t():&#160;LoRa-SOLDERED.h']]],
+  ['u4_5ft_2',['u4_t',['../oslmic__types_8h.html#a7a23144c3efa098ee169498ef48a087e',1,'u4_t():&#160;oslmic_types.h'],['../_lo_ra-_s_o_l_d_e_r_e_d_8h.html#a7a23144c3efa098ee169498ef48a087e',1,'u4_t():&#160;LoRa-SOLDERED.h']]],
   ['uart4_5firqhandler_3',['UART4_IRQHandler',['../_s_t_m32_arduino_compat_2_hardware_serial_8cpp.html#a88774889b903ae43403cd7e7a11a8f4f',1,'HardwareSerial.cpp']]],
   ['uart5_5firqhandler_4',['UART5_IRQHandler',['../_s_t_m32_arduino_compat_2_hardware_serial_8cpp.html#aa1c474cac5abda23ebbe8a9e8f4d7551',1,'HardwareSerial.cpp']]],
   ['uart_5fputchar_5',['uart_putchar',['../hal_8cpp.html#aff9ef4243ccc2080ba672bd63cd070d0',1,'uart_putchar(char c, FILE *):&#160;hal.cpp'],['../hal_8cpp.html#a434fd10d98e0763d0a7df27cbbcf675f',1,'uart_putchar(void *, const char *buf, int32_t len):&#160;hal.cpp']]],
   ['uartindex_6',['uartIndex',['../class_hardware_serial.html#ae11b91c62757abae2e54c02514939a01',1,'HardwareSerial']]],
-  ['uint_7',['uint',['../oslmic__types_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'oslmic_types.h']]],
+  ['uint_7',['uint',['../_lo_ra-_s_o_l_d_e_r_e_d_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;LoRa-SOLDERED.h'],['../oslmic__types_8h.html#a91ad9478d81a7aaf2593e8d9c3d06a14',1,'uint():&#160;oslmic_types.h']]],
   ['unjoinandrejoin_8',['unjoinAndRejoin',['../lmic_2lmic_8c.html#a1d8217d732ce6bc6be7048218bf696e8',1,'lmic.c']]],
   ['unlinkjob_9',['unlinkjob',['../oslmic_8c.html#a02d5a7c0bdbb7b8dd3a8f6008378e266',1,'oslmic.c']]],
   ['unused_5fpin_10',['UNUSED_PIN',['../struct_arduino___l_m_i_c_1_1_hal_pinmap__t.html#aad45517706f9e1a2299190b8ca47609c',1,'Arduino_LMIC::HalPinmap_t']]],

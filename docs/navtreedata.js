@@ -73,18 +73,18 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_a_e_s-128___v10_8cpp.html",
-"_s_t_m32_arduino_compat_2_hardware_serial_8cpp.html#a30ab037931edc17e4ef7e58826ee0245",
-"class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428caeebb24bc82df8f53b2b341e8923ce9c2",
-"class_arduino___l_m_i_c_1_1_hal_configuration__t.html#ab61caa20f3dc87afbc67b6d772e0d09e",
-"class_r_h_encrypted_driver.html#ae5396468eb5c68a0b3a21d83d71144a6",
-"functions_func_o.html",
-"lmic_2hal_8h.html#a39288b2bbd006b85373d621df760b685",
-"lmic__as923_8c.html#a4e90a43b3557b73b2e180dd8286e5aaa",
-"lmic__eu__like_8c.html#a9fc933076af9a1d1ee116cb3c3bef7ab",
+"_s_t_m32_arduino_compat_2_hardware_s_p_i_8h.html#aa778307b2af3fee751838e73f501012eac2cdc74ee1d594e4be3e0638b664b5f6",
+"class_arduino___l_m_i_c_1_1_hal_configuration___catena4617__t.html#a42cf97ac4f965c063172ce2cfc47428ca9b1c78fde14a423ca19bfe4c6a6e6a10",
+"class_arduino___l_m_i_c_1_1_hal_configuration__t.html#a6b2ad98c835a76e7553e20a7c81e931aad1c2470380911b35eb8c0e3da7f725a1",
+"class_r_h_encrypted_driver.html#a9deed71eb4f29f778e729ac344018346",
+"functions_func_c.html",
+"index.html#autotoc_md6",
+"lmic_8h.html",
+"lmic__eu__like_8c.html#a19eea9d6cad64a6be955be83bf41b992",
 "lorabase_8h.html#aaaf1b490270e0d46bc6b527d6c76cd0fa1c5a9e4d8787ecbbb21e220b6590b168",
-"lorabase_8h.html#aaaf1b490270e0d46bc6b527d6c76cd0faecc22a3fa409fd6a919073de38ece79d",
-"oslmic_8h.html#a9d095ca84687f8ce7103cd088621f273",
-"structlmic__t.html#a535de851d891ac4959f650fa9efaa5c9"
+"lorabase_8h.html#aaaf1b490270e0d46bc6b527d6c76cd0faeab24cf1865db156976cafaadf7a0487",
+"oslmic_8h.html#a596c29924a8f0b6a9174ffe58aeb1120",
+"structlmic__t.html#a2fcd3cc6302864dced7db452c3faee01"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

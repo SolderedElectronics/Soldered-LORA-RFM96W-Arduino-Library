@@ -16,7 +16,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "arduino_lmic_user_configuration.h", "arduino__lmic__user__configuration_8h.html", null ],
     [ "lmic.h", "lmic_8h.html", null ],
     [ "LoRa-SOLDERED.cpp", "_lo_ra-_s_o_l_d_e_r_e_d_8cpp.html", null ],
-    [ "LoRa-SOLDERED.h", "_lo_ra-_s_o_l_d_e_r_e_d_8h.html", null ],
+    [ "LoRa-SOLDERED.h", "_lo_ra-_s_o_l_d_e_r_e_d_8h.html", "_lo_ra-_s_o_l_d_e_r_e_d_8h" ],
     [ "RadioHead.h", "_radio_head_8h.html", "_radio_head_8h" ],
     [ "RH_LoRaFileOps.cpp", "_r_h___lo_ra_file_ops_8cpp.html", null ],
     [ "RH_LoRaFileOps.h", "_r_h___lo_ra_file_ops_8h.html", [
