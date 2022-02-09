@@ -5,7 +5,7 @@
 // reliability, so you should only use RH_RF95  if you do not need the higher
 // level messaging abilities.
 // It is designed to work with the other example rf95_client
-// Tested with Anarduino MiniWirelessLoRa, Rocket Scream Mini Ultra Pro with
+// Tested with Arduino Mega, Nucleo64 F103 and ESP8266
 // the RFM95W, Adafruit Feather M0 with RFM95
 
 ///                 Arduino      RFM95/96/97/98

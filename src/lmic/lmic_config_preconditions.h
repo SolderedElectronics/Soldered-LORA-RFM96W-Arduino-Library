@@ -49,16 +49,7 @@ Revision history:
 #ifndef _LMIC_CONFIG_PRECONDITIONS_H_
 #define _LMIC_CONFIG_PRECONDITIONS_H_
 
-// We need to be able to compile with different options without editing source.
-// When building with a more advanced environment, set the following variable:
-// ARDUINO_LMIC_PROJECT_CONFIG_H=my_project_config.h
-//
-// otherwise the lmic_project_config.h from the ../../project_config directory will be used.
-#ifndef ARDUINO_LMIC_PROJECT_CONFIG_H
-#define ARDUINO_LMIC_PROJECT_CONFIG_H ../../project_config/lmic_project_config.h
-#endif
-
-#define CFG_TEXT_1(x) CFG_TEXT_2(x)
+x) CFG_TEXT_2(x)
 #define CFG_TEXT_2(x) #x
 
 // constants for comparison
@@ -86,11 +77,17 @@ Revision history:
 // specific countries. Only the ones that are needed by the code are defined.
 #define LMIC_COUNTRY_CODE_JP LMIC_COUNTRY_CODE_C('J', 'P')
 
-// include the file that the user is really supposed to edit. But for really strange
-// ports, this can be suppressed
-#ifndef ARDUINO_LMIC_PROJECT_CONFIG_H_SUPPRESS
-#include CFG_TEXT_1(ARDUINO_LMIC_PROJECT_CONFIG_H)
-#endif /* ARDUINO_LMIC_PROJECT_CONFIG_H_SUPPRESS */
+// project-specific definitions
+#define CFG_eu868 1
+//#define CFG_us915 1
+//#define CFG_au915 1
+//#define CFG_as923 1
+// #define LMIC_COUNTRY_CODE LMIC_COUNTRY_CODE_JP      /* for as923-JP; also define CFG_as923 */
+//#define CFG_kr920 1
+//#define CFG_in866 1
+#define CFG_sx1276_radio 1
+//#define LMIC_USE_INTERRUPTS
+
 
 #if defined(CFG_au921) && !defined(CFG_au915)
 #warning "CFG_au921 was deprecated in favour of CFG_au915. Support for CFG_au921 might be removed in the future."

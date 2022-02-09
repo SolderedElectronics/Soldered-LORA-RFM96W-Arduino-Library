@@ -3,7 +3,7 @@
 // Example sketch showing how to create a simple addressed, reliable messaging server
 // with the RHReliableDatagram class, using the RH_RF95 driver to control a RF95 radio.
 // It is designed to work with the other example rf95_reliable_datagram_client
-// Tested with Anarduino MiniWirelessLoRa, Rocket Scream Mini Ultra Pro with the RFM95W 
+// Tested with Arduino Mega, Nucleo64 F103 and ESP8266 the RFM95W 
 //Modified by soldered.com
 
 #define LORA
@@ -39,7 +39,7 @@ void setup()
   while (!Serial) ; // Wait for serial port to be available
   if (!manager.init())
     Serial.println("init failed");
-  // Defaults after init are 434.0MHz, 13dBm, Bw = 125 kHz, Cr = 4/5, Sf = 128chips/symbol, CRC on
+  // Defaults after init are 868.0MHz, 13dBm, Bw = 125 kHz, Cr = 4/5, Sf = 128chips/symbol, CRC on
 
   // The default transmitter power is 13dBm, using PA_BOOST.
   // If you are using RFM95/96/97/98 modules which uses the PA_BOOST transmitter pin, then 

@@ -3,7 +3,7 @@
 // Example sketch showing how to create a simple addressed, reliable messaging server
 // with the RHReliableDatagram class, using the RH_RF95 driver to control a RF95 radio.
 // It is designed to work with the other example rf95_reliable_datagram_client
-// Tested with Anarduino MiniWirelessLoRa, Rocket Scream Mini Ultra Pro with the RFM95W 
+// Tested with Arduino Mega, Nucleo64 F103 and ESP8266 the RFM95W 
 
 #include <RHReliableDatagram.h>
 #include <RH_RF95.h>
