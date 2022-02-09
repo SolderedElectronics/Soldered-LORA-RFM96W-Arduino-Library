@@ -16,6 +16,12 @@
 #include "lmic_config_preconditions.h"
 #endif
 
+/// \brief true if configured region is EU-like, false otherwise.
+#define CFG_LMIC_EU_like (!!(CFG_LMIC_REGION_MASK & CFG_LMIC_EU_like_MASK))
+/// \brief true if configured region is US-like, false otherwise.
+#define CFG_LMIC_US_like (!!(CFG_LMIC_REGION_MASK & CFG_LMIC_US_like_MASK))
+
+
 // check post-conditions.
 
 // make sure that we have exactly one target region defined.
