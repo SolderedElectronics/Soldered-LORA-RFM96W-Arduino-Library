@@ -5,8 +5,7 @@
 // reliability, so you should only use RH_RF95 if you do not need the higher
 // level messaging abilities.
 // It is designed to work with the other example rf95_server
-// Tested with Anarduino MiniWirelessLoRa, Rocket Scream Mini Ultra Pro with
-// the RFM95W, Adafruit Feather M0 with RFM95
+// Tested with Arduino Mega, Nucleo64 F103 and ESP8266
 //Modified by soldered.com
 
 ///                 Arduino      RFM95/96/97/98
@@ -46,7 +45,7 @@ void setup()
   while (!Serial) ; // Wait for serial port to be available
   if (!rf95.init())
     Serial.println("init failed");
-  // Defaults after init are 434.0MHz, 13dBm, Bw = 125 kHz, Cr = 4/5, Sf = 128chips/symbol, CRC on
+  // Defaults after init are 868.0MHz, 13dBm, Bw = 125 kHz, Cr = 4/5, Sf = 128chips/symbol, CRC on
 
   // You can change the modulation parameters with eg
   // rf95.setModemConfig(RH_RF95::Bw500Cr45Sf128);
