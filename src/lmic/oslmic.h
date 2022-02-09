@@ -78,7 +78,7 @@ typedef u1_t *xref2u1_t;
 #define LMIC_PRId_ostime_t PRId32
 #endif
 
-#define TYPEDEF_xref2rps_t     typedef rps_t *xref2rps_t
+//#define TYPEDEF_xref2rps_t     typedef rps_t *xref2rps_t
 #define TYPEDEF_xref2rxsched_t typedef rxsched_t *xref2rxsched_t
 #define TYPEDEF_xref2chnldef_t typedef chnldef_t *xref2chnldef_t
 #define TYPEDEF_xref2band_t    typedef band_t *xref2band_t

@@ -26,6 +26,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+
+#define TYPEDEF_xref2rps_t     typedef rps_t *xref2rps_t
+
 #ifndef _lorabase_h_
 #define _lorabase_h_
 
@@ -54,6 +57,7 @@ typedef u2_t rxsyms_t;
 // 15..8:   Implicit header control: 0 ==> none, 1..0xFF ==> length in bytes.
 
 typedef u2_t rps_t;
+
 TYPEDEF_xref2rps_t;
 
 enum { ILLEGAL_RPS = 0xFF };

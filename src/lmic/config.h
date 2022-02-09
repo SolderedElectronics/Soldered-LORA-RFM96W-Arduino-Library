@@ -16,12 +16,6 @@
 #include "lmic_config_preconditions.h"
 #endif
 
-/// \brief true if configured region is EU-like, false otherwise.
-#define CFG_LMIC_EU_like (!!(CFG_LMIC_REGION_MASK & CFG_LMIC_EU_like_MASK))
-/// \brief true if configured region is US-like, false otherwise.
-#define CFG_LMIC_US_like (!!(CFG_LMIC_REGION_MASK & CFG_LMIC_US_like_MASK))
-
-
 // check post-conditions.
 
 // make sure that we have exactly one target region defined.
@@ -41,11 +35,6 @@
 // if the country code is Japan, then the region must be AS923
 #if LMIC_COUNTRY_CODE == LMIC_COUNTRY_CODE_JP && CFG_region != LMIC_REGION_as923
 #error "If country code is JP, then region must be AS923"
-#endif
-
-// check for internal consistency
-#if !(CFG_LMIC_EU_like || CFG_LMIC_US_like)
-#error "Internal error: Neither EU-like nor US-like!"
 #endif
 
 // This is the SX1272/SX1273 radio, which is also used on the HopeRF
