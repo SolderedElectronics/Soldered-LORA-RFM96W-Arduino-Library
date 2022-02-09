@@ -49,7 +49,8 @@ Revision history:
 #ifndef _LMIC_CONFIG_PRECONDITIONS_H_
 #define _LMIC_CONFIG_PRECONDITIONS_H_
 
-x) CFG_TEXT_2(x)
+
+#define CFG_TEXT_1(x) CFG_TEXT_2(x)
 #define CFG_TEXT_2(x) #x
 
 // constants for comparison
@@ -87,7 +88,6 @@ x) CFG_TEXT_2(x)
 //#define CFG_in866 1
 #define CFG_sx1276_radio 1
 //#define LMIC_USE_INTERRUPTS
-
 
 #if defined(CFG_au921) && !defined(CFG_au915)
 #warning "CFG_au921 was deprecated in favour of CFG_au915. Support for CFG_au921 might be removed in the future."
