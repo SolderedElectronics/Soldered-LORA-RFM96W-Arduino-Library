@@ -1,12 +1,20 @@
-// rf95_client.pde
-// -*- mode: C++ -*-
-// Example sketch showing how to create a simple messageing client
-// with the RH_RF95 class. RH_RF95 class does not provide for addressing or
-// reliability, so you should only use RH_RF95 if you do not need the higher
-// level messaging abilities.
-// It is designed to work with the other example rf95_server
-// Tested with Arduino Mega, Nucleo64 F103 and ESP8266
-//Modified by soldered.com
+/**
+ **************************************************
+ *
+ * @file        rf95_client.ino
+ * @brief       Example sketch showing how to create a simple messageing client
+ *              with the RH_RF95 class. RH_RF95 class does not provide for addressing or
+ *              reliability, so you should only use RH_RF95 if you do not need the higher
+ *              level messaging abilities.
+ *              It is designed to work with the other example rf95_server
+ *              Tested with Arduino Mega, Nucleo64 F103 and ESP8266
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     Mike McCauley (mikem@airspayce.com)
+ ***************************************************/
 
 ///                 Arduino      RFM95/96/97/98
 ///                 GND----------GND   (ground in)

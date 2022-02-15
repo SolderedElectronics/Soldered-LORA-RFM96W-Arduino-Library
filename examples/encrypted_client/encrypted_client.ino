@@ -1,10 +1,29 @@
-// LoRa Simple Hello World Client with encrypted communications 
-// In order for this to compile you MUST uncomment the #define RH_ENABLE_ENCRYPTION_MODULE line
-// at the bottom of RadioHead.h, AND you MUST have installed the Crypto directory from arduinolibs:
-// http://rweather.github.io/arduinolibs/index.html
-//  Philippe.Rochat'at'gmail.com
-//  06.07.2017
-//Modified by soldered.com
+/**
+ **************************************************
+ *
+ * @file        rf95_server.ino
+ * @brief       LoRa Simple Hello World Client with encrypted communications 
+ *              In order for this to compile you MUST uncomment the #define RH_ENABLE_ENCRYPTION_MODULE line
+ *              at the bottom of RadioHead.h, AND you MUST have installed the Crypto directory from arduinolibs:
+ *              http://rweather.github.io/arduinolibs/index.html
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     Philippe.Rochat'at'gmail.com
+ ***************************************************/
+
+///                 Arduino      RFM95/96/97/98
+///                 GND----------GND   (ground in)
+///                 3V3----------3.3V  (3.3V in)
+/// interrupt 0 pin D2-----------DIO0  (interrupt request out)
+///          SS pin D10----------NSS   (CS chip select in)
+///         SCK pin D13----------SCK   (SPI clock in)
+///        MOSI pin D11----------MOSI  (SPI Data in)
+///        MISO pin D12----------MISO  (SPI Data out)
+/// This is pinout for Arduino Uno, if you are using other MCU, use SPI pins
+///and Interrupt pin 0
 
 #define LORA
 
