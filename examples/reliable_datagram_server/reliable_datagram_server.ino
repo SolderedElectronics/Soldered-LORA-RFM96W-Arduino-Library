@@ -1,10 +1,28 @@
-// rf95_reliable_datagram_server.pde
-// -*- mode: C++ -*-
-// Example sketch showing how to create a simple addressed, reliable messaging server
-// with the RHReliableDatagram class, using the RH_RF95 driver to control a RF95 radio.
-// It is designed to work with the other example rf95_reliable_datagram_client
-// Tested with Arduino Mega, Nucleo64 F103 and ESP8266 the RFM95W 
-//Modified by soldered.com
+/**
+ **************************************************
+ *
+ * @file        rf95_reliable_datagram_client.ino
+ * @brief       Example sketch showing how to create a simple addressed, reliable messaging server
+ *              with the RHReliableDatagram class, using the RH_RF95 driver to control a RF95 radio.
+ *              It is designed to work with the other example rf95_reliable_datagram_client
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     Mike McCauley (mikem@airspayce.com)
+ ***************************************************/
+
+///                 Arduino      RFM95/96/97/98
+///                 GND----------GND   (ground in)
+///                 3V3----------3.3V  (3.3V in)
+/// interrupt 0 pin D2-----------DIO0  (interrupt request out)
+///          SS pin D10----------NSS   (CS chip select in)
+///         SCK pin D13----------SCK   (SPI clock in)
+///        MOSI pin D11----------MOSI  (SPI Data in)
+///        MISO pin D12----------MISO  (SPI Data out)
+/// This is pinout for Arduino Uno, if you are using other MCU, use SPI pins
+///and Interrupt pin 0
 
 #define LORA
 

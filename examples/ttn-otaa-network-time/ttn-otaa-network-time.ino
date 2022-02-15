@@ -1,14 +1,9 @@
-/*******************************************************************************
- * Copyright (c) 2015 Thomas Telkamp and Matthijs Kooijman
- * Copyright (c) 2018 Terry Moore, MCCI
+/**
+ **************************************************
  *
- * Permission is hereby granted, free of charge, to anyone
- * obtaining a copy of this document and accompanying files,
- * to do whatever they want with them without any restriction,
- * including, but not limited to, copying, modification and redistribution.
- * NO WARRANTY OF ANY KIND IS PROVIDED.
- *
- * This example sends a valid LoRaWAN packet with payload "Hello,
+ * @file        ttn-otaa-network-time.ino
+ * 
+ * @brief       This example sends a valid LoRaWAN packet with payload "Hello,
  * world!", using frequency and encryption settings matching those of
  * the The Things Network.
  *
@@ -31,12 +26,25 @@
  * You will need to also install the library github.com/PaulStoffregen/Time;
  * you need a version that has TimeLib.h.
  *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
  * 
- *
- *    Modified:
- *		soldered.com
- *
- *******************************************************************************/
+ * @authors     Mike McCauley (mikem@airspayce.com)
+ ***************************************************/
+
+///                 Arduino      RFM95/96/97/98
+///                 GND----------GND   (ground in)
+///                 3V3----------3.3V  (3.3V in)
+/// interrupt 0 pin D2-----------DIO0  (interrupt request out)
+///                 D3-----------IO1   (IO pin 1)
+///                 D5-----------RST   (Reset pin)
+///          SS pin D10----------NSS   (CS chip select in)
+///         SCK pin D13----------SCK   (SPI clock in)
+///        MOSI pin D11----------MOSI  (SPI Data in)
+///        MISO pin D12----------MISO  (SPI Data out)
+/// This is pinout for Arduino Uno, if you are using other MCU, use SPI pins
+///and Interrupt pin 0
 
 // requires library: github.com/PaulStoffregen/Time
 #include <TimeLib.h>    // can't use <Time.h> starting with v1.6.1
@@ -88,7 +96,7 @@ const unsigned TX_INTERVAL = 60;
 
 // Pin mapping
 const lmic_pinmap lmic_pins = {
-    .nss = 6,                       //CS pin
+    .nss = 10,                       //CS pin
     .rxtx = LMIC_UNUSED_PIN,        
     .rst = 5,                       //Reset pin
     .dio = {2, 3, LMIC_UNUSED_PIN}, //{DIO0,IO1,IO2}

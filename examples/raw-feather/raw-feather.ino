@@ -1,36 +1,31 @@
-/*
-
-Module:  raw-feather.ino
-
-Function:
-        Slightly improved Raw test example, for Adafruit Feather M0 LoRa
-
-Copyright notice and License:
-        See LICENSE file accompanying this project.
-
-Author:
-        Matthijs Kooijman  2015
-        Terry Moore, MCCI Corporation	April 2017
-
-Modified:
-		  soldered.com
-
-
-*/
-
-/*******************************************************************************
- * Copyright (c) 2015 Matthijs Kooijman
+/**
+ **************************************************
  *
- * Permission is hereby granted, free of charge, to anyone
- * obtaining a copy of this document and accompanying files,
- * to do whatever they want with them without any restriction,
- * including, but not limited to, copying, modification and redistribution.
- * NO WARRANTY OF ANY KIND IS PROVIDED.
- *
- * This example transmits data on hardcoded channel and receives data
+ * @file        raw-feather.ino
+ * 
+ * @brief        This example transmits data on hardcoded channel and receives data
  * when not transmitting. Running this sketch on two nodes should allow
  * them to communicate.
- *******************************************************************************/
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     Matthijs Kooijman
+ ***************************************************/
+
+///                 Arduino      RFM95/96/97/98
+///                 GND----------GND   (ground in)
+///                 3V3----------3.3V  (3.3V in)
+/// interrupt 0 pin D2-----------DIO0  (interrupt request out)
+///                 D3-----------IO1   (IO pin 1)
+///                 D5-----------RST   (Reset pin)
+///          SS pin D10----------NSS   (CS chip select in)
+///         SCK pin D13----------SCK   (SPI clock in)
+///        MOSI pin D11----------MOSI  (SPI Data in)
+///        MISO pin D12----------MISO  (SPI Data out)
+/// This is pinout for Arduino Uno, if you are using other MCU, use SPI pins
+///and Interrupt pin 0
  
 #define LORAWAN
 
@@ -71,10 +66,10 @@ Modified:
 // /!\ By default Adafruit Feather M0's pin 6 and DIO1 are not connected.
 // Please ensure they are connected.
 const lmic_pinmap lmic_pins = {
-    .nss = 8,
+    .nss = 10,
     .rxtx = LMIC_UNUSED_PIN,
-    .rst = 4,
-    .dio = {3, 6, LMIC_UNUSED_PIN},
+    .rst = 5,
+    .dio = {2, 3, LMIC_UNUSED_PIN},
     .rxtx_rx_active = 0,
     .rssi_cal = 8,              // LBT cal for the Adafruit Feather M0 LoRa, in dB
     .spi_freq = 8000000,
@@ -87,10 +82,10 @@ const lmic_pinmap lmic_pins = {
 // /!\ By default Feather 32u4's pin 6 and DIO1 are not connected. Please 
 // ensure they are connected.
 const lmic_pinmap lmic_pins = {
-    .nss = 8,
+    .nss = 10,
     .rxtx = LMIC_UNUSED_PIN,
-    .rst = 4,
-    .dio = {7, 6, LMIC_UNUSED_PIN},
+    .rst = 5,
+    .dio = {2, 3, LMIC_UNUSED_PIN},
     .rxtx_rx_active = 0,
     .rssi_cal = 8,              // LBT cal for the Adafruit Feather 32U4 LoRa, in dB
     .spi_freq = 1000000,

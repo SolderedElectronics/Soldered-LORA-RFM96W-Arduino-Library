@@ -1,28 +1,34 @@
-/*******************************************************************************
- * The Things Network - Sensor Data Example
+/**
+ **************************************************
  *
- * Example of sending a valid LoRaWAN packet with DHT22 temperature and
- * humidity data to The Things Networ using a Feather M0 LoRa.
- *
- * Learn Guide: https://learn.adafruit.com/the-things-network-for-feather
- *
- * Copyright (c) 2015 Thomas Telkamp and Matthijs Kooijman
- * Copyright (c) 2018 Terry Moore, MCCI
- * Copyright (c) 2018 Brent Rubell, Adafruit Industries
- *
- * Permission is hereby granted, free of charge, to anyone
- * obtaining a copy of this document and accompanying files,
- * to do whatever they want with them without any restriction,
- * including, but not limited to, copying, modification and redistribution.
- * NO WARRANTY OF ANY KIND IS PROVIDED.
+ * @file        ttn-otaa-feather-us915-dht22.ino
  * 
+ * @brief       Example of sending a valid LoRaWAN packet with DHT22 temperature and
+ *              humidity data to The Things Networ using a Feather M0 LoRa.
  *
-  *  Modified:
- *		soldered.com
+ *              Do not forget to define the radio type correctly in
+ *              arduino-lmic/project_config/lmic_project_config.h or from your BOARDS.txt.
  *
- *******************************************************************************/
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     Terry Moore, MCCI Corporation   March 2019
+ ***************************************************/
+
+///                 Arduino      RFM95/96/97/98
+///                 GND----------GND   (ground in)
+///                 3V3----------3.3V  (3.3V in)
+/// interrupt 0 pin D2-----------DIO0  (interrupt request out)
+///                 D3-----------IO1
+///          SS pin D10----------NSS   (CS chip select in)
+///         SCK pin D13----------SCK   (SPI clock in)
+///        MOSI pin D11----------MOSI  (SPI Data in)
+///        MISO pin D12----------MISO  (SPI Data out)
+/// This is pinout for Arduino Uno, if you are using other MCU, use SPI pins
+///and Interrupt pin 0
  
- #define LORAWAN
+#define LORAWAN
  
 #include <LoRa-SOLDERED.h>
 #include <hal/hal.h>
@@ -32,7 +38,7 @@
 #include "DHT.h"
 
 // DHT digital pin and sensor type
-#define DHTPIN 10
+#define DHTPIN 11
 #define DHTTYPE DHT22
 
 //
@@ -78,10 +84,10 @@ const unsigned TX_INTERVAL = 30;
 // /!\ By default Adafruit Feather M0's pin 6 and DIO1 are not connected.
 // Please ensure they are connected.
 const lmic_pinmap lmic_pins = {
-    .nss = 8,
+    .nss = 10,
     .rxtx = LMIC_UNUSED_PIN,
-    .rst = 4,
-    .dio = {3, 6, LMIC_UNUSED_PIN},
+    .rst = 5,
+    .dio = {2, 3, LMIC_UNUSED_PIN},
     .rxtx_rx_active = 0,
     .rssi_cal = 8,              // LBT cal for the Adafruit Feather M0 LoRa, in dB
     .spi_freq = 8000000,

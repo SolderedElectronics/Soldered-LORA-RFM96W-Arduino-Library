@@ -1,40 +1,33 @@
-/*
-
-Module:  raw-halconfig.ino
-
-Function:
-  Auto-configured raw test example, for Adafruit Feather M0 LoRa
+/**
+ **************************************************
+ *
+ * @file        raw-halconfig.ino
+ * 
+ * @brief        Auto-configured raw test example, for Adafruit Feather M0 LoRa
   /!\ By default Adafruit Feather M0's pin 6 and DIO1 are not connected.
   Please ensure they are connected.
-
-Copyright notice and License:
-  See LICENSE file accompanying this project.
-
-Author:
-    Matthijs Kooijman  2015
-    Terry Moore, MCCI Corporation	2018
-
-Modified:
-		soldered.com
-
-
-*/
-
-/*******************************************************************************
- * Copyright (c) 2015 Matthijs Kooijman
  *
- * Permission is hereby granted, free of charge, to anyone
- * obtaining a copy of this document and accompanying files,
- * to do whatever they want with them without any restriction,
- * including, but not limited to, copying, modification and redistribution.
- * NO WARRANTY OF ANY KIND IS PROVIDED.
- *
- * This example transmits data on hardcoded channel and receives data
- * when not transmitting. Running this sketch on two nodes should allow
- * them to communicate.
- *******************************************************************************/
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     Matthijs Kooijman, Terry Moore, MCCI Corporation	2018
+ ***************************************************/
+
+///                 Arduino      RFM95/96/97/98
+///                 GND----------GND   (ground in)
+///                 3V3----------3.3V  (3.3V in)
+/// interrupt 0 pin D2-----------DIO0  (interrupt request out)
+///                 D3-----------IO1   (IO pin 1)
+///                 D5-----------RST   (Reset pin)
+///          SS pin D10----------NSS   (CS chip select in)
+///         SCK pin D13----------SCK   (SPI clock in)
+///        MOSI pin D11----------MOSI  (SPI Data in)
+///        MISO pin D12----------MISO  (SPI Data out)
+/// This is pinout for Arduino Uno, if you are using other MCU, use SPI pins
+///and Interrupt pin 0
  
- #define LORAWAN
+#define LORAWAN
 
 #include <LoRa-SOLDERED.h>
 #include <hal/hal.h>

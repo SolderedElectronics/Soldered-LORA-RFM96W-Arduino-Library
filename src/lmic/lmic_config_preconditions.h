@@ -243,7 +243,6 @@ Revision history:
 //
 
 
-
 //
 // The supported LMIC LoRaWAN spec versions. These need to be numerically ordered,
 // so that we can (for example) compare

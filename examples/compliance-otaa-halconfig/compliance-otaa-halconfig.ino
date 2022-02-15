@@ -1,20 +1,30 @@
-/*
+/**
+ **************************************************
+ *
+ * @file        compliance-otaa-halconfig.ino
+ * 
+ * @brief       Test program for developing and checking LMIC compliance test support.
+ *              
+ *
+ *              product : www.soldered.com/333099
+ *              
+ *              Modified by soldered.com
+ * 
+ * @authors     Terry Moore, MCCI Corporation   March 2019
+ ***************************************************/
 
-Module: compliance-otaa-halconfig.ino
+///                 Arduino      RFM95/96/97/98
+///                 GND----------GND   (ground in)
+///                 3V3----------3.3V  (3.3V in)
+/// interrupt 0 pin D2-----------DIO0  (interrupt request out)
+///                 D3-----------IO1
+///          SS pin D10----------NSS   (CS chip select in)
+///         SCK pin D13----------SCK   (SPI clock in)
+///        MOSI pin D11----------MOSI  (SPI Data in)
+///        MISO pin D12----------MISO  (SPI Data out)
+/// This is pinout for Arduino Uno, if you are using other MCU, use SPI pins
+///and Interrupt pin 0
 
-Function:
-    Test program for developing and checking LMIC compliance test support.
-
-Copyright and License:
-    Please see accompanying LICENSE file.
-
-Author:
-    Terry Moore, MCCI Corporation   March 2019
-	
-Modified:
-	soldered.com
-
-*/
 
 #include <Arduino.h>
 
