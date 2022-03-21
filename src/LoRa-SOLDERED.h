@@ -13,12 +13,12 @@
 
 #ifdef LORAWAN
 
-#include "libs\Beelan_LoRaWAN-2.0.0\src\lorawan.h"
+#include "lorawan.h"
 
 #endif
 
 #ifdef LORA
 
-#include "libs\arduino-LoRa-master\src\LoRa.h"
+#include "LoRa.h"
 
 #endif
