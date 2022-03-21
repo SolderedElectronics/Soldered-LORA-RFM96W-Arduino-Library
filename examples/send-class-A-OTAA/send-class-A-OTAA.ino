@@ -35,7 +35,7 @@
 /// (or any other ESP32 board) use pins(SS=27, RST=2, DIO0=32, MISO=33, MOSI=25,SCK=26)
 
 #define LORAWAN		//Specify that module will be used for LoRaWAN network
-#include <LoRa-SOLDERED.h>
+#include "LoRa-SOLDERED.h"
 
 // OTAA credentials
 const char *devEui = "0000000000000000";

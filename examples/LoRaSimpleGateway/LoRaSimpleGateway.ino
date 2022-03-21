@@ -41,7 +41,7 @@
 
 #define LORA		//Specify that module will be used for LoRa to LoRa communication
 #include <SPI.h>              // Include libraries
-#include <LoRa-SOLDERED.h>
+#include "LoRa-SOLDERED.h"
 
 const long frequency = 868E6;  // LoRa Frequency
 

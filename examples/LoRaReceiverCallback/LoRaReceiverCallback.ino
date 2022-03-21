@@ -29,7 +29,7 @@
 
 #define LORA		//Specify that module will be used for LoRa to LoRa communication
 #include <SPI.h>
-#include <LoRa-SOLDERED.h>
+#include "LoRa-SOLDERED.h"
 
 #ifdef ARDUINO_SAMD_MKRWAN1300
 #error "This example is not compatible with the Arduino MKR WAN 1300 board!"
