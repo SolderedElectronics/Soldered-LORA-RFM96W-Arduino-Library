@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['join_5fguard_5fms_0',['JOIN_GUARD_ms',['../lmic_2lmic_8h.html#abed82baf7f470b522273a3e37c24c600a7281fe9db9581a483ec24157ca5637ff',1,'lmic.h']]]
+  ['timeout_0',['TIMEOUT',['../_r_f_m95_8h.html#a05f7ea98120acc30b65d54fc12a3e2b4aad9dee005a3d0f9137b2ac1e0869f89b',1,'RFM95.h']]]
 ];

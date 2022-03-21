@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['channeldlfreq_0',['channelDlFreq',['../structlmic__t.html#afdb5e0503823c356d0cd656399c04161',1,'lmic_t']]],
-  ['channeldrmap_1',['channelDrMap',['../structlmic__t.html#add4010c91e9306ff377222a17ff5522e',1,'lmic_t']]],
-  ['channelfreq_2',['channelFreq',['../structlmic__saved__adr__state__s.html#a19061542cd60d1f3f1d5a3476b9d36c9',1,'lmic_saved_adr_state_s::channelFreq()'],['../structlmic__t.html#a9b045a9c0fcdf732c41c4c091c23334a',1,'lmic_t::channelFreq()']]],
-  ['channelmap_3',['channelMap',['../structlmic__saved__adr__state__s.html#ac71cf4e9ef77df5ac72ed6716ebc7a17',1,'lmic_saved_adr_state_s::channelMap()'],['../structlmic__t.html#a036ac55ef528cbe41b27be3c1aba62a7',1,'lmic_t::channelMap()']]],
-  ['channelshufflemap_4',['channelShuffleMap',['../structlmic__t.html#a8d9c5fc234b3efad12e23766f93231c4',1,'lmic_t']]],
-  ['client_5',['client',['../structlmic__t.html#a6315d28b58103302f68ccd0317b1875f',1,'lmic_t']]],
-  ['clockerror_6',['clockError',['../structlmic__client__data__s.html#a56aa354cf42b6424996b027c24411baa',1,'lmic_client_data_s']]],
-  ['custom_5fhal_5ffailure_5fhandler_7',['custom_hal_failure_handler',['../hal_8cpp.html#a01a907bffdf3fc4a37fb2dcfa6a17dd5',1,'hal.cpp']]]
+  ['channel_5fhopping_0',['Channel_Hopping',['../structs_settings.html#a73f242ce60f864ded4b0cb7be54ea7b4',1,'sSettings']]],
+  ['channel_5frx_1',['Channel_Rx',['../structs_settings.html#a404fb3ea0166191516e49510a5ffd472',1,'sSettings']]],
+  ['channel_5ftx_2',['Channel_Tx',['../structs_settings.html#a33938221108315c17a039254abfc8f7b',1,'sSettings']]],
+  ['char_3',['char',['../_r_f_m95_8cpp.html#a8290731c64b843a2666fdeaa9d740479',1,'RFM95.cpp']]],
+  ['confirm_4',['Confirm',['../structs_settings.html#ab82bc68ea354df711d65511c8d1b7019',1,'sSettings']]],
+  ['counter_5',['Counter',['../structs_buffer.html#aeedeb15fd1ec8ff5ad5cf1b2a2edb33d',1,'sBuffer']]],
+  ['cs_6',['CS',['../structs_r_f_m__pins.html#a50bdd370a3f8d384f975725c95f9d777',1,'sRFM_pins']]],
+  ['currentchannel_7',['currentChannel',['../class_lo_ra_w_a_n_class.html#a1f250ccc01444236cf35939171c37280',1,'LoRaWANClass']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['join_5fguard_5fms_0',['JOIN_GUARD_ms',['../lmic_2lmic_8h.html#abed82baf7f470b522273a3e37c24c600a7281fe9db9581a483ec24157ca5637ff',1,'lmic.h']]],
-  ['jreqdone_1',['jreqDone',['../lmic_2lmic_8c.html#af43dc282e0cfdc8cb86407dd6674e4b3',1,'lmic.c']]]
+  ['join_0',['join',['../class_lo_ra_w_a_n_class.html#a05d38e88befefb3ffb04b1b662207d14',1,'LoRaWANClass']]],
+  ['join_1',['JOIN',['../_lo_ra_m_a_c_8h.html#a2ad86e8e86166b72ee98d5e3e6093e7ba4925a399dab94b9b58f6d1b5cd246af7',1,'LoRaMAC.h']]]
 ];

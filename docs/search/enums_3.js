@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['frequency_0',['Frequency',['../class_r_h_generic_s_p_i.html#ae6c02cd54a3a1f1f0356a3f75cf9c77b',1,'RHGenericSPI']]]
+  ['frm_5fmode_5ft_0',['frm_mode_t',['../_r_f_m95_8h.html#a8243a1a8001ac176b333da0584b8fa39',1,'RFM95.h']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['band_5ft_0',['band_t',['../structband__t.html',1,'']]],
-  ['bcninfo_5ft_1',['bcninfo_t',['../structbcninfo__t.html',1,'']]]
+  ['loraclass_0',['LoRaClass',['../class_lo_ra_class.html',1,'']]],
+  ['lorawanclass_1',['LoRaWANClass',['../class_lo_ra_w_a_n_class.html',1,'']]]
 ];
