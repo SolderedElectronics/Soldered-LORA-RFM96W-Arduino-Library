@@ -22,10 +22,12 @@
  *
  ***************************************************/
 
-///                 Arduino      RFM95/96/97/98
 ///                 GND----------GND   (ground in)
 ///                 3V3----------3.3V  (3.3V in)
 /// interrupt 0 pin D2-----------DIO0  (interrupt request out)
+///             pin D3-----------DIO1  (interrupt request out)
+///             pin D4-----------DIO2  (interrupt request out)
+///             pin D7-----------DIO5  (interrupt request out)
 ///          SS pin D10----------NSS   (CS chip select in)
 ///         SCK pin D13----------SCK   (SPI clock in)
 ///        MOSI pin D11----------MOSI  (SPI Data in)
@@ -52,12 +54,12 @@ byte recvStatus = 0;
 
 //Pinout is changed here if necessary
 const sRFM_pins RFM_pins = {
-  .CS = 20,
-  .RST = 9,
-  .DIO0 = 0,
-  .DIO1 = 1,
-  .DIO2 = 2,
-  .DIO5 = 15,
+  .CS = 5,
+  .RST = 6,
+  .DIO0 = 2,
+  .DIO1 = 3,
+  .DIO2 = 4,
+  .DIO5 = 7,
 };
 
 void setup() {
@@ -75,7 +77,7 @@ void setup() {
   lora.setDeviceClass(CLASS_A);
 
   // Set Data Rate
-  lora.setDataRate(SF8BW125);
+  lora.setDataRate(SF9BW125);
 
   // set channel to random
   lora.setChannel(MULTI);
