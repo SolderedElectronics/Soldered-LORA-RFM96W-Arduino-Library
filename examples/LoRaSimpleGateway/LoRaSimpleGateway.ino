@@ -30,6 +30,7 @@
 ///                 Arduino      RFM95/96/97/98
 ///                 GND----------GND   (ground in)
 ///                 3V3----------3.3V  (3.3V in)
+///             pin D4-----------RESET  (RESET)
 /// interrupt 0 pin D2-----------DIO0  (interrupt request out)
 ///          SS pin D10----------NSS   (CS chip select in)
 ///         SCK pin D13----------SCK   (SPI clock in)
@@ -43,6 +44,10 @@
 #include <SPI.h>              // Include libraries
 #include "LoRa-SOLDERED.h"
 
+const int csPin = 10;          // LoRa radio chip select
+const int resetPin = 4;       // LoRa radio reset
+const int irqPin = 2;         // Change for your board; must be a hardware interrupt pin
+
 const long frequency = 868E6;  // LoRa Frequency
 
 const int csPin = 10;          // LoRa radio chip select
@@ -54,7 +59,8 @@ void setup()
   Serial.begin(9600);                   // Initialize serial
   while (!Serial);
 
-  LoRa.setPins(csPin, resetPin, irqPin);
+    // Override the default CS, reset, and IRQ pins (optional)
+  LoRa.setPins(csPin, resetPin, irqPin);// set CS, reset, IRQ pin
 
   if (!LoRa.begin(frequency))
   {

@@ -22,6 +22,7 @@
 ///                 Arduino      RFM95/96/97/98
 ///                 GND----------GND   (ground in)
 ///                 3V3----------3.3V  (3.3V in)
+///             pin D4-----------RESET  (RESET)
 /// interrupt 0 pin D2-----------DIO0  (interrupt request out)
 ///          SS pin D10----------NSS   (CS chip select in)
 ///         SCK pin D13----------SCK   (SPI clock in)
@@ -41,9 +42,9 @@
 #error "This example is not compatible with the Arduino MKR WAN 1300 board!"
 #endif
 
-const int csPin = 7;          // LoRa radio chip select
-const int resetPin = 6;       // LoRa radio reset
-const int irqPin = 1;         // Change for your board; must be a hardware interrupt pin
+const int csPin = 10;          // LoRa radio chip select
+const int resetPin = 4;       // LoRa radio reset
+const int irqPin = 2;         // Change for your board; must be a hardware interrupt pin
 
 String outgoing;              // Outgoing message
 byte msgCount = 0;            // Count of outgoing messages
