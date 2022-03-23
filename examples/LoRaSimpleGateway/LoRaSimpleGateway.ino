@@ -50,10 +50,6 @@ const int irqPin = 2;         // Change for your board; must be a hardware inter
 
 const long frequency = 868E6;  // LoRa Frequency
 
-const int csPin = 10;          // LoRa radio chip select
-const int resetPin = 9;        // LoRa radio reset
-const int irqPin = 2;          // Change for your board; must be a hardware interrupt pin
-
 void setup()
 {
   Serial.begin(9600);                   // Initialize serial
@@ -146,4 +142,3 @@ boolean runEvery(unsigned long interval) //If interval milliseconds has past fro
   }
   return false;
 }
-
