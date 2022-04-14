@@ -6,7 +6,9 @@
 | ![Product name](https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg) |
 | :---------------------------------------------------------------------------------------------: |
 | [LoRa breakout board 5V](https://www.solde.red/333157)                                                            |
-| [LoRa breakout board 3.3V](https://www.solde.red/333158)                                                            |
+| [LoRa breakout board 3.3V](https://www.solde.red/333158)                                                          |
+| [Dasduino CONNECT PLUS LoRa](https://www.solde.red/333161)                                                        |
+| [Dasduino SWIFT L0 LoRa](https://www.solde.red/333162)                                                            |
 
 LoRa RFM96W [easyC ecosystem](https://www.soldered.com/easyC). 
 

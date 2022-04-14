@@ -33,7 +33,7 @@
 ///         SCK pin D13----------SCK   (SPI clock in)
 ///        MOSI pin D11----------MOSI  (SPI Data in)
 ///        MISO pin D12----------MISO  (SPI Data out)
-/// This is pinout for Arduino Uno, if you are using other MCU, use SPI pins
+/// This is pinout for Dasduino Core, if you are using other MCU, use SPI pins
 ///and Interrupt pin 0, if Dasduino ConnectPlus is used
 /// (or any other ESP32 board) use pins(SS=27, RST=2, DIO0=32, MISO=33, MOSI=25,SCK=26)
 
@@ -65,8 +65,8 @@ const sRFM_pins RFM_pins = {
 
 
 void setup() {
-  // Setup loraid access
-  Serial.begin(115200);
+  
+  Serial.begin(115200); //Initialize serial communication with PC
   delay(5000);
   Serial.println("Start..");
   if(!lora.init())	//Initialize lora and check if it is initialized successfully
@@ -79,7 +79,20 @@ void setup() {
   // Set LoRaWAN Class change CLASS_A or CLASS_C
   lora.setDeviceClass(CLASS_C);
 
-  // Set Data Rate
+  //The spreading factor controls the chirp rate, and thus controls the speed of data transmission. 
+  //Lower spreading factors mean faster chirps and therefore a higher data transmission rate. 
+  //For every increase in spreading factor, the chirp sweep rate is halved, 
+  //and so the data transmission rate is halved.
+  //Lower spreading factors reduce the range of LoRa transmissions, because they reduce 
+  //the processing gain and increase the bit rate. Changing spreading factor allows the network 
+  //to increase or decrease data rate for each end device at the cost of range.
+  //The network also uses spreading factors to control congestion. Spreading factors are orthogonal,
+  //so signals modulated with different spreading factors and transmitted on the same frequency channel
+  //at the same time do not interfere with each other.
+  //Bandwidth is the difference between the upper and lower frequencies in a continuous band of frequencies. 
+  //It is typically measured in hertz, and depending on context, may specifically refer to passband bandwidth 
+  //or baseband bandwidth.
+  //LoRa uses spreading factors from 7 to 12 and bandwidths 125 kHz (or 500kHz but only for spread factor 7).
   lora.setDataRate(SF9BW125);
 
   // set channel to random
