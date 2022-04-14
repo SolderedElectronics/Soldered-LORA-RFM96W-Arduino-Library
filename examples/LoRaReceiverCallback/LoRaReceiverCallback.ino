@@ -24,7 +24,7 @@
 ///         SCK pin D13----------SCK   (SPI clock in)
 ///        MOSI pin D11----------MOSI  (SPI Data in)
 ///        MISO pin D12----------MISO  (SPI Data out)
-/// This is pinout for Arduino Uno, if you are using other MCU, use SPI pins
+/// This is pinout for Dasduino Core, if you are using other MCU, use SPI pins
 ///and Interrupt pin 0, if Dasduino ConnectPlus is used
 /// (or any other ESP32 board) use pins(SS=27, RST=2, DIO0=32, MISO=33, MOSI=25,SCK=26)
 
@@ -42,7 +42,7 @@ const int irqPin = 2;         // Change for your board; must be a hardware inter
 
 void setup()
 {
-  Serial.begin(9600);
+  Serial.begin(9600);  //Initialize serial communication with PC
   while (!Serial);
 
   Serial.println("LoRa Receiver Callback");
