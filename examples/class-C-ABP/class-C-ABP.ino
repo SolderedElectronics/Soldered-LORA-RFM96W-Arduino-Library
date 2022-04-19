@@ -35,7 +35,7 @@
 ///        MISO pin D12----------MISO  (SPI Data out)
 /// This is pinout for Dasduino Core, if you are using other MCU, use SPI pins
 ///and Interrupt pin 0, if Dasduino ConnectPlus is used
-/// (or any other ESP32 board) use pins(SS=27, RST=2, DIO0=32, MISO=33, MOSI=25,SCK=26)
+/// (or any other ESP32 board) use pins(SS=27, RST=6, DIO0=32, MISO=33, MOSI=25,SCK=26)
 
 #define LORAWAN		//Specify that module will be used for LoRaWAN network
 #include "LoRa-SOLDERED.h"
