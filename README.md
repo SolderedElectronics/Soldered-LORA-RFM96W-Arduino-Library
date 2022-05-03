@@ -46,7 +46,7 @@ At Soldered, we design and manufacture a wide selection of electronic products t
 
 ### Original source
 ​
-This library is possible thanks to original [LoRaWAN by Beelan](https://github.com/BeelanMX/Beelan-LoRaWAN) and [Arduino LoRa](https://github.com/sandeepmistry/arduino-LoRa)library. Thank you, BeelanMX and sandeepmistry. 
+This library is possible thanks to original [LoRaWAN by Beelan](https://github.com/BeelanMX/Beelan-LoRaWAN) and [Arduino LoRa](https://github.com/sandeepmistry/arduino-LoRa) library. Thank you, BeelanMX and sandeepmistry. 
 
 
 ### Open-source license
