@@ -1,6 +1,5 @@
 # LoRa RFM96W Arduino library
 
-[![Compile Sketches](http://github-actions.40ants.com/e-radionicacom/Soldered-LORA-RFM96W-Arduino-Library/matrix.svg?branch=dev&only=Compile%20Sketches)](https://github.com/e-radionicacom/Soldered-LORA-RFM96W-Arduino-Library/actions/workflows/compile_test.yml)
 [![Make docs and publish to GitHub Pages](https://github.com/e-radionicacom/Soldered-LORA-RFM96W-Arduino-Library/actions/workflows/make_docs.yml/badge.svg?branch=dev)](https://github.com/e-radionicacom/Soldered-LORA-RFM96W-Arduino-Library/actions/workflows/make_docs.yml)
 
 | ![Product name](https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg) |
@@ -27,6 +26,12 @@ Access Arduino library documentation [here](https://e-radionicacom.github.io/Sol
 - Tutorial for using the LoRa RFM96W board
 - Installing an Arduino library
 
+### Board compatibility
+
+The library is compatible with board & microcontroller families shown in green below: 
+
+[![Compile Sketches](http://github-actions.40ants.com/e-radionicacom/Soldered-LORA-RFM96W-Arduino-Library/matrix.svg?branch=dev&only=Compile%20Sketches)](https://github.com/e-radionicacom/Soldered-LORA-RFM96W-Arduino-Library/actions/workflows/compile_test.yml)
+
 ### About Soldered
 ![Soldered logo](https://raw.githubusercontent.com/e-radionicacom/Soldered-LORA-RFM96W-Arduino-Library/dev/extras/Logo%20horizontal-2.svg)
 
@@ -36,6 +41,7 @@ At Soldered, we design and manufacture a wide selection of electronic products t
 - [Educational content](https://learn.soldered.com)
 - [Community & technical support](https://community.soldered.com)
 - [Custom PCBs](https://pcb.soldered.com)
+
 
 
 ### Original source
