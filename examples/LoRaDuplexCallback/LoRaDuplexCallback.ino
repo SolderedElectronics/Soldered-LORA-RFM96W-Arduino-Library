@@ -81,7 +81,7 @@ void loop()
     sendMessage(message);
     Serial.println("Sending " + message);
     lastSendTime = millis();            // Timestamp the message
-    interval = random(2000) + 1000;     // 2-3 seconds
+    interval = random(2000) + 1000;     // 1-3 seconds
     LoRa.receive();                     // Go back into receive mode
   }
 }
@@ -138,4 +138,3 @@ void onReceive(int packetSize)
   Serial.println("Snr: " + String(LoRa.packetSnr()));
   Serial.println();
 }
-
