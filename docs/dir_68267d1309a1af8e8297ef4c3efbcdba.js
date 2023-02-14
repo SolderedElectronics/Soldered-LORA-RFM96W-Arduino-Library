@@ -14,9 +14,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "LoRaMAC.cpp", "_lo_ra_m_a_c_8cpp.html", "_lo_ra_m_a_c_8cpp" ],
     [ "LoRaMAC.h", "_lo_ra_m_a_c_8h.html", "_lo_ra_m_a_c_8h" ],
     [ "lorawan-arduino-rfm.cpp", "lorawan-arduino-rfm_8cpp.html", "lorawan-arduino-rfm_8cpp" ],
-    [ "lorawan-arduino-rfm.h", "lorawan-arduino-rfm_8h.html", [
-      [ "LoRaWANClass", "class_lo_ra_w_a_n_class.html", "class_lo_ra_w_a_n_class" ]
-    ] ],
+    [ "lorawan-arduino-rfm.h", "lorawan-arduino-rfm_8h.html", "lorawan-arduino-rfm_8h" ],
     [ "lorawan.h", "lorawan_8h.html", "lorawan_8h" ],
     [ "RFM95.cpp", "_r_f_m95_8cpp.html", "_r_f_m95_8cpp" ],
     [ "RFM95.h", "_r_f_m95_8h.html", "_r_f_m95_8h" ],
