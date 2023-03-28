@@ -22,19 +22,53 @@
  *
  ***************************************************/
 
-///                 GND----------GND   (ground in)
-///                 3V3----------3.3V  (3.3V in)
-/// interrupt 0 pin D2-----------DIO0  (interrupt request out)
-///             pin D3-----------DIO1  (interrupt request out)
-///             pin D4-----------DIO2  (interrupt request out)
-///             pin D7-----------DIO5  (interrupt request out)
-///          SS pin D10----------NSS   (CS chip select in)
-///         SCK pin D13----------SCK   (SPI clock in)
-///        MOSI pin D11----------MOSI  (SPI Data in)
-///        MISO pin D12----------MISO  (SPI Data out)
-/// This is pinout for Dasduino Core, if you are using other MCU, use SPI pins
-///and Interrupt pin 0, if Dasduino ConnectPlus is used
-/// (or any other ESP32 board) use pins(SS=27, RST=6, DIO0=32, MISO=33, MOSI=25,SCK=26)
+/**
+ * How to run this example:
+ * 0. Make sure you have a LoRa gateway nearby you can connect to (check ttnmapper.org)
+ * 1. Go to TheThingsNetwork.org, make an account and go to your console, select your region
+ * 2. Create an application, and register an end device
+ * 3. Enter the device specifics manually, select according frequency plan to your region. For LoRaWAN version
+ * use 1.0.2.
+ * 4. Click "Show advanced activation LoRaWAN class and cluster settings" and select ABP
+ * 5. Create the device and copy the generated codes as well
+ * 6. Connect your Dasduiuno board to the breakout according to the diagrams here
+ * 7. Upload the sketch and check if your device is sending data to TTN.
+ *
+ */
+
+/**
+ * Diagram for Dasduino ConnectPlus:
+ * (Note that the 3v3 version of the breakout is required for Dasduino ConnectPlus)
+ * Breakout                     Dasduino ConnectPlus
+ * GND------------------------->GND
+ * VCC------------------------->3V3
+ * MISO------------------------>IO33
+ * MOSI------------------------>IO25
+ * SCK------------------------->26
+ * CS-------------------------->27
+ * RESET----------------------->IO0
+ * DIO0------------------------>IO32
+ * DIO1------------------------>15
+ * DIO2------------------------>14
+ * DIO5------------------------>13
+ * 
+ * Diagram for Dasduino Core:
+ * (Note that the 5V version of the breakout is required for Dasduino Core)
+ * Breakout                     Dasduino Core
+ * GND------------------------->GND
+ * VCC------------------------->VCC
+ * OE-------------------------->VCC
+ * MISO------------------------>D12
+ * MOSI------------------------>D11
+ * SCK------------------------->D13
+ * CS-------------------------->D10
+ * RESET----------------------->D9
+ * DIO0------------------------>D2
+ * DIO1------------------------>D3
+ * DIO2------------------------>D4
+ * DIO5------------------------>D7
+ * 
+ */
 
 #define LORAWAN		//Specify that module will be used for LoRaWAN network
 #include "LoRa-SOLDERED.h"
@@ -54,12 +88,12 @@ byte recvStatus = 0;
 
 //Pinout is changed here if necessary
 const sRFM_pins RFM_pins = {
-  .CS = 5,
-  .RST = 6,
-  .DIO0 = 2,
-  .DIO1 = 3,
-  .DIO2 = 4,
-  .DIO5 = 7,
+  .CS = 27,
+  .RST = 0,
+  .DIO0 = 32,
+  .DIO1 = 15,
+  .DIO2 = 14,
+  .DIO5 = 13,
 };
 
 void setup() {
