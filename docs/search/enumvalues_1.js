@@ -9,7 +9,7 @@ var searchData=
   ['ch6_6',['CH6',['../_struct_8h.html#a30e77e0b6fd428a0cceed4edb1ddbd20a6e3be20f86045cb8e4031541d9af8e41',1,'Struct.h']]],
   ['ch7_7',['CH7',['../_struct_8h.html#a30e77e0b6fd428a0cceed4edb1ddbd20a20bbdad0daed7216c15449423a442c62',1,'Struct.h']]],
   ['ch8_8',['CH8',['../_struct_8h.html#a30e77e0b6fd428a0cceed4edb1ddbd20aaff31f75e03046c856938e05e4b36cc3',1,'Struct.h']]],
-  ['chrx2_9',['CHRX2',['../_struct_8h.html#a30e77e0b6fd428a0cceed4edb1ddbd20af78e71b4d263b8e1a64dc06c132fc6f2',1,'Struct.h']]],
+  ['chrx2_9',['CHRX2',['../_struct_8h.html#a30e77e0b6fd428a0cceed4edb1ddbd20ad1401879d3c58904fa6b92a56f15b501',1,'Struct.h']]],
   ['class_5fa_10',['CLASS_A',['../_struct_8h.html#ad64d6ae91e37e0472faa91f9f619871ca307ee33f71385819abc142fe4f23c3bb',1,'Struct.h']]],
   ['class_5fc_11',['CLASS_C',['../_struct_8h.html#ad64d6ae91e37e0472faa91f9f619871cabfee35359a39adbacbc3f13eddc76cd0',1,'Struct.h']]],
   ['crc_5fok_12',['CRC_OK',['../_r_f_m95_8h.html#a05f7ea98120acc30b65d54fc12a3e2b4ae989d9d773a74fcc7a0efce652f99ece',1,'RFM95.h']]]

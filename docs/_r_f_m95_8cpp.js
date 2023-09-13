@@ -14,8 +14,7 @@ var _r_f_m95_8cpp =
     [ "RFM_Single_Receive", "_r_f_m95_8cpp.html#a07256a0d40a06c90c62f60e0c2b005bd", null ],
     [ "RFM_Switch_Mode", "_r_f_m95_8cpp.html#ad8085dd212619f82e3b9e50b3e34521d", null ],
     [ "RFM_Write", "_r_f_m95_8cpp.html#a9755aed4223c802588e920fb12548e08", null ],
-    [ "char", "_r_f_m95_8cpp.html#a8290731c64b843a2666fdeaa9d740479", null ],
-    [ "LoRa_Frequency", "_r_f_m95_8cpp.html#ad2d173ca03367fe1263a8c7f8caf63e3", null ],
+    [ "LoRa_Frequency", "_r_f_m95_8cpp.html#a2ba475e429cd2a7e033687bbe2cf7767", null ],
     [ "LoRa_RX_Freq", "_r_f_m95_8cpp.html#a6613c0b005c7d36529deff540407428b", null ],
     [ "LoRa_TX_Freq", "_r_f_m95_8cpp.html#a7bb855a49548f878b5de381f741e3960", null ]
 ];
