@@ -31,32 +31,20 @@
 #ifndef _LORAWAN_ARDUINO_RFM_H_
 #define _LORAWAN_ARDUINO_RFM_H_
 
-#include "AES-128.h"
-#include "Config.h"
-#include "Encrypt.h"
-#include "LoRaMAC.h"
-#include "RFM95.h"
-#include "Struct.h"
-#include <Arduino.h>
 #include <SPI.h>
-
-#if defined(ARDUINO_ESP32_DEV)
-#define LORA_DEFAULT_SPI           SPI
-#define LORA_DEFAULT_SPI_FREQUENCY 8E6
-#define LORA_DEFAULT_SS_PIN        27
-#define LORA_DEFAULT_RESET_PIN     2
-#define LORA_DEFAULT_DIO0_PIN      32
-#define LORA_DEFAULT_MISO          33
-#define LORA_DEFAULT_MOSI          25
-#define LORA_DEFAULT_SCK           26
-#endif
+#include <Arduino.h>
+#include "AES-128.h"
+#include "Encrypt.h"
+#include "RFM95.h"
+#include "LoRaMAC.h"
+#include "Struct.h"
+#include "Config.h"
 
 /*
 ********************************************************************************************
 * TYPE DEFINITION
 ********************************************************************************************
 */
-
 
 #define LORAWAN_VERSION "1.0.0"
 /*
@@ -67,12 +55,14 @@
 
 class LoRaWANClass
 {
-  public:
+public:
     LoRaWANClass();
     ~LoRaWANClass();
 
     bool init(void);
     bool join(void);
+    void sleep(void);
+    void wakeUp(void);
     void setDeviceClass(devclass_t dev_class);
     // OTAA credentials
     void setDevEUI(const char *devEUI_in);
@@ -92,22 +82,28 @@ class LoRaWANClass
     int getRssi();
     int readData(char *outBuff);
     bool readAck(void);
+    void sendACK();
     void update(void);
+    void switchToClassC(sSettings *LoRa_Settings);
+    void onMessage(void(*callback)(sBuffer *Data_Rx, bool isConfirmed, uint8_t fPort));
 
     // frame counter
     unsigned int getFrameCounter();
     void setFrameCounter(unsigned int FrameCounter);
 
-  private:
+private:
     void randomChannel();
 
-  private:
+private:
     // Messages
     unsigned char Data_Tx[MAX_UPLINK_PAYLOAD_SIZE];
     sBuffer Buffer_Tx;
     unsigned char Data_Rx[MAX_DOWNLINK_PAYLOAD_SIZE];
     sBuffer Buffer_Rx;
     sLoRa_Message Message_Rx;
+
+    //Callback function variable
+    void(*messageCallback)(sBuffer *Data_Rx, bool isConfirmed, uint8_t fPort) = NULL;
 
     // Declare ABP session
     unsigned char Address_Tx[4];
@@ -143,6 +139,8 @@ class LoRaWANClass
 
     // ACK reception
     ack_t Ack_Status;
+
+    msg_t upMsg_Type;
 };
 
 #endif

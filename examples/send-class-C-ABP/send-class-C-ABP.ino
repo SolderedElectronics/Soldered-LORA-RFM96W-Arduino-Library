@@ -27,12 +27,11 @@
  * 2. Create an application, and register an end device
  * 3. Enter the device specifics manually, select the according frequency plan for your region
  * 4. For LoRaWAN version use 1.0.2.
- * 4. Use any custom JoinEUI you want
- * 5. Copy and paste the generated DevEUI and AppKey below
- * 6. Open the created end device and copy the AppAUI as well
- * 7. Connect your Dasduino board to the breakout (Hardware SPI pins and D0, D1, D2 and D5)
+ * 4. Click "Show advanced activation LoRaWAN class and cluster settings" and select ABP
+ * 5. Create the device and copy and paste the generated codes below
+ * 6. Connect your Dasduino board to the breakout (Hardware SPI pins and D0, D1, D2 and D5)
  *    NOTE: For Dasduino ConnecPlus (ESP32) use VSPI pins
- * 8. Upload the sketch and open serial monitor at 4800 baud and TTN 'Live Data' console!
+ * 7. Upload the sketch and open serial monitor at 4800 baud and TTN 'Live Data' console!
  */
 
 #define LORAWAN            // Specify that the module will be used for LoRaWAN network
@@ -48,10 +47,10 @@ const sRFM_pins RFM_pins = {
     .DIO5 = 27,
 };
 
-// OTAA credentials, get these from TTN
-const char *devEui = "0000000000000000";
-const char *appEui = "0000000000000000";
-const char *appKey = "00000000000000000000000000000000";
+// ABP credentials, get these from TTN
+const char *devAddr = "00000000";
+const char *nwkSKey = "00000000000000000000000000000000";
+const char *appSKey = "00000000000000000000000000000000";
 
 // Time constants and variables
 #define MESSAGE_INTERVAL_MS 10000 // 10 s interval between messages
@@ -59,7 +58,7 @@ unsigned long previousMillis = 0; // Will store last time a message was sent
 unsigned int counter = 0;         // Message counter
 
 // Other variables
-char messageToSend[50]; // String to send via LoRa
+char messageToSend[50];    // String to send via LoRa
 char recievedMessage[255]; // Received string via LoRa
 byte recvStatus = 0;
 
@@ -82,8 +81,8 @@ void setup()
     }
     Serial.println("LoRa breakout initialized successfully!");
 
-    // Set LoRaWAN Class to A
-    lora.setDeviceClass(CLASS_A);
+    // Set LoRaWAN Class to C
+    lora.setDeviceClass(CLASS_C);
 
     // Set the Data Rate, in LoRa also known as Spreading Factor
     // For more technical info about Spreading Factors, see: thethingsnetwork.org/docs/lorawan/spreading-factors
@@ -92,26 +91,14 @@ void setup()
     lora.setDataRate(SF12BW125);
 
     // Set the correct channel for EU_868
-    lora.setChannel(CHRX2); 
+    lora.setChannel(CHRX2);
 
     // Apply the LoRa credentials that were defined before
-    lora.setDevEUI(devEui);
-    lora.setAppEUI(appEui);
-    lora.setAppKey(appKey);
+    lora.setNwkSKey(nwkSKey);
+    lora.setAppSKey(appSKey);
+    lora.setDevAddr(devAddr);
 
-    // Join the LoRa network
-    // May take a couple attempts
-    bool isJoined = false;
-    do
-    {
-        Serial.println("Joining network...");
-        isJoined = lora.join();
-        // If we haven't joined, wait 5 seconds before trying again
-        if (!isJoined)
-            delay(5000);
-    } while (!isJoined);
-
-    Serial.println("Joined to network successfully!");
+    // NOTE: Data sometimes takes a couple minutes to start recieving on TTN
 }
 
 // This part of the code runs repeteadly

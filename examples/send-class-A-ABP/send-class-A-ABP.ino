@@ -1,161 +1,136 @@
 /**
  **************************************************
  *
- * @file        send-class-A-ABP.ino
- * @brief       Example to demonstrate sending using 
- *				ABP method which is very rarely used. It is needed
- *				to get credentials through TTN (TheThingsNetwork) 
- *	 			interface, otherwise this example will not work
+ * @file        send-class-A-OTAA.ino
+ * @brief       Example for sending data via OTAA to TTN using the LoRa Breakout by Soldered
  *
- *				This code is beerware; if you see me (or any other collaborator 
- * 				member) at the local, and you've found our code helpful, 
- * 				please buy us a round!
- * 				Distributed as-is; no warranty is given.
- *              
+ *              To successfully run the sketch:
+ *              -Follow the instructions below to set up TTN
+ *              -Connect the breakout to your Dasduino board (SPI, D0, D1, D2 and D5 pins)
+ *              -Connect a LoRa antenna to the breakout
+ *              -Open the serial monitor at 4800 baud!
  *
+ *              LoRa breakout board 5V: solde.red/333157
+ *              LoRa breakout board 3V3: solde.red/333158
  *
+ *              NOTE: The library is set up for EU LoRa frequencies
  *
- * @authors    	Ivan Moreno
- *        		Eduardo Contreras
- *  			June 2019
- * Modified by: Soldered for use with www.soldered.com/333157 , www.soldered.com/333158
+ * @authors     Originally by Ivan Moreno, Eduardo Contreras
+ *              Modified by Robert Soric @ soldered.com
  *
  ***************************************************/
 
 /**
- * How to run this example:
+ * How to set up TheThingsNetwork with LoRa:
  * 0. Make sure you have a LoRa gateway nearby you can connect to (check ttnmapper.org)
  * 1. Go to TheThingsNetwork.org, make an account and go to your console, select your region
  * 2. Create an application, and register an end device
- * 3. Enter the device specifics manually, select according frequency plan to your region. For LoRaWAN version
- * use 1.0.2.
+ * 3. Enter the device specifics manually, select the according frequency plan for your region
+ * 4. For LoRaWAN version use 1.0.2.
  * 4. Click "Show advanced activation LoRaWAN class and cluster settings" and select ABP
- * 5. Create the device and copy the generated codes as well
- * 6. Connect your Dasduiuno board to the breakout according to the diagrams here
- * 7. Upload the sketch and check if your device is sending data to TTN.
- *
+ * 5. Create the device and copy and paste the generated codes below
+ * 6. Connect your Dasduino board to the breakout (Hardware SPI pins and D0, D1, D2 and D5)
+ *    NOTE: For Dasduino ConnecPlus (ESP32) use VSPI pins
+ * 7. Upload the sketch and open serial monitor at 4800 baud and TTN 'Live Data' console!
  */
 
-/**
- * Diagram for Dasduino ConnectPlus:
- * (Note that the 3v3 version of the breakout is required for Dasduino ConnectPlus)
- * Breakout                     Dasduino ConnectPlus
- * GND------------------------->GND
- * VCC------------------------->3V3
- * MISO------------------------>IO33
- * MOSI------------------------>IO25
- * SCK------------------------->26
- * CS-------------------------->27
- * RESET----------------------->IO0
- * DIO0------------------------>IO32
- * DIO1------------------------>15
- * DIO2------------------------>14
- * DIO5------------------------>13
- * 
- * Diagram for Dasduino Core:
- * (Note that the 5V version of the breakout is required for Dasduino Core)
- * Breakout                     Dasduino Core
- * GND------------------------->GND
- * VCC------------------------->VCC
- * OE-------------------------->VCC
- * MISO------------------------>D12
- * MOSI------------------------>D11
- * SCK------------------------->D13
- * CS-------------------------->D10
- * RESET----------------------->D9
- * DIO0------------------------>D2
- * DIO1------------------------>D3
- * DIO2------------------------>D4
- * DIO5------------------------>D7
- * 
- */
+#define LORAWAN            // Specify that the module will be used for LoRaWAN network
+#include "LoRa-SOLDERED.h" // Include required library
 
-#define LORAWAN		//Specify that module will be used for LoRaWAN network
-#include "LoRa-SOLDERED.h"
+// User set pins are changed here
+const sRFM_pins RFM_pins = {
+    .CS = 53,
+    .RST = 30,
+    .DIO0 = 24,
+    .DIO1 = 25,
+    .DIO2 = 26,
+    .DIO5 = 27,
+};
 
-//ABP Credentials 
+// ABP credentials, get these from TTN
 const char *devAddr = "00000000";
 const char *nwkSKey = "00000000000000000000000000000000";
 const char *appSKey = "00000000000000000000000000000000";
 
-const unsigned long interval = 10000;    // 10 s interval to send message
-unsigned long previousMillis = 0;  // will store last time message sent
-unsigned int counter = 0;     // message counter
+// Time constants and variables
+#define MESSAGE_INTERVAL_MS 10000 // 10 s interval between messages
+unsigned long previousMillis = 0; // Will store last time a message was sent
+unsigned int counter = 0;         // Message counter
 
-char myStr[50];
-char outStr[255];
+// Other variables
+char messageToSend[50];    // String to send via LoRa
+char recievedMessage[255]; // Received string via LoRa
 byte recvStatus = 0;
 
-//Pinout is changed here if necessary
-const sRFM_pins RFM_pins = {
-  .CS = 27,
-  .RST = 0,
-  .DIO0 = 32,
-  .DIO1 = 15,
-  .DIO2 = 14,
-  .DIO5 = 13,
-};
+// Setup code, runs only once
+void setup()
+{
+    Serial.begin(4800); // Initialize serial communication
+    // At a lower baud rate, to not interfiere with LoRa
 
-void setup() {
-  // Setup loraid access
-  Serial.begin(9600);  //Initialize serial communication with PC
-  while(!Serial);
-  if(!lora.init())	//Initialize lora and check if it is initialized successfully
-  {
-    Serial.println("RFM95 not detected");
-    delay(5000);
-    return;
-  }
+    // Initialize the LoRa breakout
+    if (!lora.init())
+    {
+        // The breakout was not detected, inform the user and go to infinite loop
+        Serial.println("LoRa Breakout not detected!");
+        Serial.println("Check connections!");
+        while (true)
+        {
+            delay(100);
+        }
+    }
+    Serial.println("LoRa breakout initialized successfully!");
 
-  // Set LoRaWAN Class change CLASS_A or CLASS_C
-  lora.setDeviceClass(CLASS_A);
+    // Set LoRaWAN Class to A
+    lora.setDeviceClass(CLASS_A);
 
-  //The spreading factor controls the chirp rate, and thus controls the speed of data transmission. 
-  //Lower spreading factors mean faster chirps and therefore a higher data transmission rate. 
-  //For every increase in spreading factor, the chirp sweep rate is halved, 
-  //and so the data transmission rate is halved.
-  //Lower spreading factors reduce the range of LoRa transmissions, because they reduce 
-  //the processing gain and increase the bit rate. Changing spreading factor allows the network 
-  //to increase or decrease data rate for each end device at the cost of range.
-  //The network also uses spreading factors to control congestion. Spreading factors are orthogonal,
-  //so signals modulated with different spreading factors and transmitted on the same frequency channel
-  //at the same time do not interfere with each other.
-  //Bandwidth is the difference between the upper and lower frequencies in a continuous band of frequencies. 
-  //It is typically measured in hertz, and depending on context, may specifically refer to passband bandwidth 
-  //or baseband bandwidth.
-  //LoRa uses spreading factors from 7 to 12 and bandwidths 125 kHz (or 500kHz but only for spread factor 7).
-  lora.setDataRate(SF9BW125);
+    // Set the Data Rate, in LoRa also known as Spreading Factor
+    // For more technical info about Spreading Factors, see: thethingsnetwork.org/docs/lorawan/spreading-factors
+    // The Spreading Factor is also determined by your region
+    // Make sure to set it correctly or else data transfer won't work!
+    lora.setDataRate(SF12BW125);
 
-  // set channel to random
-  lora.setChannel(MULTI);
-  
-  // Put ABP Key and DevAddress here
-  lora.setNwkSKey(nwkSKey);
-  lora.setAppSKey(appSKey);
-  lora.setDevAddr(devAddr);
+    // Set the correct channel for EU_868
+    lora.setChannel(CHRX2);
+
+    // Apply the LoRa credentials that were defined before
+    lora.setNwkSKey(nwkSKey);
+    lora.setAppSKey(appSKey);
+    lora.setDevAddr(devAddr);
+
+    // NOTE: Data sometimes takes a couple minutes to start recieving on TTN
 }
 
-void loop() {
-  // Check interval overflow
-  if(millis() - previousMillis > interval)
-  {
-    previousMillis = millis(); 
+// This part of the code runs repeteadly
+void loop()
+{
+    // Check if we're due to send a message
+    if (millis() - previousMillis > MESSAGE_INTERVAL_MS)
+    {
+        // Remember the time
+        previousMillis = millis();
 
-    sprintf(myStr, "Counter-%d", counter);  //Format string
+        // Format the string to send and save it to messageToSend
+        // This can contain any data you want to send
+        sprintf(messageToSend, "Counter-%d", counter);
 
-    Serial.print("Sending: ");
-    Serial.println(myStr);
-    
-    lora.sendUplink(myStr, strlen(myStr), 0, 1);  //Send data to gateway
-    counter++;
-  }
+        // First, print it to Serial
+        Serial.print("Sending to TTN: ");
+        Serial.println(messageToSend);
 
-  recvStatus = lora.readData(outStr);  //Get data that LoRa has received
-  if(recvStatus)
-  {
-    Serial.println(outStr);
-  }
-  
-  // Check Lora RX
-  lora.update();  //Check if LoRa has received anything
+        // Then, send via LoRa to TTN!
+        // Arguments are: data to be sent, length of the data in bytes, confirm (yes or no) and the message port
+        lora.sendUplink(messageToSend, strlen(messageToSend), 0, 1);
+
+        // Increment the counter
+        counter++;
+    }
+
+    // If we have recieved data, print it out to Serial
+    // For OTAA, this part is required if you just want to send data as well
+    recvStatus = lora.readData(recievedMessage);
+    if (recvStatus)
+        Serial.println(recievedMessage);
+
+    lora.update(); // Check if LoRa has received anything
 }

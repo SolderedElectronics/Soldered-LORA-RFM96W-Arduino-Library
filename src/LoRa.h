@@ -22,12 +22,12 @@
 #elif defined(ARDUINO_ESP32_DEV)
 #define LORA_DEFAULT_SPI           SPI
 #define LORA_DEFAULT_SPI_FREQUENCY 8E6
-#define LORA_DEFAULT_SS_PIN        27
-#define LORA_DEFAULT_RESET_PIN     2
+#define LORA_DEFAULT_SS_PIN        5
+#define LORA_DEFAULT_RESET_PIN     26
 #define LORA_DEFAULT_DIO0_PIN      32
-#define LORA_DEFAULT_MISO          33
-#define LORA_DEFAULT_MOSI          25
-#define LORA_DEFAULT_SCK           26
+#define LORA_DEFAULT_MISO          19
+#define LORA_DEFAULT_MOSI          23
+#define LORA_DEFAULT_SCK           18
 #else
 #define LORA_DEFAULT_SPI           SPI
 #define LORA_DEFAULT_SPI_FREQUENCY 8E6
