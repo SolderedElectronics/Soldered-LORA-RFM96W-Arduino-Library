@@ -31,14 +31,14 @@
 #ifndef _LORAWAN_ARDUINO_RFM_H_
 #define _LORAWAN_ARDUINO_RFM_H_
 
-#include <SPI.h>
-#include <Arduino.h>
 #include "AES-128.h"
-#include "Encrypt.h"
-#include "RFM95.h"
-#include "LoRaMAC.h"
-#include "Struct.h"
 #include "Config.h"
+#include "Encrypt.h"
+#include "LoRaMAC.h"
+#include "RFM95.h"
+#include "Struct.h"
+#include <Arduino.h>
+#include <SPI.h>
 
 /*
 ********************************************************************************************
@@ -55,7 +55,7 @@
 
 class LoRaWANClass
 {
-public:
+  public:
     LoRaWANClass();
     ~LoRaWANClass();
 
@@ -85,16 +85,16 @@ public:
     void sendACK();
     void update(void);
     void switchToClassC(sSettings *LoRa_Settings);
-    void onMessage(void(*callback)(sBuffer *Data_Rx, bool isConfirmed, uint8_t fPort));
+    void onMessage(void (*callback)(sBuffer *Data_Rx, bool isConfirmed, uint8_t fPort));
 
     // frame counter
     unsigned int getFrameCounter();
     void setFrameCounter(unsigned int FrameCounter);
 
-private:
+  private:
     void randomChannel();
 
-private:
+  private:
     // Messages
     unsigned char Data_Tx[MAX_UPLINK_PAYLOAD_SIZE];
     sBuffer Buffer_Tx;
@@ -102,8 +102,8 @@ private:
     sBuffer Buffer_Rx;
     sLoRa_Message Message_Rx;
 
-    //Callback function variable
-    void(*messageCallback)(sBuffer *Data_Rx, bool isConfirmed, uint8_t fPort) = NULL;
+    // Callback function variable
+    void (*messageCallback)(sBuffer *Data_Rx, bool isConfirmed, uint8_t fPort) = NULL;
 
     // Declare ABP session
     unsigned char Address_Tx[4];
